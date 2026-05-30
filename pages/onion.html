@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Export Grade Fresh Onions | EverFresh International LLP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="/assets/css/product.css">
+</head>
+
+<body>
+
+    <div id="global-cursor-placeholder"></div>
+    <div id="global-header-placeholder"></div>
+
+    <section class="title-section">
+        <h1>Onion</h1>
+    </section>
+
+    <section class="product-hero-section">
+        <div class="hero-bg-gradient"></div>
+    </section>
+
+    <!-- Split Scroll Interactive Workspace -->
+    <div class="interactive-scroll-container">
+        <div class="scroll-split-wrapper">
+
+            <!-- Left Image Desk (GSAP Pinned Object) -->
+            <div class="left-sticky-visual-desk">
+                <div class="canvas-image-rack" id="imgRackContainer">
+                    <span class="ux-live-badge" id="liveGradeBadge">Origin: Prime Onion Belts</span>
+
+                    <img src="https://images.unsplash.com/photo-1618228473302-998d7ae77011?q=80&w=800" class="active"
+                        data-index="1" alt="Premium Export Grade Fresh Onions">
+                    <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=800" data-index="2"
+                        alt="Mechanical Sorting and Curing Line">
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9d39d6618?q=80&w=800" data-index="3"
+                        alt="Ventilated Mesh Lenon Bags Logistics">
+                </div>
+            </div>
+
+            <!-- Right Content Stream -->
+            <div class="right-scrolling-content-desk">
+
+                <!-- Block 1 -->
+                <div class="narrative-row-block active-row" data-frame="1">
+                    <h2 class="row-heading">Sourced From Sun-Cured <span>Premium Indian Farming Clusters</span></h2>
+                    <p class="row-desc">
+                        EverFresh International LLP channels premium export-grade Fresh Onions (Allium cepa) directly from the leading, highly celebrated agricultural belts of Nasik and Mahuva. Specializing in highly demanded global commercial varieties including deep Nasik Red, crisp Mahuva White, and premium Pink onions, our bulbs are hand-harvested and sun-cured at absolute field maturity to lock in a multi-layered dry skin layer, rich structural solidity, and intense flavor profiles.
+                    </p>
+                </div>
+
+                <!-- Block 2 -->
+                <div class="narrative-row-block" data-frame="2">
+                    <h2 class="row-heading">The Analytical <span>Size Calibration & Solidity Matrix</span></h2>
+                    <p class="row-desc">
+                        Our integrated post-harvest sorting hub features state-of-the-art grading lines, mechanical de-rooting systems, and rigorous optical caliber sizing. Every single export cargo batch is strictly verified to maintain tight necks, excellent skin turgidity, low moisture retention, and absolute compliance with international food health and phytosanitary customs laws.
+                    </p>
+
+                    <div class="ux-bento-spec-matrix">
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Caliber Size Diameter</span>
+                            <span class="cell-value">35mm, 45mm, 55mm+ Customized Selection</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Pungency Profile</span>
+                            <span class="cell-value">High Pyruvic Acid Density Matrix</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Transit Temperature</span>
+                            <span class="cell-value">12°C to 14°C Ventilated Environment</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Skin Layer Integrity</span>
+                            <span class="cell-value">Multi-Layered Well Cured Dry Peels</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Block 3 -->
+                <div class="narrative-row-block" data-frame="3">
+                    <h2 class="row-heading">Maximum Airflow <span>Ventilated Export Packaging</span></h2>
+                    <p class="row-desc">
+                        Fresh onion bulbs are highly vulnerable to rotting, early sprouting, and mold multiplication if trapped under stagnant internal moisture or airtight thermal shifts during long sea voyages. Select your target heavy-duty commercial packaging format below to see how we maintain the dry physical properties and shelf life of our cargo.
+                    </p>
+
+                    <div class="ux-packaging-panel">
+                        <div class="ux-pack-selectors">
+                            <button class="pack-btn active" onclick="switchPack('mesh_bag', this)">Mesh Leno Bags</button>
+                            <button class="pack-btn" onclick="switchPack('jute', this)">Premium Jute Bags</button>
+                            <button class="pack-btn" onclick="switchPack('crate', this)">Ventilated Crates</button>
+                        </div>
+                        <p class="ux-pack-display-text" id="packText">
+                            High-strength ventilated Mesh Leno Bags (typically 5kg, 10kg, 20kg, to 25kg net) engineered to maximize continuous open-air circulation and prevent sweat accumulation inside containers.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Block 4 -->
+                <div class="narrative-row-block" data-frame="4">
+                    <h2 class="row-heading">Ready for Global <span>Disbursement?</span></h2>
+                    <p class="row-desc">
+                        Establish direct communication parameters with our central operations hub at MorbiHQ to finalize custom technical variables, request spatial booking configurations, shipping bills, and real-time live container freight quotes.
+                    </p>
+                    <a href="https://wa.me/919870039168" target="_blank" class="ux-instant-pricing-btn">
+                        <span>Get Live Freight Quote (MorbiHQ)</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script>
+        // 1. GSAP ScrollTrigger Integration Logic
+        gsap.registerPlugin(ScrollTrigger);
+
+        const rows = gsap.utils.toArray('.narrative-row-block');
+        const images = gsap.utils.toArray('.canvas-image-rack img');
+        const badge = document.getElementById('liveGradeBadge');
+
+        const badgeTexts = {
+            1: "Origin: Prime Onion Belts",
+            2: "Size & Caliber Calibrated",
+            3: "High Airflow Mesh Pack",
+            4: "EverFresh Logistics"
+        };
+
+        // 🌟 Responsive GSAP Trigger MatchMedia Config
+        ScrollTrigger.matchMedia({
+            // Desktop Engine Setup
+            "(min-width: 992px)": function () {
+                rows.forEach((row, i) => {
+                    const frameIndex = parseInt(row.getAttribute('data-frame'));
+
+                    ScrollTrigger.create({
+                        trigger: row,
+                        start: "top 60%",
+                        end: "bottom 40%",
+                        onEnter: () => updateActiveState(row, frameIndex),
+                        onEnterBack: () => updateActiveState(row, frameIndex)
+                    });
+                });
+            },
+            // Mobile Engine Fallback Layout Setup
+            "(max-width: 991px)": function () {
+                rows.forEach((row, i) => {
+                    const frameIndex = parseInt(row.getAttribute('data-frame'));
+
+                    ScrollTrigger.create({
+                        trigger: row,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        onEnter: () => updateActiveState(row, frameIndex),
+                        onEnterBack: () => updateActiveState(row, frameIndex)
+                    });
+                });
+            }
+        });
+
+        function updateActiveState(currentRow, index) {
+            // Desktop active highlighting switcher
+            if (window.innerWidth > 991) {
+                rows.forEach(r => r.classList.remove('active-row'));
+                currentRow.classList.add('active-row');
+            }
+
+            // Canvas Image Engine Switcher
+            if (images[index - 1]) {
+                images.forEach(img => img.classList.remove('active'));
+                images[index - 1].classList.add('active');
+                badge.innerText = badgeTexts[index] || "EverFresh Quality";
+            }
+        }
+
+        // 2. Packaging Switcher Control Module (Updated for Onions)
+        const packingData = {
+            mesh_bag: "High-strength ventilated Mesh Leno Bags (typically 5kg, 10kg, 20kg, to 25kg net) engineered to maximize continuous open-air circulation and prevent sweat accumulation inside containers.",
+            jute: "Traditional highly breathable premium Jute Sacks, custom-configured to provide solid atmospheric insulation and minimize friction peeling over long ocean transits.",
+            crate: "Heavy-duty ventilated food-grade plastic or wooden shipping crates, targeted for immediate distribution networks and premium bulk superstore logistics."
+        };
+
+        function switchPack(pack, element) {
+            document.querySelectorAll('.ux-pack-selectors .pack-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            const textBlock = document.getElementById('packText');
+            textBlock.style.opacity = 0;
+            setTimeout(() => {
+                textBlock.innerText = packingData[pack];
+                textBlock.style.opacity = 1;
+            }, 200);
+        }
+    </script>
+    <script src="/assets/script/script.js"></script>
+</body>
+
+</html>

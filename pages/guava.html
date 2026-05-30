@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Export Grade Fresh Guavas | EverFresh International LLP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="/assets/css/product.css">
+</head>
+
+<body>
+
+    <div id="global-cursor-placeholder"></div>
+    <div id="global-header-placeholder"></div>
+
+    <section class="title-section">
+        <h1>Guava</h1>
+    </section>
+
+    <section class="product-hero-section">
+        <div class="hero-bg-gradient"></div>
+    </section>
+
+    <!-- Split Scroll Interactive Workspace -->
+    <div class="interactive-scroll-container">
+        <div class="scroll-split-wrapper">
+
+            <!-- Left Image Desk (GSAP Pinned Object) -->
+            <div class="left-sticky-visual-desk">
+                <div class="canvas-image-rack" id="imgRackContainer">
+                    <span class="ux-live-badge" id="liveGradeBadge">Origin: Certified Orchards</span>
+
+                    <img src="https://images.unsplash.com/photo-1534490130129-ec41103c800a?q=80&w=800" class="active"
+                        data-index="1" alt="Premium Export Grade Fresh Guavas">
+                    <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=800" data-index="2"
+                        alt="Automated Weight Sorting & Cleaning Line">
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9d39d6618?q=80&w=800" data-index="3"
+                        alt="Foam Cushioned Cold Chain Packing">
+                </div>
+            </div>
+
+            <!-- Right Content Stream -->
+            <div class="right-scrolling-content-desk">
+
+                <!-- Block 1 -->
+                <div class="narrative-row-block active-row" data-frame="1">
+                    <h2 class="row-heading">Sourced From Top <span>Indian Guava Plantations</span></h2>
+                    <p class="row-desc">
+                        EverFresh International LLP channels premium-grade, international export-standard Fresh Guavas (Psidium guajava) directly from APEDA regulated and certified orchards across India's premier farming belts. Specializing in highly demanded global varieties like Allahabad Safeda and the jumbo VNR Bihi, our guavas are hand-plucked at the ideal light-green maturity stage to preserve their crisp texture, dense snow-white pulp matrix, and pleasing musky fragrance.
+                    </p>
+                </div>
+
+                <!-- Block 2 -->
+                <div class="narrative-row-block" data-frame="2">
+                    <h2 class="row-heading">The Analytical <span>Brix & Quality Matrix</span></h2>
+                    <p class="row-desc">
+                        Our centralized post-harvest facilities utilize state-of-the-art washing, mechanical weight grading, and strict optical sorting systems. To cross complex phytosanitary barriers in global markets, every shipment batch undergoes automated sorting and rigorous testing to guarantee rich Vitamin C values, perfect sugar-to-acid balances, and complete freedom from blemishes or skin punctures.
+                    </p>
+
+                    <div class="ux-bento-spec-matrix">
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Total Brix Sugar Content</span>
+                            <span class="cell-value">10° - 14° Balanced Sugar Index</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Average Unit Weight</span>
+                            <span class="cell-value">250g - 500g+ Premium Caliber</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Transit Temperature</span>
+                            <span class="cell-value">8°C to 10°C Regulated Cold Chain</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Skin Maturity Quality</span>
+                            <span class="cell-value">Luminous Light Green / Firm Touch</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Block 3 -->
+                <div class="narrative-row-block" data-frame="3">
+                    <h2 class="row-heading">Foam Cushioned <span>Temperature Controlled Packaging</span></h2>
+                    <p class="row-desc">
+                        Fresh guavas are highly susceptible to skin scuffing, impact bruising, and rapid softening if trapped under ambient heat or condensation fields during transit. Select your target commercial distribution packaging module below to see how we safeguard the physical stability and extended shelf life of our fresh fruit cargo.
+                    </p>
+
+                    <div class="ux-packaging-panel">
+                        <div class="ux-pack-selectors">
+                            <button class="pack-btn active" onclick="switchPack('foam_net', this)">Foam Sleeve Packs</button>
+                            <button class="pack-btn" onclick="switchPack('carton', this)">Ventilated Cartons</button>
+                            <button class="pack-btn" onclick="switchPack('bulk', this)">Bulk Catering Crates</button>
+                        </div>
+                        <p class="ux-pack-display-text" id="packText">
+                            Individual expandable polystyrene foam net sleeves wrapped around each guava, packed inside 4kg to 5kg telescope corrugated master cartons to completely neutralize transport vibration marks.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Block 4 -->
+                <div class="narrative-row-block" data-frame="4">
+                    <h2 class="row-heading">Ready for Global <span>Disbursement?</span></h2>
+                    <p class="row-desc">
+                        Establish direct communication parameters with our central operations hub at MorbiHQ to finalize custom technical variables, request spatial booking configurations, shipping bills, and real-time live container freight quotes.
+                    </p>
+                    <a href="https://wa.me/919870039168" target="_blank" class="ux-instant-pricing-btn">
+                        <span>Get Live Freight Quote (MorbiHQ)</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script>
+        // 1. GSAP ScrollTrigger Integration Logic
+        gsap.registerPlugin(ScrollTrigger);
+
+        const rows = gsap.utils.toArray('.narrative-row-block');
+        const images = gsap.utils.toArray('.canvas-image-rack img');
+        const badge = document.getElementById('liveGradeBadge');
+
+        const badgeTexts = {
+            1: "Origin: Certified Orchards",
+            2: "Brix & Weight Calibrated",
+            3: "Cushioned Cold Pack",
+            4: "EverFresh Logistics"
+        };
+
+        // 🌟 Responsive GSAP Trigger MatchMedia Config
+        ScrollTrigger.matchMedia({
+            // Desktop Engine Setup
+            "(min-width: 992px)": function () {
+                rows.forEach((row, i) => {
+                    const frameIndex = parseInt(row.getAttribute('data-frame'));
+
+                    ScrollTrigger.create({
+                        trigger: row,
+                        start: "top 60%",
+                        end: "bottom 40%",
+                        onEnter: () => updateActiveState(row, frameIndex),
+                        onEnterBack: () => updateActiveState(row, frameIndex)
+                    });
+                });
+            },
+            // Mobile Engine Fallback Layout Setup
+            "(max-width: 991px)": function () {
+                rows.forEach((row, i) => {
+                    const frameIndex = parseInt(row.getAttribute('data-frame'));
+
+                    ScrollTrigger.create({
+                        trigger: row,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        onEnter: () => updateActiveState(row, frameIndex),
+                        onEnterBack: () => updateActiveState(row, frameIndex)
+                    });
+                });
+            }
+        });
+
+        function updateActiveState(currentRow, index) {
+            // Desktop active highlighting switcher
+            if (window.innerWidth > 991) {
+                rows.forEach(r => r.classList.remove('active-row'));
+                currentRow.classList.add('active-row');
+            }
+
+            // Canvas Image Engine Switcher
+            if (images[index - 1]) {
+                images.forEach(img => img.classList.remove('active'));
+                images[index - 1].classList.add('active');
+                badge.innerText = badgeTexts[index] || "EverFresh Quality";
+            }
+        }
+
+        // 2. Packaging Switcher Control Module (Updated for Guavas)
+        const packingData = {
+            foam_net: "Individual expandable polystyrene foam net sleeves wrapped around each guava, packed inside 4kg to 5kg telescope corrugated master cartons to completely neutralize transport vibration marks.",
+            carton: "High-grade ventilated double-wall fiberboard master cartons containing internal soft tray dividers to preserve excellent cross-ventilation lines within refrigerated containers.",
+            bulk: "Heavy-duty food-grade returnable plastic crates (typically 10kg to 12kg) layered with protective bubble-wrap liners, targeted for immediate short-haul regional air freight cargo logistics."
+        };
+
+        function switchPack(pack, element) {
+            document.querySelectorAll('.ux-pack-selectors .pack-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            const textBlock = document.getElementById('packText');
+            textBlock.style.opacity = 0;
+            setTimeout(() => {
+                textBlock.innerText = packingData[pack];
+                textBlock.style.opacity = 1;
+            }, 200);
+        }
+    </script>
+    <script src="/assets/script/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Received | EverFresh International</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<style>
+    :root {
+        --brand-purple-accent: #6366f1;
+        /* Matches the JDG solid button color profile */
+        --brand-purple-hover: #4f46e5;
+        --text-light: #ffffff;
+        --bg-deep-dark: #020604;
+        /* Syncs cleanly with your project matrix dark deeps */
+        --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    body {
+        font-family: 'Inter', sans-serif;
+        color: var(--text-light);
+        overflow-x: hidden;
+
+
+        /* Base background color - safe side deep dark green */
+        background-color: #050d06;
+
+        /* Multiple layers of radial gradients:
+       - Pehlo layer left corner ma light no halko glow aapse.
+       - Bijo layer right side upar soft natural green touch aapse.
+       - T्रीજો layer niche thi deep black shading dynamic look create krse.
+    */
+        background-image:
+            radial-gradient(circle at 10% 20%, rgba(71, 159, 39, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 80% 40%, rgba(10, 85, 28, 0.25) 0%, transparent 60%),
+            radial-gradient(circle at 50% 110%, #030804 0%, #060e07 100%);
+
+        /* Scrolling vakhate background stretch na thay e mate fixed stack */
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    /* 🏛️ PIXEL-PERFECT CONVERSION TARGET WINDOW (NO HEADER / NO FOOTER) */
+    .jdg-production-thankyou-wrapper {
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 80px 6%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        height: 100vh;
+
+        /* 🌌 ACCURATE TOP CEILING COMPACT RADIAL LIGHTref */
+        /* background-image: 
+            radial-gradient(circle at 50% -10%, rgba(99, 102, 241, 0.18) 0%, transparent 60%); */
+    }
+
+    /* 🏷️ THE MONUMENTAL OUTLINE BACKDROP TEXT LAYER */
+    .jdg-giant-backdrop-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: clamp(5rem, 16vw, 12.5rem);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        z-index: 1;
+        pointer-events: none;
+        user-select: none;
+        white-space: nowrap;
+
+        /* Pure Razor CSS Stroke Representation for Outline effect */
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.04);
+    }
+
+    /* 🖼️ INTERACTIVE CHARACTER LAYER COMPONENT GRID */
+    .jdg-visual-hero-stage {
+        position: relative;
+        z-index: 5;
+        /* Pushes element safely above outline text layers */
+        width: 100%;
+        max-width: 380px;
+        height: 280px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .jdg-visual-hero-stage img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
+        animation: smoothFloat 4s ease-in-out infinite;
+    }
+
+    /* ✍️ EDITORIAL CONTENT DESCRIPTION BLOCKS */
+    .jdg-response-feedback-frame {
+        text-align: center;
+        position: relative;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+    }
+
+    .jdg-response-feedback-frame p {
+        font-size: clamp(1.1rem, 2vw, 1.4rem);
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.5;
+        margin-bottom: 35px;
+        letter-spacing: -0.2px;
+        max-width: 680px;
+    }
+
+    /* 🚀 SOLID REPLICATED INTERACTIVE CONVERSION BUTTON */
+    .jdg-solid-home-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--brand-purple-accent);
+        color: #ffffff;
+        text-decoration: none;
+        padding: 14px 32px;
+        border-radius: 8px;
+        /* Clean flat rounded geometric structure edge */
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        box-shadow: 0 10px 25px rgba(99, 102, 241, 0.25);
+        transition: var(--transition-smooth);
+    }
+
+    .jdg-solid-home-btn:hover {
+        background-color: var(--brand-purple-hover);
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+    }
+
+    .jdg-solid-home-btn:active {
+        transform: translateY(0);
+    }
+
+    /* 🎬 MOTION MECHANICS TIMELINE GRAPHICS */
+    @keyframes smoothFloat {
+        0% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-12px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
+    /* Mobile Adaptability Viewport Metrics */
+    @media (max-width: 768px) {
+        .jdg-production-thankyou-wrapper {
+            padding: 60px 4%;
+            min-height: 70vh;
+        }
+
+        .jdg-visual-hero-stage {
+            max-width: 280px;
+            height: 220px;
+        }
+
+        .jdg-response-feedback-frame p {
+            font-size: 1.05rem;
+            padding: 0 10px;
+        }
+    }
+
+
+    .export-glass-btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 16px 38px;
+        text-decoration: none;
+
+        /* ગ્લાસ ઇફેક્ટ (Glassmorphism) */
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+
+        color: var(--text-light);
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+
+        /* રેડિયસ અને બોર્ડર સ્ટીલીંગ */
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 30px;
+        /* સ્મૂથ પ્રીમિયમ કર્વ્ડ રેડિયસ */
+
+        cursor: pointer;
+        overflow: hidden;
+        transition: var(--transition-smooth);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* આઇકોન કન્ટેનર - હવે ટેક્સ્ટની રાઇટ સાઇડ છે */
+    .export-glass-btn .icon-container {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* ક્લાઉડ સેટિંગ્સ */
+    .export-glass-btn .cloud-icon {
+        position: absolute;
+        right: -2px;
+        top: 2px;
+        transition: var(--transition-smooth);
+    }
+
+    /* પ્લેન સેટિંગ્સ */
+    .export-glass-btn .plane-icon {
+        position: absolute;
+        z-index: 2;
+        transition: var(--transition-smooth);
+    }
+
+    /* --- HOVER EFFECTS --- */
+
+    /* 1. બટન હોવર - ગ્લાસ બેકગ્રાઉન્ડ બ્રાન્ડ ડાર્ક ગ્રીન તરફ શિફ્ટ થશે અને ઓરેન્જ ગ્લો આપશે */
+    .export-glass-btn:hover {
+        background: rgba(10, 85, 28, 0.2);
+        /* var(--brand-dark-green) વિથ ઓપેસિટી */
+        border-color: var(--brand-light-green);
+        box-shadow: 0 0 25px rgba(71, 159, 39, 0.25);
+        color: var(--text-light);
+    }
+
+    /* 2. વાદળ સહેજ જમણી તરફ ખસશે */
+    .export-glass-btn:hover .cloud-icon {
+        transform: translateX(4px);
+        stroke: rgba(249, 250, 251, 0.6);
+    }
+
+    /* 3. પ્લેન રાઇટ સાઇડથી ઉડીને ગાયબ થશે અને લેફ્ટથી પાછું આવશે */
+    .export-glass-btn:hover .plane-icon {
+        stroke: var(--brand-orange-hover);
+        animation: flyRightLoop 0.75s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
+    }
+
+    /* પ્લેન રાઇટ-સાઇડ લૂપ એનિમેશન */
+    @keyframes flyRightLoop {
+        0% {
+            transform: translate(0, 0) scale(1);
+            opacity: 1;
+        }
+
+        45% {
+            transform: translate(35px, -12px) scale(0.8);
+            /* જમણી બાજુ ઉપર ઉડી જશે */
+            opacity: 0;
+        }
+
+        50% {
+            transform: translate(-35px, 12px) scale(0.8);
+            /* ડાબી બાજુ નીચેથી છૂપી એન્ટ્રી */
+            opacity: 0;
+        }
+
+        100% {
+            transform: translate(0, 0) scale(1);
+            /* ઓરિજિનલ પ્લેસ પર ફિક્સ */
+            opacity: 1;
+        }
+    }
+
+    /* ટેક્સ્ટ હોવર ઇફેક્ટ */
+    .export-glass-btn .btn-text {
+        transition: var(--transition-smooth);
+    }
+
+    .export-glass-btn:hover .btn-text {
+        transform: translateX(-2px);
+        /* પ્લેન ઉડે ત્યારે ટેક્સ્ટ સહેજ બેલેન્સ થશે */
+    }
+</style>
+
+<body>
+
+    <div id="global-cursor-placeholder"></div>
+    <div id="global-header-placeholder"></div>
+
+    <section class="jdg-production-thankyou-wrapper">
+
+        <div class="jdg-giant-backdrop-text">Thank You</div>
+
+        <div class="jdg-visual-hero-stage">
+            <img src="/assets/images/thankyou-mascot-1.webp" alt="Submission Confirmed Visual Component">
+        </div>
+
+        <div class="jdg-response-feedback-frame">
+            <p>Your submission has been received. We'll get back to you shortly.</p>
+
+            <!-- <a href="index.html" class="jdg-solid-home-btn">Back To Home</a> -->
+
+            <a class="export-glass-btn" href="/index.html">
+                <span class="btn-text">Back to home</span>
+                <div class="icon-container">
+                    <svg class="cloud-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                        viewBox="0 0 24 24" fill="none" stroke="rgba(249, 250, 251, 0.3)" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M17.5 19A3.5 3.5 0 0 0 21 15.5c0-2.79-2.54-4.5-5-4.5-.72 0-1.42.21-2 .58A5.5 5.5 0 0 0 4 14c0 2.76 2.24 5 5 5h8.5z">
+                        </path>
+                    </svg>
+                    <svg class="plane-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                        viewBox="0 0 24 24" fill="none" stroke="var(--brand-orange)" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <!-- પ્લેન હવે પ્રોપરલી રાઇટ સાઇડ ફેસિંગ છે -->
+                        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+                    </svg>
+                </div>
+            </a>
+        </div>
+
+    </section>
+
+    <div id="footer-container"></div>
+
+
+</body>
+
+</html>
+
+<script src="/assets/script/script.js"></script>

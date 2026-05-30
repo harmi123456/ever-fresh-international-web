@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Quality Coriander Seeds | EverFresh International LLP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="/assets/css/product.css">
+</head>
+
+<body>
+
+    <div id="global-cursor-placeholder"></div>
+    <div id="global-header-placeholder"></div>
+
+    <section class="title-section">
+        <h1>Coriander Seeds</h1>
+    </section>
+
+    <section class="product-hero-section">
+        <div class="hero-bg-gradient"></div>
+    </section>
+
+    <!-- Split Scroll Interactive Workspace -->
+    <div class="interactive-scroll-container">
+        <div class="scroll-split-wrapper">
+
+            <!-- Left Image Desk (GSAP Pinned Object) -->
+            <div class="left-sticky-visual-desk">
+                <div class="canvas-image-rack" id="imgRackContainer">
+                    <span class="ux-live-badge" id="liveGradeBadge">Origin: Madhya Pradesh Belts</span>
+
+                    <img src="https://images.unsplash.com/photo-1608797178974-15b35a61d121?q=80&w=800" class="active"
+                        data-index="1" alt="Premium Green Coriander Seeds">
+                    <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?q=80&w=800" data-index="2"
+                        alt="Sortex Machine Cleaning Audit">
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9d39d6618?q=80&w=800" data-index="3"
+                        alt="Aroma Lock Poly Packing">
+                </div>
+            </div>
+
+            <!-- Right Content Stream -->
+            <div class="right-scrolling-content-desk">
+
+                <!-- Block 1 -->
+                <div class="narrative-row-block active-row" data-frame="1">
+                    <h2 class="row-heading">Sourced From Golden <span>Gujarat, MP & Rajasthan Belts</span></h2>
+                    <p class="row-desc">
+                        EverFresh International LLP channels high-purity Indian Coriander Seeds (Dhania) directly from the premier cultivation tracks of Madhya Pradesh, Gujarat, and Rajasthan. Available in standard export varieties including Eagle, Scooter, Single-Parrot, and Badami, our whole coriander seeds are highly valued for their bright greenish-yellow hues, light weight split-resistant split structural density, and distinct sweet-citrusy aroma profile optimized for international spice grinding and essential oil distillation industries.
+                    </p>
+                </div>
+
+                <!-- Block 2 -->
+                <div class="narrative-row-block" data-frame="2">
+                    <h2 class="row-heading">The Analytical <span>Linalool Oil & Purity Matrix</span></h2>
+                    <p class="row-desc">
+                        Our advanced processing infrastructure integrates multi-stage winnowing, precise de-stoning, and optical Sortex grading to strictly eliminate empty seeds, stalks, and small stones. Every single export batch undergoes strict laboratory verification to keep moisture retention minimal and guarantee absolute freedom from live infestations or chemical residues, ensuring full compliance with stringent global sanitary import regulations.
+                    </p>
+
+                    <div class="ux-bento-spec-matrix">
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Linalool / Essential Oil</span>
+                            <span class="cell-value">0.3% - 0.6%+ Active Min</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Purity Level Grade</span>
+                            <span class="cell-value">98% - 99.5% Sortex Clean</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Moisture Shield</span>
+                            <span class="cell-value">8.0% - 9.0% Maximum</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Splits / Broken Seeds</span>
+                            <span class="cell-value">5.0% Maximum (Strictly Managed)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Block 3 -->
+                <div class="narrative-row-block" data-frame="3">
+                    <h2 class="row-heading">Aroma Locked <span>Export Barrier Packaging</span></h2>
+                    <p class="row-desc">
+                        Coriander seeds possess fragile essential oil matrices and highly permeable husks that are vulnerable to tropical humidity and flavor loss during sea transit. Select your target packaging setup below to see how we safeguard the volatile aroma and structure of our cargo.
+                    </p>
+
+                    <div class="ux-packaging-panel">
+                        <div class="ux-pack-selectors">
+                            <button class="pack-btn active" onclick="switchPack('pp_bags', this)">Multi-Wall PP Bags</button>
+                            <button class="pack-btn" onclick="switchPack('jute', this)">Premium Jute Bags</button>
+                            <button class="pack-btn" onclick="switchPack('custom', this)">Private Label Packs</button>
+                        </div>
+                        <p class="ux-pack-display-text" id="packText">
+                            High-strength multi-wall laminated PP/HDPE sacks (typically 20kg to 25kg net) equipped with airtight heat-sealed inner food-grade poly-liners to prevent moisture absorption.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Block 4 -->
+                <div class="narrative-row-block" data-frame="4">
+                    <h2 class="row-heading">Ready for Global <span>Disbursement?</span></h2>
+                    <p class="row-desc">
+                        Establish direct communication parameters with our central operations hub at MorbiHQ to finalize custom technical variables, request spatial booking configurations, shipping bills, and real-time live container freight quotes.
+                    </p>
+                    <a href="https://wa.me/919870039168" target="_blank" class="ux-instant-pricing-btn">
+                        <span>Get Live Freight Quote (MorbiHQ)</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script>
+        // 1. GSAP ScrollTrigger Integration Logic
+        gsap.registerPlugin(ScrollTrigger);
+
+        const rows = gsap.utils.toArray('.narrative-row-block');
+        const images = gsap.utils.toArray('.canvas-image-rack img');
+        const badge = document.getElementById('liveGradeBadge');
+
+        const badgeTexts = {
+            1: "Origin: MP & Gujarat Fields",
+            2: "Linalool Oil Tested",
+            3: "Moisture-Lock Packing",
+            4: "EverFresh Logistics"
+        };
+
+        // 🌟 Responsive GSAP Trigger MatchMedia Config
+        ScrollTrigger.matchMedia({
+            // Desktop Engine Setup
+            "(min-width: 992px)": function () {
+                rows.forEach((row, i) => {
+                    const frameIndex = parseInt(row.getAttribute('data-frame'));
+
+                    ScrollTrigger.create({
+                        trigger: row,
+                        start: "top 60%",
+                        end: "bottom 40%",
+                        onEnter: () => updateActiveState(row, frameIndex),
+                        onEnterBack: () => updateActiveState(row, frameIndex)
+                    });
+                });
+            },
+            // Mobile Engine Fallback Layout Setup
+            "(max-width: 991px)": function () {
+                rows.forEach((row, i) => {
+                    const frameIndex = parseInt(row.getAttribute('data-frame'));
+
+                    ScrollTrigger.create({
+                        trigger: row,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        onEnter: () => updateActiveState(row, frameIndex),
+                        onEnterBack: () => updateActiveState(row, frameIndex)
+                    });
+                });
+            }
+        });
+
+        function updateActiveState(currentRow, index) {
+            // Desktop active highlighting switcher
+            if (window.innerWidth > 991) {
+                rows.forEach(r => r.classList.remove('active-row'));
+                currentRow.classList.add('active-row');
+            }
+
+            // Canvas Image Engine Switcher
+            if (images[index - 1]) {
+                images.forEach(img => img.classList.remove('active'));
+                images[index - 1].classList.add('active');
+                badge.innerText = badgeTexts[index] || "EverFresh Quality";
+            }
+        }
+
+        // 2. Packaging Switcher Control Module (Updated for Coriander Seeds)
+        const packingData = {
+            pp_bags: "High-strength multi-wall laminated PP/HDPE sacks (typically 20kg to 25kg net) equipped with airtight heat-sealed inner food-grade poly-liners to prevent moisture absorption.",
+            jute: "New, tightly woven clean Jute Gunny Sacks (typically 25kg to 50kg net) layered securely with protective food-grade poly-liners to shield seeds from humid maritime sea air.",
+            custom: "Tailor-made private branding solutions. Moisture-proof stand-up slider pouches, zip-locks, or custom retail packs processed directly with your brand plates from Morbi."
+        };
+
+        function switchPack(pack, element) {
+            document.querySelectorAll('.ux-pack-selectors .pack-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            const textBlock = document.getElementById('packText');
+            textBlock.style.opacity = 0;
+            setTimeout(() => {
+                textBlock.innerText = packingData[pack];
+                textBlock.style.opacity = 1;
+            }, 200);
+        }
+    </script>
+    <script src="/assets/script/script.js"></script>
+</body>
+
+</html>

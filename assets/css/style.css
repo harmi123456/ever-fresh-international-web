@@ -1,0 +1,2204 @@
+:root {
+    --brand-light-green: #479f27;
+    --brand-dark-green: #0a551c;
+    --brand-orange: #fe8a03;
+    --brand-orange-hover: #e07600;
+    /* --bg-dark: #030f05; */
+    --text-light: #f9fafb;
+    --transition-smooth: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::selection{
+    background-color: var(--brand-dark-green);
+    color: var(--text-light);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-light);
+    overflow-x: hidden;
+
+
+    /* Base background color - safe side deep dark green */
+    background-color: #050d06;
+
+    /* Multiple layers of radial gradients:
+       - Pehlo layer left corner ma light no halko glow aapse.
+       - Bijo layer right side upar soft natural green touch aapse.
+       - T्रीજો layer niche thi deep black shading dynamic look create krse.
+    */
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(71, 159, 39, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 40%, rgba(10, 85, 28, 0.25) 0%, transparent 60%),
+        radial-gradient(circle at 50% 110%, #030804 0%, #060e07 100%);
+
+    /* Scrolling vakhate background stretch na thay e mate fixed stack */
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Apoc', serif !important;
+    font-weight: 700;
+}
+
+body,
+p,
+a,
+li,
+span,
+label,
+input,
+textarea {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+
+/* fonts/સેટઅપ ફાઇલમાં આ રીતે એડ કરો */
+@font-face {
+    font-family: 'Apoc';
+    src: url('../font/apoc-font-family/Apoc-Normal-Trial-Dark.otf') format('woff2'),
+        url('../font/apoc-font-family/Apoc-Normal-Trial-Regular.otf') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* button css */
+.export-glass-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px 38px;
+
+    /* ગ્લાસ ઇફેક્ટ (Glassmorphism) */
+    /* background: rgba(255, 255, 255, 0.03); */
+    background: var(--brand-dark-green, rgba(10, 85, 28, 0.1));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    color: var(--text-light);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+
+    /* રેડિયસ અને બોર્ડર સ્ટીલીંગ */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 30px;
+    /* સ્મૂથ પ્રીમિયમ કર્વ્ડ રેડિયસ */
+
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* આઇકોન કન્ટેનર - હવે ટેક્સ્ટની રાઇટ સાઇડ છે */
+.export-glass-btn .icon-container {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ક્લાઉડ સેટિંગ્સ */
+.export-glass-btn .cloud-icon {
+    position: absolute;
+    right: -2px;
+    top: 2px;
+    transition: var(--transition-smooth);
+}
+
+/* પ્લેન સેટિંગ્સ */
+.export-glass-btn .plane-icon {
+    position: absolute;
+    z-index: 2;
+    transition: var(--transition-smooth);
+}
+
+/* --- HOVER EFFECTS --- */
+
+/* 1. બટન હોવર - ગ્લાસ બેકગ્રાઉન્ડ બ્રાન્ડ ડાર્ક ગ્રીન તરફ શિફ્ટ થશે અને ઓરેન્જ ગ્લો આપશે */
+.export-glass-btn:hover {
+    background: rgba(10, 85, 28, 0.2);
+    /* var(--brand-dark-green) વિથ ઓપેસિટી */
+    border-color: var(--brand-light-green);
+    box-shadow: 0 0 25px rgba(71, 159, 39, 0.25);
+    color: var(--text-light);
+}
+
+/* 2. વાદળ સહેજ જમણી તરફ ખસશે */
+.export-glass-btn:hover .cloud-icon {
+    transform: translateX(4px);
+    stroke: rgba(249, 250, 251, 0.6);
+}
+
+/* 3. પ્લેન રાઇટ સાઇડથી ઉડીને ગાયબ થશે અને લેફ્ટથી પાછું આવશે */
+.export-glass-btn:hover .plane-icon {
+    stroke: var(--brand-orange-hover);
+    animation: flyRightLoop 0.75s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
+}
+
+/* પ્લેન રાઇટ-સાઇડ લૂપ એનિમેશન */
+@keyframes flyRightLoop {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+
+    45% {
+        transform: translate(35px, -12px) scale(0.8);
+        /* જમણી બાજુ ઉપર ઉડી જશે */
+        opacity: 0;
+    }
+
+    50% {
+        transform: translate(-35px, 12px) scale(0.8);
+        /* ડાબી બાજુ નીચેથી છૂપી એન્ટ્રી */
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+        /* ઓરિજિનલ પ્લેસ પર ફિક્સ */
+        opacity: 1;
+    }
+}
+
+/* ટેક્સ્ટ હોવર ઇફેક્ટ */
+.export-glass-btn .btn-text {
+    transition: var(--transition-smooth);
+}
+
+.export-glass-btn:hover .btn-text {
+    transform: translateX(-2px);
+    /* પ્લેન ઉડે ત્યારે ટેક્સ્ટ સહેજ બેલેન્સ થશે */
+}
+
+/* button css over */
+
+
+/* hero section style start */
+
+.agro-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.agro-hero-bg-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.agro-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+
+.agro-hero-bg.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.agro-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(3, 15, 5, 0.95) 0%, rgba(3, 15, 5, 0.1) 40%, rgba(0, 0, 0, 0.1) 100%);
+    z-index: 2;
+}
+
+.agro-hero-overlay-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 35vh;
+    background: linear-gradient(to top, rgba(3, 15, 5, 1) 0%, transparent 100%);
+    z-index: 2;
+}
+
+.agro-hero-container {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 2rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.agro-hero-details-wrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: end;
+    padding-bottom: 4rem;
+}
+
+.agro-hero-details {
+    max-width: 650px;
+    opacity: 0;
+    transform: translateY(30px);
+    display: none;
+    transition: var(--transition-smooth);
+}
+
+.agro-hero-details.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.agro-tagline {
+    color: var(--brand-light-green);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.agro-title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+}
+
+.agro-title span {
+    color: var(--brand-orange);
+}
+
+.agro-products-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.agro-badge {
+    background: rgba(10, 85, 28, 0.4);
+    border: 1px solid rgba(71, 159, 39, 0.3);
+    color: var(--text-light);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.agro-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--brand-orange);
+    color: white;
+    padding: 0.85rem 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    transition: var(--transition-smooth);
+}
+
+.agro-btn:hover {
+    background-color: var(--brand-orange-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(254, 138, 3, 0.3);
+}
+
+/* ========================================================
+           FIXED BOTTOM ROW (70% WIDTH)
+           ======================================================== */
+.agro-hero-bottom {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    /* EXACT 70% WIDTH */
+    margin-left: auto;
+    gap: 2rem;
+    position: relative;
+}
+
+.agro-controls {
+    display: flex;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.agro-arrow {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.agro-arrow:hover {
+    background: var(--brand-orange);
+    border-color: var(--brand-orange);
+    transform: scale(1.1);
+}
+
+/* FIXED SLIDER: Hidden Scrollbar & Padding Center Logic */
+.agro-cards-slider {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: scroll;
+    /* Changed to scroll for better JS offset handle */
+    padding: 1.5rem 0;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    flex-grow: 1;
+    /* આ પેડિંગ કાર્ડ્સને સેન્ટરમાં રાખવામાં મદદ કરશે અને Ghost Space હટાવશે */
+    padding-left: calc(50% - 100px);
+    padding-right: calc(50% - 100px);
+}
+
+.agro-cards-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.agro-card {
+    flex: 0 0 200px;
+    height: 140px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: var(--transition-smooth);
+}
+
+.agro-card-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: var(--transition-smooth);
+}
+
+.agro-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10, 85, 28, 0.8) 0%, transparent 100%);
+    transition: var(--transition-smooth);
+}
+
+.agro-card-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    z-index: 2;
+}
+
+.agro-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.agro-card.active {
+    border-color: var(--brand-orange);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.agro-card.active .agro-card-overlay {
+    background: linear-gradient(to top, var(--brand-orange) 0%, transparent 100%);
+    opacity: 0.8;
+}
+
+@media (max-width: 1024px) {
+    .agro-hero-bottom {
+        width: 100%;
+    }
+
+    .agro-title {
+        font-size: 2.2rem;
+    }
+}
+
+
+/* // hero section css over */
+
+
+/* home section 2 css */
+
+.capabilities-section {
+    position: relative;
+    padding: 120px 20px;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* BACKGROUND IMAGE RENDER WITH OVERLAYS */
+.section-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: url("../images/bg-image.png");
+    background-repeat: no-repeat;
+
+    /* Image size increase */
+    background-size: 75% auto;
+
+    /* Position */
+    background-position: right top;
+
+    opacity: 0.90;
+    z-index: 5;
+
+    /* Smooth floating animation */
+    animation: floatBg 2s ease-in-out infinite;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
+}
+
+/* Up-Down Animation */
+@keyframes floatBg {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+
+.capabilities-section .container {
+    position: relative;
+    z-index: 7;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* TITLE STYLE MATCHED TO IMAGE */
+.section-title {
+    font-size: 4.8rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #ffffff;
+    margin-bottom: 170px;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    text-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* GRID LAYOUT */
+.capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 28px;
+}
+
+/* DARK PREMIUM GLASSMORPHISM CARD */
+.glass-card {
+    background: rgba(10, 20, 12, 0.1);
+    /* Deep tint green transparent */
+    backdrop-filter: blur(15px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 340px;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Hover State */
+.glass-card:hover {
+    transform: translateY(-6px);
+    background: rgba(15, 30, 18, 0.5);
+    border-color: rgba(71, 159, 39, 0.4);
+    /* Brand light green border glow */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Icons & Colors */
+.card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 35px;
+    gap: 15px;
+}
+
+.card-icon {
+    background: rgba(243, 156, 18, 0.15);
+    /* Orange transparent glow box */
+    padding: 12px;
+    border-radius: 14px;
+    color: #f39c12;
+    /* Accent orange matching image badges */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(243, 156, 18, 0.2);
+}
+
+/* Tags/Badges Wrapper */
+.tag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+    max-width: 75%;
+}
+
+/* Pure Image Look Badges */
+.badge {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(71, 159, 39, 0.5);
+    /* Light Green Border */
+    padding: 5px 14px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #e2f0d9;
+    /* Off white mint text */
+    white-space: nowrap;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Card Content Typography */
+.card-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #ffffff;
+    margin-bottom: 14px;
+    letter-spacing: -0.3px;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: #b3c3b4;
+    /* Muted pastel green grey readibility texts */
+    font-weight: 300;
+}
+
+/* Responsive Handling */
+@media (max-width: 991px) {
+    .section-bg-image {
+        background-size: 85% auto;
+        background-position: center bottom;
+        mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 70%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 70%, transparent 100%);
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 3rem;
+        margin-bottom: 40px;
+    }
+
+    .capabilities-section {
+        padding: 80px 15px;
+    }
+
+    .capabilities-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .glass-card {
+        padding: 30px;
+    }
+}
+
+/* //section 2 css over */
+
+
+
+/* section 3 css start */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ડાર્ક સેક્શન બેઝિક સ્ટાઇલ */
+.about-section.dark-version {
+    padding: 120px 20px;
+    /* background: var(--bg-dark); */
+    position: relative;
+    overflow: hidden;
+}
+
+.about-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* LEFT SIDE: CONTENT STYLING (LIGHT TEXT) */
+.about-content-block {
+    position: relative;
+    z-index: 2;
+}
+
+.sub-tagline {
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--brand-light-green);
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.company-name {
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text-light);
+    /* વ્હાઇટ/લાઈટ ટેક્સ્ટ */
+    margin-bottom: 25px;
+}
+
+.company-name .highlight {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--brand-light-green);
+    /* ડાર્ક બેકગ્રાઉન્ડ પર લાઇટ ગ્રીન વધુ પ્રીમિયમ લાગશે */
+}
+
+/* Creative Glowing Slogan Badge */
+.slogan-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(254, 138, 3, 0.12);
+    /* 12% Orange Background */
+    border-left: 4px solid var(--brand-orange);
+    padding: 10px 20px;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 30px;
+    transform: translateX(0);
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 20px rgba(254, 138, 3, 0.05);
+}
+
+.slogan-badge:hover {
+    transform: translateX(5px);
+    background: rgba(254, 138, 3, 0.18);
+    box-shadow: 0 4px 25px rgba(254, 138, 3, 0.15);
+}
+
+.slogan-icon {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.slogan-text {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffaa43;
+    /* લાઈટ ઓરેન્જ ફોન્ટ ફોર ડાર્ક રીડેબિલીટી */
+    margin: 0;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+    /* લાઈટ ગ્રે ટેક્સ્ટ */
+    margin-bottom: 20px;
+}
+
+.about-text-sub {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #94a3b8;
+    /* થોડો વધુ ઝાંખો ટેક્સ્ટ સબ-ડિટેલ્સ માટે */
+    margin-bottom: 40px;
+}
+
+/* Trust Indicators / Counters */
+.trust-indicators {
+    display: flex;
+    gap: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+}
+
+.indicator-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.indicator-item .count {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--brand-light-green);
+}
+
+.indicator-item .label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #94a3b8;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+/* RIGHT SIDE: EYE-CATCHING MEDIA STYLING */
+.about-media-block {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    height: 550px;
+    z-index: 2;
+}
+
+.main-media-holder {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    position: relative;
+    border: 8px solid rgba(255, 255, 255, 0.05);
+    /* ડાર્ક ગ્લાસ બોર્ડર */
+    transition: var(--transition-smooth);
+}
+
+.about-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.media-wrapper:hover .about-video {
+    transform: scale(1.05);
+}
+
+.media-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(71, 159, 39, 0.05), rgba(3, 15, 5, 0.4));
+    pointer-events: none;
+}
+
+/* DARK THEME FLOATING GLASS BADGES */
+.floating-badge {
+    position: absolute;
+    background: rgba(15, 23, 42, 0.65);
+    /* ડાર્ક ગ્લાસ ઇફેક્ટ */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 20px;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-light);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: floatingAnim 4s ease-in-out infinite;
+}
+
+.top-left-badge {
+    top: 40px;
+    left: -40px;
+}
+
+.bottom-right-badge {
+    bottom: 5px;
+    right: -30px;
+    animation-delay: 2s;
+}
+
+.badge-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--brand-light-green);
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 10px var(--brand-light-green);
+    /* નિયોન ગ્લો */
+}
+
+/* BACKGROUND GLOWING DECORATIVE ELEMENTS */
+.glow-deco {
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(60px);
+    /* વધુ બ્લર સ્મૂથ ગ્લો માટે */
+    opacity: 0.25;
+    /* ડાર્ક થીમ પર વધારે બ્રાઈટ ન લાગે એટલે બેલેન્સ કર્યું છે */
+}
+
+.deco-1 {
+    width: 300px;
+    height: 300px;
+    background: var(--brand-light-green);
+    top: -20px;
+    right: -50px;
+}
+
+.deco-2 {
+    width: 250px;
+    height: 250px;
+    background: var(--brand-orange);
+    bottom: -30px;
+    left: -60px;
+}
+
+/* ANIMATIONS */
+@keyframes floatingAnim {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .company-name {
+        font-size: 2.8rem;
+    }
+
+    .media-wrapper {
+        max-width: 100%;
+        height: 450px;
+    }
+
+    .top-left-badge {
+        left: 10px;
+    }
+
+    .bottom-right-badge {
+        right: 10px;
+    }
+}
+
+/* section 3 css over */
+
+
+
+/* section 4 css start */
+.creative-marquee-section {
+    /* background: var(--bg-dark); */
+    /* ડાર્ક બેકગ્રાઉન્ડ */
+    padding: 60px 0;
+    overflow: hidden;
+    position: relative;
+    /* border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); */
+}
+
+.marquee-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    white-space: nowrap;
+    will-change: transform;
+}
+
+.marquee-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-right: 30px;
+}
+
+/* ટેક્સ્ટ સ્ટાઇલિંગ - મોટો અને આઉટલાઇન વાળો લક્ઝરી લુક */
+.marquee-content span {
+    font-size: 5rem;
+    /* મોટો આકર્ષક ફોન્ટ */
+    font-weight: 800;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+    /* માત્ર આઉટલાઇન દેખાશે */
+    letter-spacing: 2px;
+    transition: all 0.4s ease;
+}
+
+/* દર બીજા અક્ષર પર બ્રાન્ડ કલર અને સોલિડ ઇફેક્ટ */
+.marquee-content span:nth-child(4n+1) {
+    color: var(--text-light);
+    -webkit-text-stroke: none;
+}
+
+/* વચ્ચેના કનેક્ટિંગ સ્ટાર/ડોટ માટે */
+.marquee-content .dot {
+    font-size: 3rem;
+    color: var(--brand-light-green);
+    -webkit-text-stroke: none !important;
+}
+
+/* જ્યારે માઉસ ઉપર લઈ જાય ત્યારે ટેક્સ્ટ ગ્લો થશે */
+.marquee-track:hover .marquee-content span {
+    -webkit-text-stroke: 1px var(--brand-light-green);
+}
+
+/* મોબાઇલ માટે સાઈઝ નાની કરવા */
+@media (max-width: 768px) {
+    .marquee-content span {
+        font-size: 2.8rem;
+    }
+
+    .marquee-content .dot {
+        font-size: 1.8rem;
+    }
+
+    .creative-marquee-section {
+        padding: 40px 0;
+    }
+}
+
+/* section 4 css over */
+
+
+/* section 5 css start */
+
+.merry-go-round-section {
+    background: var(--bg-dark);
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+/* સેન્ટર બ્રાન્ડ લુક */
+.carousel-center-brand {
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.carousel-center-brand h3 {
+    font-size: 3rem;
+    color: var(--text-light);
+    margin: 0;
+    font-style: italic;
+}
+
+.carousel-center-brand p {
+    font-size: 0.9rem;
+    color: var(--brand-light-green);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+/* 3D VIEWPORT SATEUP */
+.carousel-viewport {
+    width: 100%;
+    max-width: 1200px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 3D ઊંડાણ (Depth) આપવા માટે પર્સપેક્ટિવ */
+    perspective: 1800px;
+    position: relative;
+}
+
+.carousel-3d {
+    position: relative;
+    width: 260px;
+    height: 380px;
+    transform-style: preserve-3d;
+    /* રોટેશન સ્મૂથ રાખવા માટે JS થી કંટ્રોલ થશે, પણ બેઝિક ટ્રાન્ઝિશન અહીં છે */
+    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* CAROUSEL CARD STYLING */
+.carousel-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #111;
+    transform-style: preserve-3d;
+    /* પાછળ જતા કાર્ડ્સ સહેજ ટ્રાન્સપરન્ટ દેખાશે */
+    backface-visibility: visible;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: var(--transition-smooth);
+}
+
+/* HOVER EFFECT: BLUR & GLASS EFFECT */
+.card-glass {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(3, 15, 5, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 25px;
+    box-sizing: border-box;
+    transition: var(--transition-smooth);
+    z-index: 2;
+}
+
+/* હોવર થતા જ કાર્ડની અંદર બ્લર ગ્લાસ ઇફેક્ટ અને બટન એનિમેશન */
+.carousel-card:hover .card-img {
+    transform: scale(1.08);
+    filter: blur(10px);
+    /* કાર્ડ બેકગ્રાઉન્ડ બ્લર */
+}
+
+.carousel-card:hover .card-glass {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(20px);
+    /* કાચ જેવી ઇફેક્ટ */
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Card Text */
+.card-info h4 {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    margin: 0 0 5px 0;
+}
+
+.card-info p {
+    font-size: 0.85rem;
+    color: var(--brand-light-green);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* UNIQUE VIEW PRODUCT BUTTON */
+.explore-btn {
+    background: var(--brand-orange);
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 40px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(254, 138, 3, 0.3);
+
+    /* હોવર વગર બટન છુપાયેલું રહેશે */
+    opacity: 0;
+    transform: translateY(30px) translateZ(20px);
+    transition: var(--transition-smooth);
+}
+
+.explore-btn:hover {
+    background: var(--brand-orange-hover);
+    box-shadow: 0 15px 30px rgba(254, 138, 3, 0.5);
+}
+
+/* હોવર કરતા બટન સ્મૂથલી દેખાશે */
+.carousel-card:hover .explore-btn {
+    opacity: 1;
+    transform: translateY(0) translateZ(30px);
+    /* 3D માં બટન બહાર આવતું લાગશે */
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .carousel-viewport {
+        height: 450px;
+    }
+
+    .carousel-3d {
+        width: 180px;
+        height: 280px;
+    }
+
+    .card-info h4 {
+        font-size: 1.4rem;
+    }
+
+    .carousel-center-brand h3 {
+        font-size: 2rem;
+    }
+}
+
+/* section 5 css over */
+
+
+/* section 6 css start */
+
+/* MAIN SECTION CONTAINER */
+.arch-slider-section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* CONTINUOUS ROLLING TRACK */
+.slider-arch-track {
+    display: flex;
+    position: absolute;
+    left: 0;
+    top: 40%;
+    /* ડેસ્કટોપ માટે આર્ક સેન્ટર */
+    transform: translateY(-50%);
+    width: max-content;
+    will-change: transform;
+}
+
+/* INDIVIDUAL CARD STYLING */
+.arch-card {
+    position: relative;
+    width: 320px;
+    aspect-ratio: 2/3;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: #111;
+    margin-right: 40px;
+    /* દરેક કાર્ડ વચ્ચેની સ્પેસ */
+    flex-shrink: 0;
+    will-change: transform;
+    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Card Image Background */
+.card-img-src {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: var(--transition-smooth);
+}
+
+/* HOVER EFFECT: GLASSMORPHISM & BLUR */
+.card-glass-view {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(3, 15, 5, 0.1), rgba(3, 15, 5, 0.7));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 35px 25px;
+    box-sizing: border-box;
+    transition: var(--transition-smooth);
+    z-index: 2;
+}
+
+.arch-card:hover .card-img-src {
+    transform: scale(1.08);
+    filter: blur(12px);
+}
+
+.arch-card:hover .card-glass-view {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Card Typography */
+.card-meta-data h4 {
+    font-size: 1.8rem;
+    color: var(--text-light);
+    margin: 0 0 5px 0;
+}
+
+.card-meta-data p {
+    font-size: 0.85rem;
+    color: var(--brand-light-green);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* HOVER EXPLORE BUTTON */
+.card-action-btn {
+    background: var(--brand-orange);
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 14px 24px;
+    border-radius: 40px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(254, 138, 3, 0.3);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition-smooth);
+}
+
+.card-action-btn:hover {
+    background: var(--brand-orange-hover);
+    box-shadow: 0 15px 30px rgba(254, 138, 3, 0.5);
+}
+
+.arch-card:hover .card-action-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 📱 ખાસ મોબાઇલ માટેનું મીડિયા ક્વેરી સેટિંગ */
+@media (max-width: 768px) {
+    .slider-arch-track {
+        top: 50%;
+        /* મોબાઇલ માં બરોબર સેન્ટરમાં રાખવું */
+    }
+
+    .arch-slider-section {
+        padding: 20px 0;
+        height: 450px;
+    }
+
+    .arch-card {
+        width: 250px;
+        /* મોબાઇલ સ્ક્રીન મુજબ નાનું કાર્ડ */
+        margin-right: 20px;
+        /* મોબાઇલમાં કોઈપણ પ્રકારનું ટ્રાન્સફોર્મ (નમવું) દૂર કરવું */
+        transform: none !important;
+    }
+
+    .card-meta-data h4 {
+        font-size: 1.4rem;
+    }
+
+    /* મોબાઇલમાં બટન હંમેશા ઓપન રાખવું હોય તો આ અનકોમેન્ટ કરી શકો, અથવા હોવર પર જ રાખવું */
+    /* .card-action-btn { opacity: 1; transform: translateY(0); } */
+}
+
+/* section 6 css over */
+
+
+
+/* section 7 css start */
+* --- ✦ SCROLL SNAP WRAPPER ✦ --- */ .page-snap-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+/* --- ✦ MAIN STACK SECTION ✦ --- */
+.snap-section {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* LEFT PANEL: STICKY TEXT */
+.left-copy {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 0 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 10;
+}
+
+.premium-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 6px 14px;
+    border-radius: 30px;
+    width: max-content;
+    margin-bottom: 1.2rem;
+}
+
+.premium-badge .badge-dot {
+    width: 6px;
+    height: 6px;
+    background-color: var(--brand-orange);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--brand-orange);
+}
+
+.premium-badge span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(249, 250, 251, 0.7);
+    font-weight: 600;
+}
+
+.agro-tagline {
+    font-size: 0.9rem;
+    color: var(--brand-light-green);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.left-copy h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.left-copy h2 span {
+    color: var(--brand-orange);
+}
+
+.left-copy p {
+    max-width: 460px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+/* RIGHT PANEL: IMAGES */
+.right-stack {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* દરેક ઈમેજ કન્ટેનર */
+.image-panel {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    position: relative;
+}
+
+/* ઈમેજ કાર્ડ ડિઝાઇન */
+.stacked-card {
+    position: sticky;
+    top: 12vh;
+    /* બધા કાર્ડ એક જ સરખી હાઇટ પર લોક થશે */
+    width: min(85%, 440px);
+    height: 520px;
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    overflow: hidden;
+    /* હેવી શેડોથી ક્રોસ થયેલા કાર્ડ્સનો થપ્પો એકદમ રિયલ લાગશે */
+    box-shadow: 0 -15px 35px rgba(0, 0, 0, 0.8), 0 30px 60px rgba(0, 0, 0, 0.95);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.stacked-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ✦ ક્રોસ (CROSS / ROTATION) અને Z-INDEX લોજિક ✦ */
+/* આ સેટિંગ્સથી કાર્ડ્સ એકબીજાની ઉપર ક્રોસ થઈને ઓવરલેપ થશે અને પાછળના કાર્ડ્સની કિનારીઓ પણ સુંદર દેખાશે */
+.panel-1 .stacked-card {
+    z-index: 1;
+    transform: rotate(-4.5deg) translateX(-8px) translateY(-5px);
+}
+
+.panel-2 .stacked-card {
+    z-index: 2;
+    transform: rotate(3.5deg) translateX(10px) translateY(5px);
+}
+
+.panel-3 .stacked-card {
+    z-index: 3;
+    transform: rotate(-3deg) translateX(-6px) translateY(-2px);
+}
+
+.panel-4 .stacked-card {
+    z-index: 4;
+    transform: rotate(4deg) translateX(12px) translateY(8px);
+}
+
+/* ઈમેજ કેપ્શન કન્ટેન્ટ એરિયા */
+.image-card-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 35px 25px;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.95) 100%);
+}
+
+.image-card-caption .step-no {
+    font-size: 0.75rem;
+    color: var(--brand-orange);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.image-card-caption h4 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-light);
+    margin-bottom: 6px;
+}
+
+.image-card-caption p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.4;
+}
+
+/* --- ✦ NEXT SECTION ✦ --- */
+.next-section {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(circle at center, #061709, #010602);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.next-section h2 {
+    font-size: 3.5rem;
+    color: var(--brand-light-green);
+    font-weight: 800;
+}
+
+/* --- 📱 MOBILE RESPONSIVE LAYOUT --- */
+@media (max-width: 992px) {
+    .page-snap-container {
+        height: auto;
+        scroll-snap-type: none;
+    }
+
+    .snap-section {
+        grid-template-columns: 1fr;
+    }
+
+    .left-copy {
+        position: relative;
+        height: auto;
+        padding: 60px 24px 20px 24px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .left-copy h2 {
+        font-size: 2.5rem;
+    }
+
+    .image-panel {
+        height: auto;
+        scroll-snap-align: none;
+        margin-bottom: 30px;
+    }
+
+    .stacked-card {
+        position: relative !important;
+        top: 0 !important;
+        width: 90%;
+        height: 420px;
+        transform: rotate(0deg) !important;
+        /* મોબાઈલ પર રીડિબિલિટી માટે ક્રોસ બંધ */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .next-section {
+        height: 60vh;
+    }
+
+    .next-section h2 {
+        font-size: 2.2rem;
+    }
+}
+
+/* section 7 css over */
+
+/* સેક્શન કન્ટેનર */
+.export-services-section {
+    /* background-color: var(--bg-dark); */
+    padding: 100px 20px;
+    width: 100%;
+}
+
+.services-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* મુખ્ય એન્કર ટેગ રો (Row Link) */
+.service-row-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 0;
+    /* સ્પેસિંગ થોડું વધાર્યું જેથી પ્રીમિયમ લાગે */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    text-decoration: none;
+    position: relative;
+    transition: var(--transition-smooth);
+}
+
+.service-row-link:first-of-type {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ડાબી બાજુનું કન્ટેન્ટ */
+.service-content-left {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    /* નંબર અને ટેક્સ્ટ વચ્ચે પ્રોપર લક્ઝરી ગેપ */
+}
+
+.service-num {
+    font-size: 1.4rem;
+    /* નંબર મોટા કર્યા */
+    font-weight: 700;
+    color: rgba(249, 250, 251, 0.2);
+    transition: var(--transition-smooth);
+}
+
+.service-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.service-sub-desc {
+    font-size: 1rem;
+    /* સબ-ટેક્સ્ટ મોટું કર્યું */
+    color: rgba(249, 250, 251, 0.4);
+    letter-spacing: 0.5px;
+    transition: var(--transition-smooth);
+}
+
+.service-main-title {
+    font-size: 4rem;
+    /* ટાઇટલ એકદમ બિગ અને બોલ્ડ કર્યું */
+    font-weight: 700;
+    color: var(--text-light);
+    letter-spacing: -0.5px;
+    transition: var(--transition-smooth);
+}
+
+/* સ્મૂથ ઇમેજ રીવીલ લોજિક (એરોની સહેજ ડાબી બાજુ સેટ થશે) */
+.service-image-reveal {
+    position: absolute;
+    right: 12%;
+    top: 50%;
+    transform: translateY(-50%) scale(0.85) translateX(20px) rotate(10deg);
+    width: 220px;
+    /* ઇમેજ સાઇઝ સહેજ વધારી */
+    height: 130px;
+    border-radius: 16px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: opacity 0.5s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.service-image-reveal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+/* જમણી બાજુનો મોટો એરો આઇકોન */
+.service-action-icon {
+    color: rgba(249, 250, 251, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-smooth);
+}
+
+
+/* --- 🔥 HOVER INTERACTION WITH BRAND COLORS 🔥 --- */
+
+.service-row-link:hover {
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ૧. મેઇન ટાઇટલ બ્રાન્ડ ઓરેન્જ થશે */
+.service-row-link:hover .service-main-title {
+    color: var(--brand-orange);
+    transform: translateX(10px);
+    /* લખાણ સહેજ જમણી તરફ ખસશે */
+}
+
+/* ૨. ઇન્ડેક્સ નંબર બ્રાન્ડ લાઇટ ગ્રીન થશે */
+.service-row-link:hover .service-num {
+    color: var(--brand-light-green);
+}
+
+/* ૩. સબdesc વ્હાઇટ થશે */
+.service-row-link:hover .service-sub-desc {
+    color: var(--text-light);
+    transform: translateX(10px);
+}
+
+/* ૪. ઇમેજ સ્મૂથ એન્ટ્રી લેશે */
+.service-row-link:hover .service-image-reveal {
+    opacity: 1;
+    transform: translateY(-50%) scale(1) translateX(0);
+}
+
+/* ૫. મોટો એરો બ્રાન્ડ ઓરેન્જ થઈને રોટેટ (ટેક-ઓફ) થશે */
+.service-row-link:hover .service-action-icon {
+    color: var(--brand-orange);
+    transform: rotate(-45deg) scale(1.15);
+}
+
+
+/* 📱 PERFECT MOBILE RESPONSIVE */
+@media (max-width: 992px) {
+    .service-row-link {
+        padding: 35px 0;
+    }
+
+    .service-content-left {
+        gap: 30px;
+    }
+
+    .service-main-title {
+        font-size: 2.5rem;
+    }
+
+    .service-sub-desc {
+        font-size: 0.9rem;
+    }
+
+    .service-image-reveal {
+        display: none;
+        /* પ્રોપર વ્યુ માટે મોબાઇલમાં હાઇડ રાખવી બેસ્ટ છે */
+    }
+
+    .service-action-icon {
+        transform: scale(0.85);
+    }
+
+    .service-row-link:hover .service-action-icon {
+        transform: rotate(-45deg) scale(1);
+    }
+}
+
+/* section 8 css over */
+
+
+
+/* section 9 css start */
+
+.ef-interactive-showcase {
+    background-color: var(--bg-dark);
+    font-family: 'Inter', sans-serif;
+    min-height: 80vh;
+    width: 100%;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 4%;
+    overflow: hidden !important;
+    position: relative;
+}
+
+.ef-section-badge {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--brand-green);
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.ef-gallery-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 16px;
+    height: 140px;
+    margin-bottom: 30px;
+    padding: 10px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.ef-img-box {
+    width: 65px;
+    height: 65px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    transition: var(--transition-premium);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ef-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.ef-gallery-container:hover .ef-img-box {
+    opacity: 0.25;
+    transform: scale(0.85);
+    filter: blur(2px);
+}
+
+.ef-gallery-container .ef-img-box:hover {
+    opacity: 1;
+    transform: scale(1.8) translateY(-20px);
+    filter: blur(0px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.ef-gallery-container .ef-img-box:hover img {
+    transform: scale(1.15);
+}
+
+.ef-display-text-wrapper {
+    width: 100%;
+    max-width: 100vw;
+    height: 14vw;
+    display: flex !important;
+    justify-content: center !important;
+    /* આડું સેન્ટર */
+    align-items: center !important;
+    /* ઊભું સેન્ટર */
+    overflow: hidden !important;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.ef-dynamic-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 6.8vw;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    line-height: 1;
+    color: var(--text-white);
+    display: flex !important;
+    justify-content: center !important;
+    /* બધા અક્ષરોને સેન્ટરમાં રાખશે */
+    align-items: center !important;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    user-select: none;
+    width: auto;
+    /* ઓટોમેટિક કન્ટેન્ટ પ્રમાણે સેન્ટર થશે */
+    margin: 0 auto;
+}
+
+/* સિંગલ અક્ષર (Letter) માટેનું એનિમેશન સ્ટાન્ડર્ડ */
+.ef-letter {
+    display: inline-block;
+    transform: translateY(120%);
+    opacity: 0;
+    filter: blur(8px);
+    animation: revealLetterUp 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* --- ✦ GRAPH REVEAL KEYFRAMES ✦ --- */
+@keyframes revealLetterUp {
+    0% {
+        transform: translateY(120%);
+        opacity: 0;
+        filter: blur(10px);
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
+
+/* --- 📱 PERFECT RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 1024px) {
+    .ef-interactive-showcase {
+        padding: 60px 4%;
+    }
+
+    .ef-gallery-container {
+        gap: 12px;
+        height: 110px;
+    }
+
+    .ef-img-box {
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+    }
+
+    .ef-gallery-container .ef-img-box:hover {
+        transform: scale(1.6) translateY(-12px);
+    }
+
+    .ef-dynamic-title {
+        font-size: 8.5vw;
+        letter-spacing: -1px;
+    }
+
+    .ef-display-text-wrapper {
+        height: 16vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .ef-dynamic-title {
+        font-size: 9vw;
+    }
+
+    .ef-display-text-wrapper {
+        height: 18vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .ef-interactive-showcase {
+        padding: 50px 16px;
+        min-height: 60vh;
+    }
+
+    .ef-section-badge {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+
+    .ef-gallery-container {
+        gap: 8px;
+        height: 90px;
+        margin-bottom: 15px;
+    }
+
+    .ef-img-box {
+        width: 42px;
+        height: 42px;
+        border-radius: 6px;
+    }
+
+    .ef-gallery-container .ef-img-box:hover {
+        transform: scale(1.4) translateY(-8px);
+    }
+
+    .ef-dynamic-title {
+        font-size: 9vw;
+        letter-spacing: -0.5px;
+    }
+
+    .ef-display-text-wrapper {
+        height: 16vw;
+    }
+}
+
+/* section 9 css over */
+
+
+/* scrollbar css */
+/* ========================================================
+   CHROME ULTRA-PREMIUM HARD OVERRIDE ENGINE (WHITE STRIP FIX)
+   ======================================================== */
+
+/* 1. Root window global targets context setup */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+    width: 10px !important;
+    /* Perfect modern thin alignment width window */
+    height: 10px !important;
+}
+
+/* 2. FORCING STRIP TO REMOVE WHITE BACKGROUND LINE BLOCK */
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track {
+    /* Chrome ni browser standard white space un-box logic framework active */
+    background: #050d06 !important;
+    /* Bettho tmaro body black dark deep backdrop pattern merge thy jase */
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 3. Rendering Luxury Minimal Capsule Core Track Overlays */
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb {
+    /* Dynamic solid matrix mapping: Emerald green top scales running down to branding orange vectors */
+    background: linear-gradient(180deg,
+            var(--brand-light-green, #479f27) 0%,
+            var(--brand-orange, #fe8a03) 100%) !important;
+
+    /* Smooth gaps setup safely mimicking expensive UI tracking handle layers */
+    border: 2px solid #050d06 !important;
+    /* Generates beautiful float space padding gap edge inside the bar */
+    border-radius: 100px !important;
+
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Hover active loops rules scaling configurations setup */
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg,
+            #5ec139 0%,
+            #ff9d24 100%) !important;
+}
+
+/* Base structural safeguards framework mapping checks loops lines */
+html {
+    scrollbar-width: thin !important;
+    scrollbar-color: #479f27 #050d06 !important;
+}
+
+
+
+/* //section 10 css start */
+/* --- ✦ MAP REVEAL SCROLL TRACKER ✦ --- */
+.map-scroll-track {
+    position: relative;
+    height: 300vh;
+}
+
+.map-sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* --- ✦ VIDEO / MEDIA BOX ✦ --- */
+.media-box {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    will-change: width, height, border-radius;
+    z-index: 1;
+}
+
+.media-box video,
+.media-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* પ્રીમિયમ ડાર્ક ઓવરલે જેથી કન્ટેન્ટ ક્લિયર વંચાય */
+.media-box::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(1, 6, 2, 0) 0%, rgba(1, 6, 2, 0) 60%, rgba(1, 6, 2, 0.85) 100%);
+    pointer-events: none;
+}
+
+/* --- ✦ EXPORT CONTENT GRID (RESPONSIVE) ✦ --- */
+.map-text-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: flex-end;
+    gap: 40px;
+    padding: 0 8% 8vh 8%;
+    pointer-events: none;
+}
+
+/* દરેક ટેક્સ્ટ બ્લોક માટે સામાન્ય ડિઝાઇન */
+.info-block {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* વન બાય વન શો થવા માટેના ક્લાસ (JS દ્વારા કંટ્રોલ થશે) */
+.info-block.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.info-block span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--brand-orange);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.6rem;
+}
+
+.info-block h3 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.5px;
+}
+
+.info-block p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(249, 250, 251, 0.65);
+}
+
+/* --- 📱 PERFECT RESPONSIVE MEDIA QUERIES --- */
+@media (max-width: 992px) {
+    .map-text-wrapper {
+        grid-template-columns: 1fr;
+        /* મોબાઈલમાં સિંગલ કોલમ */
+        gap: 24px;
+        padding: 40px 24px;
+        justify-content: center;
+        align-content: flex-end;
+        /* નીચેની તરફ ગોઠવાશે */
+        background: linear-gradient(180deg, transparent 20%, rgba(1, 6, 2, 0.95) 80%);
+    }
+
+    .info-block h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .info-block p {
+        font-size: 0.85rem;
+    }
+
+    /* મોબાઈલમાં પ્રારંભિક બોક્સ સહેજ નાનું રાખવું જેથી રિસ્પોન્સિવ રહે */
+    .media-box {
+        width: 260px;
+        height: 260px;
+    }
+}
+
+/* //section 10 css over */

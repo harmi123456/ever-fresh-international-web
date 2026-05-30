@@ -1,0 +1,297 @@
+<style>
+  #footer-container {
+    display: block !important;
+    position: relative !important;
+    z-index: 99;
+    clear: both !important;
+    width: 100%;
+  }
+
+  .everfresh-premium-footer {
+    /* background-color: #050d06;  */
+    color: var(--text-light);
+    padding: 50px 6% 0 6%;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    /* border-top: 1px solid rgba(255, 255, 255, 0.03); */
+  }
+
+  .everfresh-premium-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 1px;
+    /* background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent); */
+  }
+
+  .ef-footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 60px;
+  }
+
+  .ef-brand-intro p {
+    flex: 1;
+    max-width: 500px;
+  }
+
+  .ef-logo {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: var(--text-light);
+    margin-bottom: 1.2rem;
+  }
+
+  .ef-logo span {
+    color: var(--brand-orange);
+    font-weight: 400;
+    font-style: italic;
+    margin-left: 6px;
+  }
+
+  .ef-tagline-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(249, 250, 251, 0.6);
+  }
+
+  /* સોશિયલ અને ક્વિક નેવિગેશન મેનુ લિંક્સ (Sukoya Layout) */
+  .ef-footer-middle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 60px 0 40px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .ef-col-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    margin-bottom: 1.8rem;
+  }
+
+  .ef-footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .ef-footer-links li a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: rgba(249, 250, 251, 0.45);
+    text-decoration: none;
+    display: inline-block;
+    transition: var(--transition-smooth);
+  }
+
+  .ef-footer-links li a:hover {
+    color: var(--text-light);
+    transform: translateY(-2px);
+  }
+
+  /* કોન્ટેક્ટ બટન સ્ટાઇલ */
+  .ef-contact-btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    margin-top: 10px;
+    width: fit-content;
+  }
+
+  .ef-contact-btn:hover {
+    background-color: var(--text-light);
+    color: #000;
+    border-color: var(--text-light);
+  }
+
+  /* બોટમ કોપીરાઈટ રો */
+  .ef-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    font-size: 0.85rem;
+    color: rgba(249, 250, 251, 0.3);
+    position: relative;
+    z-index: 5;
+  }
+
+  #right h2 a {
+    text-decoration: none;
+    color: var(--text-light);
+  }
+
+  /* --- ✦ ⚡ SUKOYA IMAGE STYLE GIANT TEXT BACKGROUND ✦ --- */
+  .ef-giant-brand-wrap {
+    position: relative;
+    width: 100%;
+    margin-top: 40px;
+    text-align: center;
+    line-height: 0.8;
+    pointer-events: none;
+  }
+
+  /* આ ભાગ બરાબર રેફરન્સ ઈમેજ જેવો સોફ્ટ લાઈટ શેડો અને ગ્રેડિએન્ટ આપશે */
+  .ef-giant-brand-text {
+    font-size: clamp(5rem, 10vw, 8rem);
+    /* રિસ્પોન્સિવ સાઈઝ ઓટોમેટીક સેટ થશે */
+    font-weight: 800;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    color: transparent;
+
+    /* ઇમેજ જેવો વ્હાઇટ ટુ ડાર્ક ગ્રેડિએન્ટ લુક */
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0.02) 95%);
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    /* નીચે નમી ગયેલો સોફ્ટ આભાસ */
+    transform: translateY(15px);
+    display: block;
+  }
+
+  /* મોર્ડન બેકગ્રાઉન્ડ સોફ્ટ હોરીઝોન્ટલ ગ્લો */
+  .ef-giant-brand-wrap::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 180px;
+    /* background: radial-gradient(100% 100% at 50% 0%, rgba(255, 255, 255, 0.08) 0%, rgba(71, 159, 39, 0.02) 60%, transparent 100%); */
+    z-index: 1;
+  }
+
+  /* --- 📱 PERFECT RESPONSIVE MEDIA QUERIES --- */
+  @media (max-width: 1024px) {
+    .ef-footer-top {
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .ef-footer-middle-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    .ef-giant-brand-text {
+      font-size: clamp(4.5rem, 14vw, 7rem);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .everfresh-premium-footer {
+      padding: 60px 24px 0 24px;
+    }
+
+    .ef-footer-top {
+      align-items: flex-start;
+    }
+
+    .ef-logo {
+      font-size: clamp(0.5rem, 4vw, 1.8rem);
+      text-align: left;
+    }
+
+    .ef-footer-middle-grid {
+      grid-template-columns: 1fr;
+      gap: 35px;
+      padding: 40px 0;
+    }
+
+    .ef-col-title {
+      margin-bottom: 1.2rem;
+    }
+
+    .ef-footer-bottom {
+      flex-direction: column;
+      gap: 15px;
+      text-align: center;
+    }
+
+    .ef-giant-brand-text {
+      font-size: clamp(3rem, 5vw, 4rem);
+      letter-spacing: -1px;
+      transform: translateY(8px);
+    }
+  }
+</style>
+
+<footer class="everfresh-premium-footer footer-stop">
+
+  <div class="ef-footer-top">
+    <div class="ef-brand-intro">
+      <h2 class="ef-logo">EverFresh<span>International</span></h2>
+      <p class="ef-tagline-desc">We are a premium agricultural export house specializing in providing high-quality,
+        laboratory-tested spices, grains, and fresh yields to global businesses.</p>
+    </div>
+
+    <div class="ef-brand-intro" id="right">
+      <h2 class="ef-logo"><a href="mailto:info@everfreshinternational.com">info@everfreshinternational.com</a></h2>
+    </div>
+  </div>
+
+  <div class="ef-footer-middle-grid">
+
+    <div class="ef-grid-col">
+      <h4 class="ef-col-title">Menu</h4>
+      <ul class="ef-footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="/pages/about.html">About Us</a></li>
+        <li><a href="/pages/globalmarket.html">Global Market</a></li>
+        <li><a href="/pages/products.html">Products</a></li>
+      </ul>
+    </div>
+
+    <div class="ef-grid-col">
+      <h4 class="ef-col-title">Socials</h4>
+      <ul class="ef-footer-links">
+        <li><a href="https://www.instagram.com/everfresh_international" target="_blank">Instagram</a></li>
+        <li><a href="https://www.linkedin.com/company/everfreshinternational.com/posts/?feedView=all"
+            target="_blank">LinkedIn</a></li>
+        <li><a href="https://www.facebook.com/share/18Wjhk5eAJ/" target="_blank">Facebook</a></li>
+      </ul>
+    </div>
+
+    <div class="ef-grid-col">
+      <h4 class="ef-col-title">Resources</h4>
+      <ul class="ef-footer-links">
+        <li><a href="mailto:info@everfreshinternational.com">info@everfreshinternational.com</a></li>
+        <li><a href="/pages/privacy.html">Privacy Policy</a></li>
+      </ul>
+
+
+    </div>
+
+  </div>
+
+  <div class="ef-footer-bottom">
+    <p>&copy; 2026 EverFresh International. All Rights Reserved.</p>
+    <p>Manufactured for Global Markets.</p>
+  </div>
+
+  <div class="ef-giant-brand-wrap">
+    <span class="ef-giant-brand-text">EVERFRESH INTERNATIONAL</span>
+  </div>
+
+</footer>

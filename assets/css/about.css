@@ -1,0 +1,2019 @@
+:root {
+    --brand-light-green: #479f27;
+    --brand-dark-green: #0a551c;
+    --brand-orange: #fe8a03;
+    --brand-orange-hover: #e07600;
+    /* --bg-dark: #030f05; */
+    --text-light: #f9fafb;
+    --transition-smooth: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::selection{
+    background-color: var(--brand-dark-green);
+    color: var(--text-light);
+}
+
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-light);
+    overflow-x: hidden;
+
+
+    /* Base background color - safe side deep dark green */
+    background-color: #050d06;
+
+    /* Multiple layers of radial gradients:
+       - Pehlo layer left corner ma light no halko glow aapse.
+       - Bijo layer right side upar soft natural green touch aapse.
+       - T्रीજો layer niche thi deep black shading dynamic look create krse.
+    */
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(71, 159, 39, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 40%, rgba(10, 85, 28, 0.25) 0%, transparent 60%),
+        radial-gradient(circle at 50% 110%, #030804 0%, #060e07 100%);
+
+    /* Scrolling vakhate background stretch na thay e mate fixed stack */
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Apoc', serif !important;
+    font-weight: 700;
+}
+
+body,
+p,
+a,
+li,
+span,
+label,
+input,
+textarea {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+
+/* fonts/સેટઅપ ફાઇલમાં આ રીતે એડ કરો */
+@font-face {
+    font-family: 'Apoc';
+    src: url('../font/apoc-font-family/Apoc-Normal-Trial-Dark.otf') format('woff2'),
+        url('../font/apoc-font-family/Apoc-Normal-Trial-Regular.otf') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+ .title-section {
+        padding: 220px 0 120px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .title-section h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 800;
+        text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: 2px var(--brand-dark-green);
+    }
+
+    .title-section h1:hover {
+        color: var(--brand-orange);
+        -webkit-text-stroke: 2px var(--brand-orange);
+        transition: var(--transition-smooth);
+    }
+
+
+    /* 🌟 NEW HERO STORYTELLING LAYOUT */
+    .product-hero-section {
+        width: 100%;
+        height: 400px;
+        display: flex;
+        align-items: center;
+        /* Center mathi badli ne flex-start (left) karyu */
+        justify-content: flex-start;
+        position: relative;
+        padding-top: 100px;
+        /* Left side thi padding muki jethi minimal margin jadvai rhe */
+        padding-left: 8%;
+        overflow: hidden;
+    }
+
+    /* Banner image */
+    .hero-bg-gradient {
+        position: absolute;
+        inset: 0;
+
+        background:
+            url('/assets/images/global-banner.jpg') center center/cover no-repeat;
+
+        z-index: 1;
+        background-attachment: fixed;
+        /* height: 400px; */
+    }
+
+
+/* button css */
+
+/* પ્રીમિયમ ગ્લાસ બટન */
+.export-glass-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px 38px;
+text-decoration: none;
+    /* ગ્લાસ ઇફેક્ટ (Glassmorphism) */
+    /* background: rgba(255, 255, 255, 0.03); */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    color: var(--text-light);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+
+    /* રેડિયસ અને બોર્ડર સ્ટીલીંગ */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 30px;
+    /* સ્મૂથ પ્રીમિયમ કર્વ્ડ રેડિયસ */
+
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* આઇકોન કન્ટેનર - હવે ટેક્સ્ટની રાઇટ સાઇડ છે */
+.export-glass-btn .icon-container {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ક્લાઉડ સેટિંગ્સ */
+.export-glass-btn .cloud-icon {
+    position: absolute;
+    right: -2px;
+    top: 2px;
+    transition: var(--transition-smooth);
+}
+
+/* પ્લેન સેટિંગ્સ */
+.export-glass-btn .plane-icon {
+    position: absolute;
+    z-index: 2;
+    transition: var(--transition-smooth);
+}
+
+/* --- HOVER EFFECTS --- */
+
+/* 1. બટન હોવર - ગ્લાસ બેકગ્રાઉન્ડ બ્રાન્ડ ડાર્ક ગ્રીન તરફ શિફ્ટ થશે અને ઓરેન્જ ગ્લો આપશે */
+.export-glass-btn:hover {
+    background: rgba(10, 85, 28, 0.2);
+    /* var(--brand-dark-green) વિથ ઓપેસિટી */
+    border-color: var(--brand-light-green);
+    box-shadow: 0 0 25px rgba(71, 159, 39, 0.25);
+    color: var(--text-light);
+}
+
+/* 2. વાદળ સહેજ જમણી તરફ ખસશે */
+.export-glass-btn:hover .cloud-icon {
+    transform: translateX(4px);
+    stroke: rgba(249, 250, 251, 0.6);
+}
+
+/* 3. પ્લેન રાઇટ સાઇડથી ઉડીને ગાયબ થશે અને લેફ્ટથી પાછું આવશે */
+.export-glass-btn:hover .plane-icon {
+    stroke: var(--brand-orange-hover);
+    animation: flyRightLoop 0.75s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
+}
+
+/* પ્લેન રાઇટ-સાઇડ લૂપ એનિમેશન */
+@keyframes flyRightLoop {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+
+    45% {
+        transform: translate(35px, -12px) scale(0.8);
+        /* જમણી બાજુ ઉપર ઉડી જશે */
+        opacity: 0;
+    }
+
+    50% {
+        transform: translate(-35px, 12px) scale(0.8);
+        /* ડાબી બાજુ નીચેથી છૂપી એન્ટ્રી */
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0, 0) scale(1);
+        /* ઓરિજિનલ પ્લેસ પર ફિક્સ */
+        opacity: 1;
+    }
+}
+
+.export-glass-btn .btn-text {
+    transition: var(--transition-smooth);
+}
+
+.export-glass-btn:hover .btn-text {
+    transform: translateX(-2px);
+}
+
+/* button css over */
+
+
+/* section 1 css */
+.creative-about-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* આખી સ્ક્રીન રોકી લેશે */
+    /* background-color: #030704; */
+    overflow: hidden;
+}
+
+.ambient-glow {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    /* background: radial-gradient(circle, rgba(71, 159, 39, 0.04) 0%, transparent 80%); */
+    pointer-events: none;
+}
+
+/* 🏁 SPLIT WRAPPER HIERARCHY */
+.hero-split-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* કોમન પેનલ સ્ટાઇલ */
+.split-panel {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding: 150px 40px 40px 40px;
+    transition: all 0.75s cubic-bezier(0.25, 1, 0.3, 1);
+    /* અલ્ટ્રા સ્મૂધ મોડર્ન ટ્રાન્ઝિશન */
+    overflow: hidden;
+}
+
+/* 1. TEXT PANEL (ડાબી બાજુનો મુખ્ય ટેક્સ્ટ ભાગ) */
+.text-panel {
+    flex: 1.4;
+    /* આ ભાગ ફિક્સ મોટો રહેશે */
+    /* background: #030704; */
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    align-items: center;
+    /* સેન્ટર અલાઈન ટેક્સ્ટ */
+    z-index: 5;
+}
+
+.creative-tag {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 2.5rem;
+}
+
+.creative-tag .tag-number {
+    color: #479f27;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.creative-tag .tag-text {
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    font-weight: 600;
+}
+
+.giant-heading {
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1.05;
+    color: #ffffff;
+    margin: 0 0 2rem 0;
+    letter-spacing: -2px;
+}
+
+/* મોડર્ન ટ્રાન્સપરન્ટ સ્ટ્રોક ટેક્સ્ટ */
+.giant-heading .stroke-text {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+}
+
+.minimal-subtext {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(249, 250, 251, 0.45);
+    max-width: 400px;
+    margin-bottom: 4rem;
+}
+
+/* માઉસ ઈન્ડિકેટર */
+.scroll-discover {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mouse-wheel {
+    width: 14px;
+    height: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    position: relative;
+}
+
+.mouse-wheel::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 6px;
+    background: #fe8a03;
+    border-radius: 2px;
+}
+
+.scroll-text {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* 2. IMAGE PANELS (જમણી બાજુની ઇન્ટરેક્ટિવ પેનલ્સ) */
+.image-panel {
+    flex: 1;
+    /* ડિફોલ્ટ બંને સરખી સાઇઝની દેખાશે */
+    cursor: pointer;
+}
+
+.panel-bg-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.3, 1);
+    filter: grayscale(40%) contrast(110%);
+}
+
+.panel-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(3, 7, 4, 0.9) 0%, rgba(3, 7, 4, 0.2) 60%, rgba(3, 7, 4, 0.4) 100%);
+    transition: opacity 0.5s ease;
+}
+
+/* ઊભું લખાણ (જ્યારે પેનલ નાની હોય) */
+.vertical-title {
+    position: absolute;
+    bottom: 100px;
+    left: 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff;
+    writing-mode: vertical-rl;
+    /* અક્ષરો ઊભા કરવા માટે */
+    transform: rotate(180deg);
+    margin: 0;
+    letter-spacing: 1px;
+    transition: all 0.5s ease;
+    opacity: 0.7;
+}
+
+/* 🔮 REVEAL GLASS CARD STYLE */
+.reveal-glass-card {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+
+    /* ડિફોલ્ટ છુપાયેલું રહેશે અને નીચે બેઠેલું હશે */
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.3, 1);
+    transition-delay: 0.1s;
+}
+
+.card-category {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #fe8a03;
+    letter-spacing: 2px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.reveal-glass-card h2 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+    font-weight: 600;
+}
+
+.reveal-glass-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 20px 0;
+}
+
+.minimal-link {
+    color: #479f27;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.minimal-link:hover {
+    color: #ffffff;
+}
+
+
+/* ⚡ HOVER INTERACTION LOGIC (પેનલ એક્સપાન્ડ ઇફેક્ટ) */
+
+/* જે પેનલ પર હોવર થાય તે મોટી થઈ જશે (flex: 2) */
+.image-panel:hover {
+    flex: 2;
+}
+
+/* હોવર થાય ત્યારે ઈમેજ સહેજ ઝૂમ થશે */
+.image-panel:hover .panel-bg-image {
+    transform: scale(1.05);
+    filter: grayscale(0%) contrast(105%);
+}
+
+/* હોવર થતા ઊભું લખાણ અદ્રશ્ય થઈ જશે */
+.image-panel:hover .vertical-title {
+    opacity: 0;
+    transform: rotate(180deg) translateY(20px);
+}
+
+/* હોવર થતા ગ્લાસ કાર્ડ સ્મૂધલી પોપ-અપ થશે */
+.image-panel:hover .reveal-glass-card {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* જ્યારે કોઈ એક પેનલ હોવર હોય, ત્યારે બીજી પેનલ સહેજ ડાર્ક થઈ જશે */
+.hero-split-wrapper:has(.image-panel:hover) .image-panel:not(:hover) {
+    flex: 0.6;
+    /* બીજી પેનલ સંકોચાઈ જશે */
+    opacity: 0.4;
+}
+
+
+/* 📱 MOBILE RESPONSIVE (મોબાઈલમાં સ્પ્લિટ્સ આડા થઈ જશે) */
+@media (max-width: 992px) {
+
+    .title-section{
+        padding: 130px 20px 40px 20px;
+    }
+    
+    .creative-about-hero {
+        height: auto;
+    }
+
+    .hero-split-wrapper {
+        flex-direction: column;
+    }
+
+    .split-panel {
+        width: 100%;
+        height: auto;
+        padding: 60px 24px;
+    }
+
+    .text-panel {
+        padding-top: 100px;
+    }
+
+    .giant-heading {
+        font-size: 3rem;
+    }
+
+    .image-panel {
+        height: 400px;
+    }
+
+    .vertical-title {
+        writing-mode: horizontal-tb;
+        transform: none;
+        top: 30px;
+        left: 24px;
+    }
+
+    /* મોબાઈલમાં હોવર વગર પણ ગ્લાસ કાર્ડ હંમેશા ઓપન જ દેખાશે */
+    .reveal-glass-card {
+        opacity: 1;
+        transform: none;
+    }
+
+    .image-panel:hover {
+        flex: 1;
+    }
+
+    .hero-split-wrapper:has(.image-panel:hover) .image-panel:not(:hover) {
+        flex: 1;
+        opacity: 1;
+    }
+}
+
+/* section 1 css over  */
+
+
+/* section 2 css start */
+/* ==========================================================================
+   ✦ PREMIUM ANTI-COMMON HERO SECTION STYLE ✦
+   ========================================================================== */
+
+.anti-common-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+/* 🪐 AMBIENT LIGHT ORBS */
+.ambient-glow {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(140px);
+    opacity: 0.12;
+    z-index: 1;
+}
+
+.orb-green {
+    top: -10%;
+    right: 20%;
+    width: 500px;
+    height: 500px;
+    background: #479f27;
+}
+
+.orb-orange {
+    bottom: -10%;
+    left: 10%;
+    width: 400px;
+    height: 400px;
+    background: #fe8a03;
+}
+
+/* ✍️ BACKGROUND GIANT TYPOGRAPHY LAYER */
+.hero-bg-text-layer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    z-index: 2;
+    user-select: none;
+}
+
+.hero-bg-text-layer h1 {
+    font-size: 11vw;
+    font-weight: 900;
+    line-height: 0.85;
+    margin: 0;
+    letter-spacing: -4px;
+    text-transform: uppercase;
+    transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.giant-stroke-text {
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.04);
+}
+
+.giant-solid-text {
+    color: rgba(255, 255, 255, 0.015);
+}
+
+/* 🏁 FOREGROUND LAYER HIERARCHY */
+.hero-foreground-container {
+    position: relative;
+    z-index: 3;
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    isolation: isolate;
+}
+
+/* LEFT SIDE INTRODUCTION */
+.hero-left-intro {
+    flex: 1;
+    max-width: 460px;
+}
+
+.hero-left-intro .premium-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 6px 14px;
+    border-radius: 30px;
+    margin-bottom: 2rem;
+}
+
+.hero-left-intro .badge-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #fe8a03;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #fe8a03;
+}
+
+.hero-left-intro .premium-badge span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(249, 250, 251, 0.7);
+    font-weight: 600;
+}
+
+.hero-tagline-text {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0 0 2.5rem 0;
+}
+
+/* 🧪 પ્રીમિયમ ગ્લાસ બટન */
+.export-glass-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px 38px;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--text-light);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 30px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+}
+
+.export-glass-btn .icon-container {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.export-glass-btn .cloud-icon {
+    position: absolute;
+    right: -2px;
+    top: 2px;
+    transition: var(--transition-smooth);
+}
+
+.export-glass-btn .plane-icon {
+    position: absolute;
+    z-index: 2;
+    transition: var(--transition-smooth);
+}
+
+/* BUTTON HOVER EFFECTS */
+.export-glass-btn:hover {
+    background: rgba(10, 85, 28, 0.2);
+    border-color: var(--brand-light-green);
+    box-shadow: 0 0 25px rgba(71, 159, 39, 0.25);
+    color: var(--text-light);
+}
+
+.export-glass-btn:hover .cloud-icon {
+    transform: translateX(4px);
+    stroke: rgba(249, 250, 251, 0.6);
+}
+
+.export-glass-btn:hover .plane-icon {
+    stroke: var(--brand-orange-hover);
+    animation: flyRightLoop 0.75s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+@keyframes flyRightLoop {
+    0% { transform: translate(0, 0) scale(1); opacity: 1; }
+    45% { transform: translate(35px, -12px) scale(0.8); opacity: 0; }
+    50% { transform: translate(-35px, 12px) scale(0.8); opacity: 0; }
+    100% { transform: translate(0, 0) scale(1); opacity: 1; }
+}
+
+.export-glass-btn .btn-text {
+    transition: var(--transition-smooth);
+}
+
+.export-glass-btn:hover .btn-text {
+    transform: translateX(-2px);
+}
+
+/* 🖼️ RIGHT SIDE ASYMMETRIC CANVAS (DESKTOP) */
+.hero-right-canvas {
+    flex: 1.3;
+    position: relative;
+    height: 550px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.canvas-card {
+    position: absolute;
+    border-radius: 24px;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+    transition: transform 0.2s ease-out, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card-inner-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.card-inner-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: contrast(105%) grayscale(10%);
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card-glass-tag {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(4, 10, 5, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 6px 14px;
+    border-radius: 30px;
+}
+
+.card-glass-tag span {
+    font-size: 0.7rem;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* 📐 DESKTOP POSITIONING (અલગ-અલગ લેવલ પર) */
+.card-spice-field {
+    width: 280px;
+    height: 380px;
+    left: 10%;
+    top: 5%;
+    transform: rotate(-3deg);
+    z-index: 4;
+}
+
+.card-logistic-ship {
+    width: 300px;
+    height: 400px;
+    right: 5%;
+    bottom: 5%;
+    transform: rotate(2deg);
+    z-index: 5;
+}
+
+/* HOVER EFFECTS */
+.canvas-card:hover {
+    border-color: #479f27;
+    z-index: 10;
+    box-shadow: 0 40px 80px rgba(71, 159, 39, 0.2);
+}
+
+.card-logistic-ship:hover {
+    border-color: #fe8a03;
+    box-shadow: 0 40px 80px rgba(254, 138, 3, 0.2);
+}
+
+.canvas-card:hover .card-inner-wrapper img {
+    transform: scale(1.06);
+}
+
+/* ==========================================================================
+   📱 ⚡ PERFECT RESPONSIVE MEDIA QUERIES (બાજુ-બાજુમાં સેટિંગ) ⚡
+   ========================================================================== */
+
+@media (max-width: 992px) {
+    .anti-common-hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 120px 0 60px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .hero-foreground-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 50px;
+        padding: 0 1.5rem;
+        isolation: auto;
+    }
+
+    .hero-left-intro {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 550px;
+    }
+
+    .hero-bg-text-layer {
+        justify-content: flex-start;
+        top: 15%;
+    }
+
+    .hero-bg-text-layer h1 {
+        font-size: 18vw;
+        letter-spacing: -2px;
+    }
+
+    /* ⚡ મોબાઇલમાં ઈમેજ કન્ટેનરને ફ્લેક્સ આપીને બાજુ-બાજુમાં ગોઠવ્યું */
+    .hero-right-canvas {
+        width: 100%;
+        max-width: 580px;
+        height: 340px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row; /* આજુબાજુ લાવવા માટે */
+        justify-content: center;
+        align-items: center;
+        gap: 20px; /* બે ઈમેજ વચ્ચેની જગ્યા */
+    }
+
+    /* ⚡ પોઝિશન absolute માંથી નોર્મલ કરી અને સેન્ટર લેવલ કર્યું */
+    .canvas-card {
+        position: relative; /* absolute માંથી બદલ્યું */
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+        bottom: auto !important;
+    }
+
+    .card-spice-field {
+        width: 48%; /* બંને ઈમેજ સરખા ભાગે વહેંચાશે */
+        height: 320px;
+        transform: rotate(-2deg);
+    }
+
+    .card-logistic-ship {
+        width: 48%;
+        height: 320px;
+        transform: rotate(2deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .anti-common-hero {
+        padding: 100px 0 40px 0;
+    }
+
+    .hero-foreground-container {
+        gap: 35px;
+    }
+
+    .hero-bg-text-layer h1 {
+        font-size: 22vw;
+    }
+
+    .hero-tagline-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+    }
+
+    .export-glass-btn {
+        padding: 14px 28px;
+        font-size: 12px;
+        letter-spacing: 1.5px;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    /* ખૂબ નાના મોબાઇલમાં ઈમેજ હાઇટ એડજસ્ટમેન્ટ */
+    .hero-right-canvas {
+        height: 240px;
+        gap: 12px;
+    }
+
+    .card-spice-field, 
+    .card-logistic-ship {
+        height: 230px;
+        border-radius: 16px;
+        padding: 8px;
+    }
+    
+    .card-glass-tag {
+        bottom: 8px;
+        left: 8px;
+        padding: 4px 8px;
+    }
+    
+    .card-glass-tag span {
+        font-size: 0.55rem;
+    }
+}
+/* section 2 css over */
+
+
+
+/* section 3 css start  */
+
+/* 🌟 CORE PILLAR SECTION BASE */
+.everfresh-pillar-section {
+    position: relative;
+    width: 100%;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.pillar-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    gap: 80px;
+}
+
+/* ✍️ LEFT COLUMN */
+.pillar-left-content {
+    flex: 1.3;
+}
+
+.pillar-left-content .premium-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 6px 14px;
+    border-radius: 30px;
+    margin-bottom: 1.5rem;
+}
+
+.pillar-left-content .badge-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #479f27;
+    /* EverFresh Green */
+    border-radius: 50%;
+    box-shadow: 0 0 8px #479f27;
+}
+
+.pillar-left-content .premium-badge span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(249, 250, 251, 0.6);
+    font-weight: 600;
+}
+
+.pillar-main-title {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0 0 3rem 0;
+}
+
+.pillar-main-title span {
+    color: #fe8a03;
+    /* EverFresh Orange */
+}
+
+/* MISSION & VISION GRID */
+.vision-mission-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 3rem;
+}
+
+.pillar-glass-card {
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    gap: 20px;
+    transition: all 0.4s ease;
+}
+
+.pillar-glass-card:hover {
+    background: rgba(71, 159, 39, 0.02);
+    border-color: rgba(71, 159, 39, 0.2);
+    transform: translateX(6px);
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: #479f27;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.4s ease;
+}
+
+.pillar-glass-card:hover .card-icon {
+    background: #479f27;
+    color: #ffffff;
+    box-shadow: 0 0 15px rgba(71, 159, 39, 0.4);
+}
+
+.pillar-glass-card h3 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+}
+
+.pillar-glass-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(249, 250, 251, 0.5);
+    margin: 0;
+}
+
+/* SLOGAN QUOTE */
+.company-slogan-quote {
+    font-size: 1.4rem;
+    font-style: italic;
+    color: rgba(254, 138, 3, 0.85);
+    /* Slogan Highlighting */
+    border-left: 2px solid #fe8a03;
+    padding-left: 20px;
+    margin: 0;
+    font-weight: 500;
+}
+
+
+/* 👔 RIGHT COLUMN: LEADERSHIP */
+.pillar-right-leadership {
+    flex: 1;
+    position: relative;
+}
+
+.leadership-sticky-box {
+    position: sticky;
+    top: 100px;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.leader-sub {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #479f27;
+    letter-spacing: 2px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.leader-title {
+    font-size: 2.2rem;
+    color: #ffffff;
+    margin: 0 0 15px 0;
+    font-weight: 700;
+}
+
+.leader-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(249, 250, 251, 0.45);
+    margin-bottom: 30px;
+}
+
+/* PARTNERS PROFILE */
+.partners-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 35px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 30px;
+}
+
+.partner-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.partner-avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(254, 138, 3, 0.1);
+    border: 1px solid rgba(254, 138, 3, 0.2);
+    color: #fe8a03;
+    font-weight: 700;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partner-info h4 {
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin: 0 0 2px 0;
+    font-weight: 600;
+}
+
+.partner-info p {
+    font-size: 0.8rem;
+    color: rgba(249, 250, 251, 0.4);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* PRODUCT FOCUS TAGS */
+.export-focus-area h5 {
+    font-size: 0.85rem;
+    color: #ffffff;
+    margin: 0 0 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.focus-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.focus-tags span {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    color: rgba(249, 250, 251, 0.6);
+    transition: all 0.3s ease;
+}
+
+.focus-tags span:hover {
+    border-color: #479f27;
+    color: #ffffff;
+    background: rgba(71, 159, 39, 0.05);
+}
+
+
+/* 📱 PERFECT MOBILE RESPONSIVE */
+@media (max-width: 992px) {
+    .pillar-container {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .pillar-main-title {
+        font-size: 2.2rem;
+    }
+
+    .pillar-glass-card {
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .leadership-sticky-box {
+        position: relative;
+        top: 0;
+        padding: 24px;
+    }
+}
+
+/* section 3 css over */
+
+
+/* section 4 css start  */
+
+/* 🌟 ULTRA CLEAN CORPORATE SECTION BASE */
+.everfresh-corporate-profile-section {
+    position: relative;
+    width: 100%;
+    /* background-color: #050a06; */
+    padding: 50px 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+.corporate-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 🏁 HEADER ROW STYLE */
+.corporate-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 50px;
+    width: 100%;
+}
+
+.corp-serial {
+    font-size: 0.8rem;
+    color: #479f27;
+    /* બ્રાન્ડ ગ્રીન */
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 0.8rem;
+}
+
+.corporate-header-row h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.corporate-header-row h2 span {
+    color: #fe8a03;
+    /* બ્રાન્ડ ઓરેન્જ */
+}
+
+.title-right-desc {
+    max-width: 480px;
+}
+
+.title-right-desc p {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+}
+
+/* ➖ MINIMAL DIVIDER LINE */
+.corporate-divider-line {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.06);
+    margin: 60px 0;
+}
+
+
+/* 🏁 TWO COLUMN GRID SYSTEM */
+.corporate-content-grid {
+    display: flex;
+    gap: 80px;
+    width: 100%;
+}
+
+.corporate-grid-col {
+    flex: 1;
+}
+
+.column-sub-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.35);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 40px 0;
+}
+
+
+/* 📦 LEFT COLUMN: FLAT PRODUCT STACK */
+.flat-product-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.flat-product-card {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.flat-product-card .card-meta {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #479f27;
+    background: rgba(71, 159, 39, 0.08);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-family: monospace;
+}
+
+.card-body h4 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+    font-weight: 600;
+}
+
+.card-body p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+}
+
+
+/* 📦 RIGHT COLUMN: FLAT FEATURE LIST */
+.border-left-sep {
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    padding-left: 80px;
+}
+
+.flat-feature-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.flat-feature-row {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.feature-bullet-dot {
+    width: 6px;
+    height: 6px;
+    background: #fe8a03;
+    border-radius: 50%;
+    margin-top: 8px;
+    flex-shrink: 0;
+}
+
+.feature-text h5 {
+    font-size: 1.15rem;
+    color: #ffffff;
+    margin: 0 0 6px 0;
+    font-weight: 600;
+}
+
+.feature-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+}
+
+/* BRAND TAGLINE AT BOTTOM RIGHT */
+.corporate-footer-tagline {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.05);
+}
+
+.tagline-quote {
+    font-size: 1.1rem;
+    color: #fe8a03;
+    font-style: italic;
+    font-weight: 500;
+}
+
+
+/* 📱 PERFECT MOBILE RESPONSIVE */
+@media (max-width: 992px) {
+    .everfresh-corporate-profile-section {
+        padding: 80px 0;
+    }
+
+    .corporate-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .corporate-header-row h2 {
+        font-size: 2.2rem;
+    }
+
+    .corporate-divider-line {
+        margin: 40px 0;
+    }
+
+    .corporate-content-grid {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .border-left-sep {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .column-sub-title {
+        margin-bottom: 25px;
+    }
+}
+
+/* section 4 css over  */
+
+
+
+/* section 5 css start   */
+/* 🌟 SEAMLESS CONTAINER STRUCTURE */
+.everfresh-transparent-slate {
+    position: relative;
+    width: 100%;
+    padding: 100px 0;
+    box-sizing: border-box;
+}
+
+.slate-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+.slate-header {
+    margin-bottom: 60px;
+}
+
+.slate-serial {
+    font-size: 0.85rem;
+    color: #479f27; /* EverFresh Green */
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.slate-header h2 {
+    font-size: 3rem;
+    color: #ffffff;
+    margin: 0 0 18px 0;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.slate-header h2 span { color: #fe8a03; } /* EverFresh Orange */
+
+.slate-header p {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.45);
+    max-width: 580px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* 🎴 GRID SYSTEM */
+.slate-matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    width: 100%;
+}
+
+/* 🔮 ULTRA-MODERN GLASSMORPHISM CARD */
+.matrix-cell {
+    position: relative;
+    
+    /* પ્યોર લક્ઝરી ગ્લાસ બેઝ ઇફેક્ટ */
+    background: rgba(255, 255, 255, 0.015); 
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    
+    /* 💥 આ લાઇન પાછળના કન્ટેન્ટ કે ગ્રેડિયન્ટને કાચની જેમ બ્લર કરશે */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    border-radius: 20px; /* મોડર્ન સ્મૂધ રાઉન્ડ કોર્નર્સ */
+    padding: 45px 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    min-height: 390px; 
+    overflow: hidden;
+    
+    /* સોફ્ટ કાચનો ઇનર ગ્લો અને આઉટર શેડો */
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 
+                0 20px 40px rgba(0, 0, 0, 0.3);
+                
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 🔄 THE CONTENT SHIFTER WRAPPER */
+.shifting-content-wrapper {
+    position: relative;
+    width: 100%;
+    margin-top: -55px; /* શરૂઆતમાં આઇકોન વગર ટેક્સ્ટ બરાબર ટોપ પર રહેશે */
+    transition: margin-top 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 🔍 THE HIDDEN ICON BOX */
+.hidden-icon-box {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    margin: 0 auto 25px auto; 
+    transform: translateY(-15px) scale(0.85);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hidden-icon-box svg {
+    transition: transform 0.5s ease;
+}
+
+.cell-index {
+    position: absolute;
+    right: 0;
+    top: 55px; 
+    font-size: 0.95rem;
+    font-weight: 700;
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.12);
+    transition: all 0.4s ease;
+}
+
+.matrix-cell h4 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin: 0 0 15px 0;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+}
+
+.matrix-cell p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+    transition: color 0.4s ease;
+}
+
+/* BOTTOM ACTION LINK */
+.cell-action-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.4);
+    position: relative;
+    padding-bottom: 6px;
+    align-self: center;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: color 0.4s ease;
+}
+
+.cell-action-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: transparent;
+    transition: all 0.4s ease;
+}
+
+
+/* ⚡ HOVER INTERACTION & GLASS ACCENTS */
+
+/* હોવર થતા સ્પેસ શિફ્ટ થશે */
+.matrix-cell:hover .shifting-content-wrapper {
+    margin-top: 0px; 
+}
+
+.matrix-cell:hover .hidden-icon-box {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* 🟢 GREEN GLASS HOVER */
+.matrix-cell.accent-green:hover {
+    background: rgba(71, 159, 39, 0.03); /* કાચની પાછળ હલકો લીલો આભાસ */
+    border-color: rgba(71, 159, 39, 0.3);
+    box-shadow: inset 0 1px 1px rgba(71, 159, 39, 0.2), 
+                0 30px 60px rgba(0, 0, 0, 0.5);
+}
+.matrix-cell.accent-green:hover .hidden-icon-box {
+    background: rgba(71, 159, 39, 0.12);
+    border: 1px solid rgba(71, 159, 39, 0.25);
+    color: #479f27;
+    box-shadow: 0 0 20px rgba(71, 159, 39, 0.2);
+}
+.matrix-cell.accent-green:hover .cell-action-link { color: #ffffff; }
+.matrix-cell.accent-green:hover .cell-action-link::after {
+    width: 100%;
+    background: #479f27;
+}
+
+/* 🟠 ORANGE GLASS HOVER */
+.matrix-cell.accent-orange:hover {
+    background: rgba(254, 138, 3, 0.03); /* કાચની પાછળ હલકો ઓરેન્જ આભાસ */
+    border-color: rgba(254, 138, 3, 0.3);
+    box-shadow: inset 0 1px 1px rgba(254, 138, 3, 0.2), 
+                0 30px 60px rgba(0, 0, 0, 0.5);
+}
+.matrix-cell.accent-orange:hover .hidden-icon-box {
+    background: rgba(254, 138, 3, 0.12);
+    border: 1px solid rgba(254, 138, 3, 0.25);
+    color: #fe8a03;
+    box-shadow: 0 0 20px rgba(254, 138, 3, 0.2);
+}
+.matrix-cell.accent-orange:hover .cell-action-link { color: #ffffff; }
+.matrix-cell.accent-orange:hover .cell-action-link::after {
+    width: 100%;
+    background: #fe8a03;
+}
+
+/* Common Hover Settings */
+.matrix-cell:hover {
+    transform: translateY(-8px); /* પાવરફુલ ફ્લોટિંગ લુક માટે */
+}
+.matrix-cell:hover .cell-index {
+    color: rgba(255, 255, 255, 0.3);
+    top: 0px; 
+}
+.matrix-cell:hover p { color: rgba(255, 255, 255, 0.65); }
+.matrix-cell:hover .hidden-icon-box svg {
+    transform: rotate(360deg);
+}
+
+
+/* 📱 PERFECT MOBILE RESPONSIVE */
+@media (max-width: 1024px) {
+    .slate-matrix-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .matrix-cell { min-height: 360px; }
+}
+
+@media (max-width: 680px) {
+    .slate-matrix-grid { grid-template-columns: 1fr; gap: 20px; }
+    
+    /* મોબાઈલમાં સ્પેસ શિફ્ટ બંધ રાખી હંમેશા ઓપન ગ્લાસ લુક રાખવો */
+    .shifting-content-wrapper { margin-top: 0px; }
+    .hidden-icon-box {
+        opacity: 1;
+        transform: none;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.4);
+    }
+    .cell-index { top: 0px; }
+    .matrix-cell { min-height: auto; padding: 35px 24px; }
+}
+
+/* section 5 css over */
+
+
+
+
+/* section 6 css start  */
+
+/* 🌟 LASER TIMELINE CORE STRUCTURE */
+.everfresh-laser-timeline {
+    position: relative;
+    width: 100%;
+    padding: 120px 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+.timeline-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+.timeline-header {
+    margin-bottom: 80px;
+}
+
+.slate-serial {
+    font-size: 0.85rem;
+    color: #479f27; /* EverFresh Green */
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.timeline-header h2 {
+    font-size: 3rem;
+    color: #ffffff;
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.timeline-header h2 span { color: #fe8a03; } /* EverFresh Orange */
+
+/* 🏁 LASER TIMELINE WRAPPER */
+.laser-timeline-stack {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* સેન્ટ્રલ અલ્ટ્રા-થિન એક્સિસ લાઇન */
+.center-laser-axis {
+    position: absolute;
+    left: 350px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.02) 0%, 
+        rgba(255, 255, 255, 0.08) 50%, 
+        rgba(255, 255, 255, 0.02) 100%);
+    z-index: 1;
+}
+
+/* INDIVIDUAL ROW */
+.timeline-row {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding: 50px 0;
+    z-index: 2;
+    box-sizing: border-box;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* 🎯 💥 SCROLL VISIBILITY CLASSES (શરૂઆતમાં છુપાયેલું રહેશે) */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* જેવું સ્ક્રૉલ થઈને સ્ક્રીન પર આવશે એટલે આ ક્લાસ એક્ટિવ થશે */
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ડાબી બાજુનો સ્ટેપ ઝોન */
+.time-meta-zone {
+    flex: 1;
+    max-width: 350px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
+/* 🔮 PRESTIGE GLASS NODE */
+.glass-step-node {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+    flex-shrink: 0;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.step-count {
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.2);
+    transition: color 0.4s ease;
+}
+
+.time-meta-zone h4 {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    transition: color 0.4s ease;
+}
+
+/* જમણી બાજુનો ડિસ્ક્રિપ્શન ઝોન */
+.time-body-zone {
+    flex: 2;
+    padding-left: 40px;
+    box-sizing: border-box;
+}
+
+.time-body-zone p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+    transition: color 0.4s ease;
+}
+
+/* ⚡ HOVER SYSTEM */
+.timeline-row.glow-orange:hover .glass-step-node {
+    background: rgba(254, 138, 3, 0.08);
+    border-color: rgba(254, 138, 3, 0.3);
+    box-shadow: 0 15px 30px rgba(254, 138, 3, 0.25), inset 0 1px 1px rgba(254, 138, 3, 0.3);
+    transform: scale(1.05);
+}
+.timeline-row.glow-orange:hover .step-count { color: #fe8a03; }
+.timeline-row.glow-orange:hover h4 { color: #fe8a03; }
+
+.timeline-row.glow-green:hover .glass-step-node {
+    background: rgba(71, 159, 39, 0.08);
+    border-color: rgba(71, 159, 39, 0.3);
+    box-shadow: 0 15px 30px rgba(71, 159, 39, 0.25), inset 0 1px 1px rgba(71, 159, 39, 0.3);
+    transform: scale(1.05);
+}
+.timeline-row.glow-green:hover .step-count { color: #479f27; }
+.timeline-row.glow-green:hover h4 { color: #479f27; }
+
+.timeline-row:hover .time-body-zone p { color: rgba(255, 255, 255, 0.8); }
+
+/* 📊 OUTRO SLOGAN */
+.timeline-outro-slogan {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.timeline-outro-slogan h3 {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.12);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin: 0;
+}
+
+/* 📱 MOBILE RESPONSIVE */
+@media (max-width: 992px) {
+    .center-laser-axis { display: none; }
+    .timeline-row {
+        flex-direction: column;
+        gap: 15px;
+        padding: 40px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .time-meta-zone { max-width: 100%; width: 100%; padding-right: 0; }
+    .time-body-zone { padding-left: 0; }
+    .time-body-zone p { font-size: 0.95rem; }
+    .timeline-header h2 { font-size: 2.3rem; }
+}
+
+
+/* setion 6 css over  */
+
+
+
+
+
+/* scrollbar css */
+/* ========================================================
+   CHROME ULTRA-PREMIUM HARD OVERRIDE ENGINE (WHITE STRIP FIX)
+   ======================================================== */
+
+/* 1. Root window global targets context setup */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+    width: 10px !important;
+    /* Perfect modern thin alignment width window */
+    height: 10px !important;
+}
+
+/* 2. FORCING STRIP TO REMOVE WHITE BACKGROUND LINE BLOCK */
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track {
+    /* Chrome ni browser standard white space un-box logic framework active */
+    background: #050d06 !important;
+    /* Bettho tmaro body black dark deep backdrop pattern merge thy jase */
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 3. Rendering Luxury Minimal Capsule Core Track Overlays */
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb {
+    /* Dynamic solid matrix mapping: Emerald green top scales running down to branding orange vectors */
+    background: linear-gradient(180deg,
+            var(--brand-light-green, #479f27) 0%,
+            var(--brand-orange, #fe8a03) 100%) !important;
+
+    /* Smooth gaps setup safely mimicking expensive UI tracking handle layers */
+    border: 2px solid #050d06 !important;
+    /* Generates beautiful float space padding gap edge inside the bar */
+    border-radius: 100px !important;
+
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Hover active loops rules scaling configurations setup */
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg,
+            #5ec139 0%,
+            #ff9d24 100%) !important;
+}
+
+/* Base structural safeguards framework mapping checks loops lines */
+html {
+    scrollbar-width: thin !important;
+    scrollbar-color: #479f27 #050d06 !important;
+}
+/* scrollbar css over */

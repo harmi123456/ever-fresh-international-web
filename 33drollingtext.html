@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Rolling Text Effect on Scroll</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Syne:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+</head>
+<style>
+:root {
+    --bg-light: #f4f4f4;
+    --text-dark: #0f0f0f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.scroll-container {
+    height: 350vh; /* સ્ક્રોલ સ્પેસ */
+    position: relative;
+}
+
+/* 3D સીન કન્ટેનર */
+.ef-3d-scene {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px; /* 3D Depth */
+    overflow: hidden;
+}
+
+/* રોલિંગ સિલિન્ડર */
+.ef-roll-cylinder {
+    position: relative;
+    width: 95%;
+    max-width: 1100px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* દરેક લાઇન ની સ્ટાઇલ */
+.ef-roll-line {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    font-size: 5.8vw;
+    font-weight: 700;
+    line-height: 0.85; /* લાઇન હાઇટ ઘટાડી જેથી અક્ષરો નજીક આવે */
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+}
+
+/* ઈટાલિક બ્રાન્ડ લુક */
+.ef-roll-line.italic-brand {
+    font-family: 'Syne', sans-serif;
+    font-style: italic;
+    font-weight: 800;
+    letter-spacing: -3px;
+}
+
+.scroll-hint {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.4;
+    z-index: 10;
+}
+</style>
+<body>
+
+    <div class="scroll-hint">↓ સ્ક્રોલ ડાઉન કરો ↓</div>
+
+    <div class="scroll-container">
+        <div class="ef-3d-scene">
+            <div class="ef-roll-cylinder" id="cylinder">
+                
+                <div class="ef-roll-line">We are</div>
+                <div class="ef-roll-line italic-brand">the simplest.</div>
+                <div class="ef-roll-line">No complexity.</div>
+                <div class="ef-roll-line">No confusion.</div>
+                <div class="ef-roll-line italic-brand">Just pure</div>
+                <div class="ef-roll-line">simplicity.</div>
+                <div class="ef-roll-line italic-brand">Powerful AI</div>
+                <div class="ef-roll-line">that anyone</div>
+                <div class="ef-roll-line">can master.</div>
+                
+            </div>
+        </div>
+    </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const cylinder = document.getElementById("cylinder");
+    const lines = document.querySelectorAll(".ef-roll-line");
+    
+    const totalLines = lines.length;
+    const anglePerLine = 360 / totalLines; 
+    
+    /* ✦ સ્પેસ ઓછી કરવા માટે Radius ઘટાડી ✦
+       પહેલા ૨૮૦ હતી, હવે ૧૭5 કરી દીધી છે. આનાથી બધી લાઇનો વચ્ચેનો ગેપ એકદમ ઓછો થઈ જશે 
+       અને ટેક્સ્ટ એકબીજાની ખૂબ નજીકથી રોલ થશે. */
+    const radius = 175; 
+
+    // ૧. દરેક લાઇનને 3D વર્તુળમાં સેટ કરવી
+    lines.forEach((line, index) => {
+        const lineAngle = index * anglePerLine;
+        line.style.transform = `rotateX(${lineAngle}deg) translateZ(${radius}px)`;
+    });
+
+    // ૨. સ્ક્રોલ પર સીધું (ચત્તું) ફરે તેવું લોજિક
+    window.addEventListener("scroll", function () {
+        const scrollTop = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const maxScroll = document.documentElement.scrollHeight - windowHeight;
+        
+        const scrollPercent = scrollTop / maxScroll;
+        
+        /* ✦ રોટેશનની દિશા બદલી ✦
+           અહીંથી માઇનસ (-) કાઢી નાખ્યું છે, એટલે હવે સ્ક્રોલ ડાઉન કરશો 
+           એટલે લખાણ નીચેથી ઉપરની તરફ એકદમ પરફેક્ટ અને સીધું ફરશે. */
+        const totalRotation = scrollPercent * (360 * 1.5); 
+        
+        cylinder.style.transform = `rotateX(${totalRotation}deg)`;
+        
+        // ૩. ઓપેસિટી એન્ડ ફેડ મેનેજમેન્ટ
+        lines.forEach((line, index) => {
+            const lineAngle = index * anglePerLine;
+            // દિશા બદલાતા અહીં પ્લસ (+) ની ગણતરી કરી
+            const currentAngle = (lineAngle + totalRotation) % 360;
+            
+            const cosVal = Math.cos(currentAngle * Math.PI / 180);
+            
+            if (cosVal > 0) {
+                // સેન્ટરમાં હોય ત્યારે ફૂલ ડાર્ક, ઉપર-નીચે જાય ત્યારે સ્મૂથ ફેડ
+                line.style.opacity = Math.pow(cosVal, 2.2);
+                line.style.display = "block";
+            } else {
+                line.style.opacity = 0;
+            }
+        });
+    });
+});
+</script>
+
+</body>
+</html>

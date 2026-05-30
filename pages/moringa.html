@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Organic Moringa Powder | EverFresh International LLP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="/assets/css/product.css">
+</head>
+
+<body>
+
+    <div id="global-cursor-placeholder"></div>
+    <div id="global-header-placeholder"></div>
+
+    <section class="title-section">
+        <h1>Moringa Powder</h1>
+    </section>
+
+    <section class="product-hero-section">
+        <div class="hero-bg-gradient"></div>
+    </section>
+
+    <!-- Split Scroll Interactive Workspace -->
+    <div class="interactive-scroll-container">
+        <div class="scroll-split-wrapper">
+
+            <!-- Left Image Desk (GSAP Pinned Object) -->
+            <div class="left-sticky-visual-desk">
+                <div class="canvas-image-rack" id="imgRackContainer">
+                    <span class="ux-live-badge" id="liveGradeBadge">Origin: Organic Cultivation Belts</span>
+
+                    <img src="https://images.unsplash.com/photo-1543257580-7269da773bf5?q=80&w=800" class="active"
+                        data-index="1" alt="Premium Organic Moringa Leaf Powder">
+                    <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?q=80&w=800" data-index="2"
+                        alt="Hygienic Dehydration & Superfine Milling">
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9d39d6618?q=80&w=800" data-index="3"
+                        alt="Vacuum Sealed Nutrient Saver Packing">
+                </div>
+            </div>
+
+            <!-- Right Content Stream -->
+            <div class="right-scrolling-content-desk">
+
+                <!-- Block 1 -->
+                <div class="narrative-row-block active-row" data-frame="1">
+                    <h2 class="row-heading">Processed From Whole <span>Organic Moringa Oleifera Leaves</span></h2>
+                    <p class="row-desc">
+                        EverFresh International LLP delivers export-grade Organic Moringa Leaf Powder (Drumstick Leaf Powder) sourced directly from certified botanical cultivation belts. Processed under absolute hygienic conditions using advanced low-temperature shadow-dehydration, we safely preserve its rich chlorophyll matrix, natural vitamins, and essential amino acid profiles, delivering a vibrant green superfine powder tailored for international nutraceutical and wellness markets.
+                    </p>
+                </div>
+
+                <!-- Block 2 -->
+                <div class="narrative-row-block" data-frame="2">
+                    <h2 class="row-heading">The Analytical <span>Nutrient & Chlorophyll Matrix</span></h2>
+                    <p class="row-desc">
+                        Our specialized milling facility integrates multi-stage air-classification and ultimate particle micro-sieving to maintain a flawless texture. Run through heavy-duty rare-earth magnetic grids to ensure zero metal traces, every export batch undergoes comprehensive lab validations to satisfy global organic compliance, pesticide-free verification, and strict microbial clearance thresholds.
+                    </p>
+
+                    <div class="ux-bento-spec-matrix">
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Nutritional Value</span>
+                            <span class="cell-value">Rich Amino Acids & Antioxidants</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Moisture Shield</span>
+                            <span class="cell-value">6.0% - 7.5% Maximum</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Color Index Profile</span>
+                            <span class="cell-value">100% Natural Vibrant Green</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Sieve Mesh Fineness</span>
+                            <span class="cell-value">100% Passes through 80-100 Mesh</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Block 3 -->
+                <div class="narrative-row-block" data-frame="3">
+                    <h2 class="row-heading">Light & Air Insulated <span>Nutrient Safe Packaging</span></h2>
+                    <p class="row-desc">
+                        Pure moringa powder is highly sensitive to photo-oxidation, heat, and ambient air humidity, which can degrade its rich green color and therapeutic values during ocean voyages. Select your target barrier packaging architecture below to see how we seal the herbal superfood integrity from our packing bay to your terminal.
+                    </p>
+
+                    <div class="ux-packaging-panel">
+                        <div class="ux-pack-selectors">
+                            <button class="pack-btn active" onclick="switchPack('vacuum', this)">Vacuum Foil Bags</button>
+                            <button class="pack-btn" onclick="switchPack('carton', this)">Corrugated Boxes</button>
+                            <button class="pack-btn" onclick="switchPack('custom', this)">Private Brand Pouches</button>
+                        </div>
+                        <p class="ux-pack-display-text" id="packText">
+                            Advanced vacuum-sealed multi-layer aluminum foil barrier pouches (typically 10kg to 25kg net) designed to block 100% light penetration and oxygen exposure.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Block 4 -->
+                <div class="narrative-row-block" data-frame="4">
+                    <h2 class="row-heading">Ready for Global <span>Disbursement?</span></h2>
+                    <p class="row-desc">
+                        Establish direct communication parameters with our central operations hub at MorbiHQ to finalize custom technical variables, request spatial booking configurations, shipping bills, and real-time live container freight quotes.
+                    </p>
+                    <a href="https://wa.me/919870039168" target="_blank" class="ux-instant-pricing-btn">
+                        <span>Get Live Freight Quote (MorbiHQ)</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script>
+        // 1. GSAP ScrollTrigger Integration Logic
+        gsap.registerPlugin(ScrollTrigger);
+
+        const rows = gsap.utils.toArray('.narrative-row-block');
+        const images = gsap.utils.toArray('.canvas-image-rack img');
+        const badge = document.getElementById('liveGradeBadge');
+
+        const badgeTexts = {
+            1: "Origin: Organic Belts",
+            2: "Chlorophyll & Purity Tested",
+            3: "Nutrient-Lock Sealed",
+            4: "EverFresh Logistics"
+        };
+
+        // 🌟 Responsive GSAP Trigger MatchMedia Config
+        ScrollTrigger.matchMedia({
+            // Desktop Engine Setup
+            "(min-width: 992px)": function () {
+                rows.forEach((row, i) => {
+                    const frameIndex = parseInt(row.getAttribute('data-frame'));
+
+                    ScrollTrigger.create({
+                        trigger: row,
+                        start: "top 60%",
+                        end: "bottom 40%",
+                        onEnter: () => updateActiveState(row, frameIndex),
+                        onEnterBack: () => updateActiveState(row, frameIndex)
+                    });
+                });
+            },
+            // Mobile Engine Fallback Layout Setup
+            "(max-width: 991px)": function () {
+                rows.forEach((row, i) => {
+                    const frameIndex = parseInt(row.getAttribute('data-frame'));
+
+                    ScrollTrigger.create({
+                        trigger: row,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        onEnter: () => updateActiveState(row, frameIndex),
+                        onEnterBack: () => updateActiveState(row, frameIndex)
+                    });
+                });
+            }
+        });
+
+        function updateActiveState(currentRow, index) {
+            // Desktop active highlighting switcher
+            if (window.innerWidth > 991) {
+                rows.forEach(r => r.classList.remove('active-row'));
+                currentRow.classList.add('active-row');
+            }
+
+            // Canvas Image Engine Switcher
+            if (images[index - 1]) {
+                images.forEach(img => img.classList.remove('active'));
+                images[index - 1].classList.add('active');
+                badge.innerText = badgeTexts[index] || "EverFresh Quality";
+            }
+        }
+
+        // 2. Packaging Switcher Control Module (Updated for Moringa Powder)
+        const packingData = {
+            vacuum: "Advanced vacuum-sealed multi-layer aluminum foil barrier pouches (typically 10kg to 25kg net) designed to block 100% light penetration and oxygen exposure.",
+            carton: "Double-walled corrugated master shipping boxes containing internal light-proof poly-liners to prevent any dynamic tearing and preserve the delicate botanical matrix.",
+            custom: "Tailor-made private labeling solutions. High-barrier stand-up slider pouches, zip-locks, or superfood retail canisters processed directly with your brand plates from Morbi."
+        };
+
+        function switchPack(pack, element) {
+            document.querySelectorAll('.ux-pack-selectors .pack-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            const textBlock = document.getElementById('packText');
+            textBlock.style.opacity = 0;
+            setTimeout(() => {
+                textBlock.innerText = packingData[pack];
+                textBlock.style.opacity = 1;
+            }, 200);
+        }
+    </script>
+    <script src="/assets/script/script.js"></script>
+</body>
+
+</html>

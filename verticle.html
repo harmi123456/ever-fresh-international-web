@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Network Time Matrix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<style>
+    /* ==========================================================================
+       ✦ BRAND VARIABLES & RESET ✦
+       ========================================================================== */
+    :root {
+        --brand-light-green: #479f27;
+        --brand-dark-green: #0a551c;
+        --brand-orange: #fe8a03;
+        --brand-orange-hover: #e07600;
+        --text-light: #f9fafb;
+        --transition-smooth: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* ==========================================================================
+       ✦ ULTRA-PREMIUM ORBITAL ZONE MATRIX (REFERENCE DESIGN) ✦
+       ========================================================================== */
+
+    .global-matrix-section {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        min-height: 900px;
+        background: #030904 !important; /* ડાર્ક સોલિડ બેકગ્રાઉન્ડ */
+        font-family: 'Inter', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    /* 🪐 સોફ્ટ હાઇ-એન્ડ એમ્બિયન્ટ ગ્લો */
+    .matrix-bg-glow {
+        position: absolute;
+        width: 650px;
+        height: 650px;
+        background: radial-gradient(circle, rgba(71, 159, 39, 0.06) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* 🎯 ઓર્બિટલ પેરન્ટ કન્ટેનર */
+    .matrix-orbit-wrapper {
+        position: relative;
+        width: 1100px;
+        height: 750px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
+
+    /* ==========================================================================
+       🌀 CENTRAL MASTER NODE DESIGN
+       ========================================================================== */
+    .central-master-node {
+        position: relative;
+        width: 240px;
+        height: 240px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 40px 90px rgba(0, 0, 0, 0.9),
+                    inset 0 4px 20px rgba(255, 255, 255, 0.05);
+        transition: var(--transition-smooth);
+    }
+
+    .node-internal-core {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        z-index: 3;
+    }
+
+    .core-label {
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.4) !important;
+        letter-spacing: 4px;
+        margin-bottom: 6px;
+    }
+
+    .core-clock {
+        font-size: 2.1rem;
+        font-weight: 300;
+        color: #ffffff !important;
+        letter-spacing: 0.5px;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .blink-dots {
+        color: rgba(255, 255, 255, 0.3);
+        animation: matrixPulse 1s infinite;
+    }
+
+    .core-status {
+        font-size: 0.65rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.5) !important;
+        letter-spacing: 2px;
+        margin-top: 10px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .live-pulse-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--brand-light-green);
+        border-radius: 50%;
+        box-shadow: 0 0 10px var(--brand-light-green);
+        animation: matrixPulse 1.2s infinite;
+    }
+
+    /* ==========================================================================
+       🪐 6 SATELLITE CARDS ARRANGE (ABSOLUTE LAYOUT LIKE REFERENCE)
+       ========================================================================== */
+    .matrix-satellite-grid {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .satellite-card {
+        position: absolute;
+        width: 320px;
+        height: 160px;
+        background: rgba(255, 255, 255, 0.02) !important; /* કાચ જેવો પ્રીમિયમ ગ્લાસ લુક */
+        border: 1px solid rgba(255, 255, 255, 0.12) !important; /* બોર્ડર વિઝિબિલિટી વધારી */
+        border-radius: 20px;
+        padding: 26px;
+        display: flex;
+        pointer-events: auto;
+        overflow: hidden;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+                    border-color 0.4s ease,
+                    box-shadow 0.5s ease;
+    }
+
+    /* 📐 6 કાર્ડ્સનું રેફરન્સ ઈમેજ મુજબનું પરફેક્ટ પોઝિશનિંગ ગણિત */
+    .card-top-center    { left: 50%; top: 0%; transform: translateX(-50%); }
+    .card-top-right     { right: 2%; top: 16%; }
+    .card-bottom-right  { right: 2%; bottom: 16%; }
+    .card-bottom-center { left: 50%; bottom: 0%; transform: translateX(-50%); }
+    .card-bottom-left   { left: 2%; bottom: 16%; }
+    .card-top-left      { left: 2%; top: 16%; }
+
+    .card-content-pack {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+    }
+
+    .card-header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .card-index {
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.4) !important; /* હાઇ વિઝિબિલિટી ઇન્ડેક્સ */
+        letter-spacing: 1px;
+    }
+
+    .card-zone-tag {
+        font-size: 0.65rem;
+        color: var(--brand-orange) !important;
+        background: rgba(254, 138, 3, 0.08);
+        padding: 4px 12px;
+        border-radius: 30px;
+        border: 1px solid rgba(254, 138, 3, 0.2);
+        font-weight: 600;
+    }
+
+    .card-zone-tag.tag-green {
+        color: #59ca32 !important; /* બ્રાઇટ ગ્રીન ટૅગ */
+        background: rgba(71, 159, 39, 0.1);
+        border-color: rgba(71, 159, 39, 0.25);
+    }
+
+    .satellite-card h3 {
+        font-size: 1.25rem;
+        color: #ffffff !important; /* અક્ષરો એકદમ સફેદ અને શાર્પ દેખાશે */
+        font-weight: 600;
+        letter-spacing: -0.3px;
+        margin-top: 8px;
+    }
+
+    .card-time-display {
+        font-size: 2.1rem;
+        font-weight: 300;
+        color: #ffffff !important; /* લાઈવ ટાઈમ એકદમ બ્રાઈટ વ્હાઈટ કર્યો */
+        letter-spacing: 0.5px;
+        font-variant-numeric: tabular-nums;
+        margin-top: auto;
+        transition: var(--transition-smooth);
+    }
+
+    .time-blink {
+        color: rgba(255, 255, 255, 0.2);
+        animation: matrixPulse 1s infinite;
+    }
+
+    /* ==========================================================================
+       ✨ INTERACTIONS & HOVER EFFECTS ✦
+       ========================================================================== */
+
+    .satellite-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--brand-light-green) !important;
+        background: rgba(71, 159, 39, 0.05) !important;
+        box-shadow: 0 35px 70px rgba(0, 0, 0, 0.7),
+                    0 0 40px rgba(71, 159, 39, 0.15);
+    }
+
+    /* સેન્ટર પોઝિશન બેલેન્સ ઓન હોવર */
+    .card-top-center:hover { transform: translateX(-50%) translateY(-6px); }
+    .card-bottom-center:hover { transform: translateX(-50%) translateY(6px); }
+
+    /* કાર્ડ હોવર થાય ત્યારે સેન્ટર માસ્ટર હબ માં પણ પ્રીમિયમ ઓરેન્જ ગ્લો આવશે */
+    .matrix-orbit-wrapper:has(.satellite-card:hover) .central-master-node {
+        border-color: var(--brand-orange);
+        box-shadow: 0 40px 90px rgba(0, 0, 0, 0.8),
+                    0 0 45px rgba(254, 138, 3, 0.25);
+        transform: scale(1.03);
+    }
+
+    @keyframes matrixPulse {
+        50% { opacity: 0.3; }
+    }
+
+    /* ==========================================================================
+       📱 RESPONSIVE MEDIA QUERIES
+       ========================================================================== */
+
+    @media (max-width: 1200px) {
+        .matrix-orbit-wrapper { width: 950px; }
+        .satellite-card { width: 280px; padding: 20px; }
+        .card-time-display { font-size: 1.8rem; }
+    }
+
+    @media (max-width: 992px) {
+        .global-matrix-section { height: auto; padding: 80px 0; }
+        .matrix-orbit-wrapper { flex-direction: column; gap: 50px; width: 100%; height: auto; padding: 0 24px; }
+        .matrix-satellite-grid {
+            position: relative;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            height: auto;
+        }
+        .satellite-card {
+            position: relative;
+            left: auto !important; right: auto !important; top: auto !important; bottom: auto !important;
+            transform: none !important;
+            width: 100%;
+            height: 150px;
+        }
+        .satellite-card:hover { transform: translateY(-5px) !important; }
+    }
+
+    @media (max-width: 580px) {
+        .matrix-satellite-grid { grid-template-columns: 1fr; gap: 16px; }
+        .central-master-node { width: 200px; height: 200px; }
+        .core-clock { font-size: 1.7rem; }
+    }
+</style>
+
+<body>
+
+<section class="global-matrix-section">
+    <div class="matrix-bg-glow"></div>
+
+    <div class="matrix-orbit-wrapper">
+        
+        <!-- 🌀 CENTRAL MASTER NODE (GLOBAL TIME) -->
+        <div class="central-master-node">
+            <div class="node-internal-core">
+                <span class="core-label">EVERFRESH</span>
+                <div class="core-clock">
+                    <span id="hub-h">00</span><span class="blink-dots">:</span>
+                    <span id="hub-m">00</span><span class="blink-dots">:</span>
+                    <span id="hub-s">00</span>
+                </div>
+                <span class="core-status"><span class="live-pulse-dot"></span> GLOBAL HUB</span>
+            </div>
+        </div>
+
+        <!-- 🪐 6 LIVE SATELLITE TIME ZONE CARDS -->
+        <div class="matrix-satellite-grid">
+            
+            <!-- CARD 01: INDIA -->
+            <div class="satellite-card card-top-center">
+                <div class="card-content-pack">
+                    <div class="card-header-row">
+                        <span class="card-index">01 // HQ MATRIX</span>
+                        <span class="card-zone-tag tag-green">IST / UTC+5.5</span>
+                    </div>
+                    <h3>Morbi, India</h3>
+                    <div class="card-time-display">
+                        <span id="time-ind-h">00</span><span class="time-blink">:</span><span id="time-ind-m">00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 02: UNITED KINGDOM -->
+            <div class="satellite-card card-top-right">
+                <div class="card-content-pack">
+                    <div class="card-header-row">
+                        <span class="card-index">02 // EURO HUB</span>
+                        <span class="card-zone-tag">BST / UTC+1</span>
+                    </div>
+                    <h3>London, UK</h3>
+                    <div class="card-time-display">
+                        <span id="time-uk-h">00</span><span class="time-blink">:</span><span id="time-uk-m">00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 03: GERMANY -->
+            <div class="satellite-card card-bottom-right">
+                <div class="card-content-pack">
+                    <div class="card-header-row">
+                        <span class="card-index">03 // EURO GATEWAY</span>
+                        <span class="card-zone-tag">CEST / UTC+2</span>
+                    </div>
+                    <h3>Hamburg, Germany</h3>
+                    <div class="card-time-display">
+                        <span id="time-ger-h">00</span><span class="time-blink">:</span><span id="time-ger-m">00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 04: UNITED ARAB EMIRATES -->
+            <div class="satellite-card card-bottom-center">
+                <div class="card-content-pack">
+                    <div class="card-header-row">
+                        <span class="card-index">04 // GCC VECTOR</span>
+                        <span class="card-zone-tag tag-green">GST / UTC+4</span>
+                    </div>
+                    <h3>Dubai, UAE</h3>
+                    <div class="card-time-display">
+                        <span id="time-uae-h">00</span><span class="time-blink">:</span><span id="time-uae-m">00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 05: SINGAPORE -->
+            <div class="satellite-card card-bottom-left">
+                <div class="card-content-pack">
+                    <div class="card-header-row">
+                        <span class="card-index">05 // APAC RUNWAY</span>
+                        <span class="card-zone-tag">SGT / UTC+8</span>
+                    </div>
+                    <h3>Singapore, SG</h3>
+                    <div class="card-time-display">
+                        <span id="time-sg-h">00</span><span class="time-blink">:</span><span id="time-sg-m">00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 06: NORTH AMERICA -->
+            <div class="satellite-card card-top-left">
+                <div class="card-content-pack">
+                    <div class="card-header-row">
+                        <span class="card-index">06 // NA CORRIDOR</span>
+                        <span class="card-zone-tag">EDT / UTC-4</span>
+                    </div>
+                    <h3>New York, USA</h3>
+                    <div class="card-time-display">
+                        <span id="time-usa-h">00</span><span class="time-blink">:</span><span id="time-usa-m">00</span>
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+
+    </div> 
+</section>
+
+<!-- ==========================================================================
+     ⚡ JAVASCRIPT REAL-TIME TIME ZONE ENGINE ⚡
+     ========================================================================== */ -->
+<script>
+    function updateGlobalMatrixClocks() {
+        const now = new Date();
+
+        // 1. OPTIONS FOR EACH COUNTRY'S LOCAL TIME AREA
+        const optionsHub = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        const optionsInd = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false };
+        const optionsUK  = { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', hour12: false };
+        const optionsGer = { timeZone: 'Europe/Berlin', hour: '2-digit', minute: '2-digit', hour12: false };
+        const optionsUAE = { timeZone: 'Asia/Dubai', hour: '2-digit', minute: '2-digit', hour12: false };
+        const optionsSG  = { timeZone: 'Asia/Singapore', hour: '2-digit', minute: '2-digit', hour12: false };
+        const optionsUSA = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', hour12: false };
+
+        // 2. FETCH CURRENT CONVERTED DIGITAL TIME STRINGS
+        const timeHub = now.toLocaleTimeString('en-US', optionsHub).split(':');
+        const timeInd = now.toLocaleTimeString('en-US', optionsInd).split(':');
+        const timeUK  = now.toLocaleTimeString('en-US', optionsUK).split(':');
+        const timeGer = now.toLocaleTimeString('en-US', optionsGer).split(':');
+        const timeUAE = now.toLocaleTimeString('en-US', optionsUAE).split(':');
+        const timeSG  = now.toLocaleTimeString('en-US', optionsSG).split(':');
+        const timeUSA = now.toLocaleTimeString('en-US', optionsUSA).split(':');
+
+        // 3. INJECT LIVE DIGITS INTO THE HTML NODES
+        // Central Hub (Shows Running Seconds too)
+        document.getElementById('hub-h').textContent = timeHub[0];
+        document.getElementById('hub-m').textContent = timeHub[1];
+        document.getElementById('hub-s').textContent = timeHub[2];
+
+        // Individual Countries Cards
+        document.getElementById('time-ind-h').textContent = timeInd[0];
+        document.getElementById('time-ind-m').textContent = timeInd[1];
+
+        document.getElementById('time-uk-h').textContent = timeUK[0];
+        document.getElementById('time-uk-m').textContent = timeUK[1];
+
+        document.getElementById('time-ger-h').textContent = timeGer[0];
+        document.getElementById('time-ger-m').textContent = timeGer[1];
+
+        document.getElementById('time-uae-h').textContent = timeUAE[0];
+        document.getElementById('time-uae-m').textContent = timeUAE[1];
+
+        document.getElementById('time-sg-h').textContent = timeSG[0];
+        document.getElementById('time-sg-m').textContent = timeSG[1];
+
+        document.getElementById('time-usa-h').textContent = timeUSA[0];
+        document.getElementById('time-usa-m').textContent = timeUSA[1];
+    }
+
+    // Run the engine instantly, then heartbeat every 1000ms (1 Second)
+    updateGlobalMatrixClocks();
+    setInterval(updateGlobalMatrixClocks, 1000);
+</script>
+
+</body>
+</html>

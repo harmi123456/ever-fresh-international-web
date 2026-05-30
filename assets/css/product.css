@@ -1,0 +1,745 @@
+:root {
+    --brand-light-green: #479f27;
+    --brand-dark-green: #0a551c;
+    --brand-orange: #fe8a03;
+    --brand-orange-hover: #e07600;
+    --text-light: #f9fafb;
+    --transition-smooth: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+
+    /* નવો ડાર્ક ગ્લાસ ઇફેક્ટ કલર્સ */
+    --card-bg-glass: rgba(14, 28, 16, 0.45);
+    --card-border-glass: rgba(71, 159, 39, 0.15);
+    --text-muted: #9ca3af;
+}
+
+::selection {
+    background-color: var(--brand-dark-green);
+    color: var(--text-light);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-light);
+    overflow-x: hidden;
+    background-color: #050d06;
+    background-image:
+        radial-gradient(circle at 10% 20%, rgba(71, 159, 39, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 40%, rgba(10, 85, 28, 0.25) 0%, transparent 60%),
+        radial-gradient(circle at 50% 110%, #030804 0%, #060e07 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Apoc', serif !important;
+    font-weight: 700;
+}
+
+body,
+p,
+a,
+li,
+span,
+label,
+input,
+textarea {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* @font-face */
+@font-face {
+    font-family: 'Apoc';
+    src: url('../font/apoc-font-family/Apoc-Normal-Trial-Dark.otf') format('woff2'),
+        url('../font/apoc-font-family/Apoc-Normal-Trial-Regular.otf') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* scrollbar css */
+/* ========================================================
+   CHROME ULTRA-PREMIUM HARD OVERRIDE ENGINE (WHITE STRIP FIX)
+   ======================================================== */
+
+/* 1. Root window global targets context setup */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+    width: 10px !important;
+    /* Perfect modern thin alignment width window */
+    height: 10px !important;
+}
+
+/* 2. FORCING STRIP TO REMOVE WHITE BACKGROUND LINE BLOCK */
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track {
+    /* Chrome ni browser standard white space un-box logic framework active */
+    background: #050d06 !important;
+    /* Bettho tmaro body black dark deep backdrop pattern merge thy jase */
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 3. Rendering Luxury Minimal Capsule Core Track Overlays */
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb {
+    /* Dynamic solid matrix mapping: Emerald green top scales running down to branding orange vectors */
+    background: linear-gradient(180deg,
+            var(--brand-light-green, #479f27) 0%,
+            var(--brand-orange, #fe8a03) 100%) !important;
+
+    /* Smooth gaps setup safely mimicking expensive UI tracking handle layers */
+    border: 2px solid #050d06 !important;
+    /* Generates beautiful float space padding gap edge inside the bar */
+    border-radius: 100px !important;
+
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Hover active loops rules scaling configurations setup */
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg,
+            #5ec139 0%,
+            #ff9d24 100%) !important;
+}
+
+/* Base structural safeguards framework mapping checks loops lines */
+html {
+    scrollbar-width: thin !important;
+    scrollbar-color: #479f27 #050d06 !important;
+}
+
+/* scrollbar css over */
+
+
+/* --- Title Section --- */
+.title-section {
+    padding: 220px 20px 60px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* gap: 15px; */
+    text-align: center;
+}
+
+.title-section h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--brand-light-green);
+    /* ડાર્ક બેકગ્રાઉન્ડ પર લાઈટ ગ્રીન સ્ટોક વધુ ખુલશે */
+    transition: var(--transition-smooth);
+}
+
+.title-section h1:hover {
+    color: var(--brand-orange);
+    -webkit-text-stroke: 2px var(--brand-orange);
+}
+
+.title-section p {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+    max-width: 700px;
+    color: var(--text-muted);
+}
+
+/* --- Product Hero Section --- */
+.product-hero-section {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent, #050d06),
+        url('/assets/images/spice-banner.png') center center/cover no-repeat;
+    z-index: 1;
+    background-attachment: fixed;
+}
+
+/* --- Main Layout Container --- */
+.main-container {
+    max-width: 1320px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+/* --- Sidebar Filters (Glass Effect) --- */
+.sidebar-filter {
+    background: var(--card-bg-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid var(--card-border-glass);
+    height: fit-content;
+    position: sticky;
+    top: 40px;
+}
+
+.sidebar-filter h3 {
+    font-size: 1.4rem;
+    color: var(--brand-orange);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--card-border-glass);
+    letter-spacing: 1px;
+}
+
+.filter-btn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.filter-btn:hover {
+    background-color: rgba(71, 159, 39, 0.1);
+    color: var(--brand-light-green);
+    padding-left: 20px;
+}
+
+.filter-btn.active {
+    background-color: var(--brand-light-green);
+    color: var(--text-light);
+    padding-left: 20px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(71, 159, 39, 0.3);
+}
+
+/* --- Products Grid --- */
+.products-grid-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* --- Product Card (Premium Dark Glass) --- */
+.product-card {
+    background: var(--card-bg-glass);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--card-border-glass);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-smooth);
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(254, 138, 3, 0.4);
+    box-shadow: 0 12px 30px rgba(10, 85, 28, 0.3);
+}
+
+.product-img-box {
+    position: relative;
+    height: 220px;
+    background: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.product-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+    opacity: 0.85;
+    /* ડાર્ક થીમ સાથે બ્લેન્ડ કરવા */
+}
+
+.product-card:hover .product-img-box img {
+    transform: scale(1.06);
+    opacity: 1;
+}
+
+.category-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(10, 85, 28, 0.85);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--brand-light-green);
+    color: var(--text-light);
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+.product-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-info h2 {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.product-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* --- Get Quote Button --- */
+.enquiry-btn {
+    margin-top: auto;
+    display: inline-block;
+    text-align: center;
+    background: transparent;
+    color: var(--brand-orange);
+    border: 1px solid var(--brand-orange);
+    text-decoration: none;
+    padding: 11px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: var(--transition-smooth);
+}
+
+.enquiry-btn:hover {
+    background: var(--brand-orange);
+    color: var(--text-light);
+    box-shadow: 0 4px 15px rgba(254, 138, 3, 0.3);
+    transform: translateY(-2px);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .title-section {
+        padding: 130px 20px 40px 20px;
+    }
+
+    .main-container {
+        grid-template-columns: 1fr;
+        margin: 20px auto;
+    }
+
+    .sidebar-filter {
+        position: relative;
+        top: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 15px;
+    }
+
+    .sidebar-filter h3 {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .filter-btn {
+        width: auto;
+        margin-bottom: 0;
+        display: inline-block;
+        padding: 8px 14px;
+        font-size: 0.85rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* product page css start */
+/* 🌟 NEW HERO STORYTELLING LAYOUT */
+
+/* 🔄 KINETIC PINNED SCROLL WINDOW SECTIONS */
+.interactive-scroll-container {
+    position: relative;
+    width: 100%;
+}
+
+.interactive-scroll-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 220px;
+    z-index: 5;
+    pointer-events: none;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, .95) 20%,
+            rgba(0, 0, 0, .80) 40%,
+            rgba(5, 13, 6, .65) 60%,
+            rgba(5, 13, 6, .35) 80%,
+            transparent 100%);
+    filter: blur(45px);
+}
+
+.interactive-scroll-container::after {
+    content: "";
+    position: absolute;
+    top: -80px;
+    left: -15%;
+    width: 130%;
+    height: 220px;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, .95) 0%, rgba(0, 0, 0, .65) 40%, transparent 100%);
+    filter: blur(70px);
+    pointer-events: none;
+}
+
+.scroll-split-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 4rem;
+    gap: 80px;
+}
+
+/* Pinned Left Visual Desk */
+.left-sticky-visual-desk {
+    flex: 1;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.canvas-image-rack {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.canvas-image-rack img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: opacity 0.6s ease, transform 0.8s ease;
+}
+
+.canvas-image-rack img.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.ux-live-badge {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    background: rgba(10, 85, 28, 0.85);
+    border: 1px solid var(--brand-light-green);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 8px 18px;
+    border-radius: 40px;
+    letter-spacing: 1.5px;
+    z-index: 12;
+    text-transform: uppercase;
+}
+
+/* Scrolling Right Content Rows */
+.right-scrolling-content-desk {
+    flex: 1.2;
+    padding-top: 20vh;
+    padding-bottom: 20vh;
+}
+
+.narrative-row-block {
+    min-height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10vh;
+    opacity: 0.2;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.narrative-row-block.active-row {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.row-heading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #ffffff;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.row-heading span {
+    color: var(--brand-orange);
+}
+
+.row-desc {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 30px;
+}
+
+/* 📊 SPECS BENTO MATRIX CARDS */
+.ux-bento-spec-matrix {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.ux-glass-data-cell {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: var(--transition-smooth);
+}
+
+.cell-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.35);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cell-value {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.ux-glass-data-cell:hover {
+    transform: translateY(-5px);
+    border-color: var(--brand-light-green);
+    background: rgba(71, 159, 39, 0.05);
+}
+
+/* 📦 INTERACTIVE PACK PANEL */
+.ux-packaging-panel {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 35px;
+}
+
+.ux-pack-selectors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.pack-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.pack-btn.active {
+    background: rgba(254, 138, 3, 0.15);
+    border-color: var(--brand-orange);
+    color: #ffffff;
+}
+
+.ux-pack-display-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.5);
+    transition: opacity 0.2s ease;
+}
+
+/* CTA FOOTER TRUCK BUTTON */
+.ux-instant-pricing-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: linear-gradient(135deg, #0a140d 0%, #030704 100%);
+    border: 1px solid var(--brand-orange);
+    padding: 22px 35px;
+    border-radius: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    transition: var(--transition-smooth);
+    gap: 15px;
+}
+
+.ux-instant-pricing-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 30px 60px rgba(254, 138, 3, 0.2);
+}
+
+/* ========================================================
+       Responsive Layout Breaking Updates
+       ======================================================== */
+
+/* 💻 Tablets and Smaller Desktops */
+@media (max-width: 1199px) {
+    .scroll-split-wrapper {
+        padding: 0 2.5rem;
+        gap: 40px;
+    }
+
+    .canvas-image-rack {
+        height: 420px;
+    }
+}
+
+/* 📱 Mobile and Vertical Viewports */
+@media (max-width: 991px) {
+    .product-hero-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .scroll-split-wrapper {
+        flex-direction: column;
+        padding: 0 1.5rem;
+        gap: 20px;
+    }
+
+    /* Cancel Sticky Feature on Small Screens */
+    .left-sticky-visual-desk {
+        height: auto;
+        position: relative;
+        top: 0;
+        padding-top: 60px;
+        width: 100%;
+    }
+
+    .canvas-image-rack {
+        height: 380px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .right-scrolling-content-desk {
+        padding-top: 40px;
+        padding-bottom: 80px;
+        width: 100%;
+    }
+
+    .narrative-row-block {
+        min-height: auto;
+        margin-bottom: 60px;
+        opacity: 1 !important;
+        /* Forces layout readability */
+        transform: none !important;
+    }
+
+    .ux-bento-spec-matrix {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+/* 📲 Very Small Devices */
+@media (max-width: 575px) {
+    .canvas-image-rack {
+        height: 280px;
+    }
+
+    .ux-bento-spec-matrix {
+        grid-template-columns: 1fr;
+        /* Bento Matrix card becomes full stack */
+    }
+
+    .ux-packaging-panel {
+        padding: 20px;
+    }
+
+    .pack-btn {
+        width: 100%;
+        /* Buttons stack cleanly */
+        text-align: center;
+        padding: 10px 15px;
+    }
+
+    .ux-instant-pricing-btn {
+        padding: 18px 20px;
+        font-size: 1rem;
+    }
+}
+
+/* product page css end / */

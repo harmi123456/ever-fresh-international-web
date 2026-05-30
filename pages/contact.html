@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Matrix | EverFresh International</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/product.css">
+    
+</head>
+
+<style>
+    :root {
+        --brand-light-green: #479f27;
+        --brand-dark-green: #0a551c;
+        --brand-orange: #fe8a03;
+        --brand-orange-hover: #e07600;
+        --text-light: #f9fafb;
+        --transition-smooth: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        color: var(--text-light);
+        overflow-x: hidden;
+
+
+        /* Base background color - safe side deep dark green */
+        background-color: #050d06;
+
+        /* Multiple layers of radial gradients:
+       - Pehlo layer left corner ma light no halko glow aapse.
+       - Bijo layer right side upar soft natural green touch aapse.
+       - T्रीજો layer niche thi deep black shading dynamic look create krse.
+    */
+        background-image:
+            radial-gradient(circle at 10% 20%, rgba(71, 159, 39, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 80% 40%, rgba(10, 85, 28, 0.25) 0%, transparent 60%),
+            radial-gradient(circle at 50% 110%, #030804 0%, #060e07 100%);
+
+        /* Scrolling vakhate background stretch na thay e mate fixed stack */
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Apoc', serif !important;
+        font-weight: 700;
+    }
+
+    body,
+    p,
+    a,
+    li,
+    span,
+    label,
+    input,
+    textarea {
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    @font-face {
+        font-family: 'Apoc';
+        src: url('../font/apoc-font-family/Apoc-Normal-Trial-Dark.otf') format('woff2'),
+            url('../font/apoc-font-family/Apoc-Normal-Trial-Regular.otf') format('woff');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+
+    .title-section {
+        padding: 220px 0 120px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .title-section h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 800;
+        text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: 2px var(--brand-dark-green);
+    }
+
+    .title-section h1:hover {
+        color: var(--brand-orange);
+        -webkit-text-stroke: 2px var(--brand-orange);
+        transition: var(--transition-smooth);
+    }
+
+
+    /* 🌟 NEW HERO STORYTELLING LAYOUT */
+    .product-hero-section {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        /* Center mathi badli ne flex-start (left) karyu */
+        justify-content: flex-start;
+        position: relative;
+        padding-top: 100px;
+        /* Left side thi padding muki jethi minimal margin jadvai rhe */
+        padding-left: 8%;
+        overflow: hidden;
+    }
+
+    /* Banner image */
+    .hero-bg-gradient {
+        position: absolute;
+        inset: 0;
+
+        background:
+            url('/assets/images/global-banner.jpg') center center/cover no-repeat;
+
+        z-index: 1;
+        background-attachment: fixed;
+        /* height: 400px; */
+    }
+
+
+    .premium-contact-section {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 200px 6% 80px 6%;
+        position: relative;
+    }
+
+    .watermark-backdrop-text {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: clamp(6rem, 15vw, 13rem);
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.02);
+        letter-spacing: -2px;
+        text-transform: uppercase;
+        pointer-events: none;
+        z-index: 0;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .contact-split-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 80px;
+        position: relative;
+        z-index: 5;
+        align-items: center;
+    }
+
+    .contact-narrative-panel {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mini-badge-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 16px;
+        border-radius: 40px;
+        width: max-content;
+        margin-bottom: 24px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.005) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(16px) saturate(110%);
+        -webkit-backdrop-filter: blur(16px) saturate(110%);
+        box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 10px 20px rgba(0, 0, 0, 0.3);
+        transition: var(--transition-smooth);
+    }
+
+    .badge-dot {
+        width: 6px;
+        height: 6px;
+        background-color: var(--brand-light-green);
+        border-radius: 50%;
+        box-shadow: 0 0 8px var(--brand-light-green);
+    }
+
+    .badge-label {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 600;
+    }
+
+    .contact-narrative-panel h2 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 500;
+        line-height: 1.15;
+        margin-bottom: 16px;
+        letter-spacing: -1px;
+        color: var(--brand-orange);
+    }
+
+    .contact-narrative-panel p {
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--text-light);
+        opacity: 0.6;
+        font-weight: 300;
+        margin-bottom: 45px;
+        max-width: 440px;
+    }
+
+    .info-channels-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .info-row-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px 30px;
+        border-radius: 16px;
+        text-decoration: none;
+        color: #ffffff;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.002) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(30px) saturate(120%);
+        -webkit-backdrop-filter: blur(30px) saturate(120%);
+        box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 20px 40px rgba(0, 0, 0, 0.4);
+        transition: var(--transition-smooth);
+    }
+
+    .info-row-card:hover {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+        border-color: rgba(255, 255, 255, 0.15);
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.15), 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(71, 159, 39, 0.04);
+        transform: translateY(-2px);
+    }
+
+    .card-left-meta {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .card-icon-frame {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(255, 255, 255, 0.01);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    .card-text-group span {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: rgba(255, 255, 255, 0.4);
+        display: block;
+        margin-bottom: 4px;
+    }
+
+    .card-text-group h4 {
+        font-size: 1.05rem;
+        font-weight: 500;
+        color: var(--brand-light-green)
+    }
+
+    .card-action-arrow {
+        color: rgba(255, 255, 255, 0.4);
+    }
+
+    /* 🛡️ ULTRA STABLE CONTAINER ENCLOSURE (FORM TAG REMOVED TO PREVENT CRASHING) */
+    .luxury-form-container {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0%, rgba(255, 255, 255, 0) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        padding: 50px;
+        border-radius: 24px;
+        backdrop-filter: blur(30px) saturate(120%);
+        -webkit-backdrop-filter: blur(30px) saturate(120%);
+        box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 40px 80px rgba(0, 0, 0, 0.6);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        position: relative;
+    }
+
+    .form-group-field {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .form-group-field label {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.4);
+        letter-spacing: 0.5px;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+
+    .form-group-field input,
+    .form-group-field textarea {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.01);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        border-radius: 12px;
+        padding: 16px 20px;
+        color: #ffffff;
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        outline: none;
+        transition: var(--transition-smooth);
+    }
+
+    .form-group-field textarea {
+        min-height: 150px;
+        resize: none;
+    }
+
+    .form-group-field input:focus,
+    .form-group-field textarea:focus {
+        border-color: rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.02);
+        box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.05);
+    }
+
+    /* 💎 EXPORT GLASS BUTTON STYLES PRESERVED */
+    .export-glass-btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 16px 38px;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        color: var(--text-light);
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 30px;
+        cursor: pointer;
+        overflow: hidden;
+        transition: var(--transition-smooth);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        width: max-content;
+    }
+
+    .export-glass-btn .icon-container {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .export-glass-btn .cloud-icon {
+        position: absolute;
+        right: -2px;
+        top: 2px;
+        transition: var(--transition-smooth);
+    }
+
+    .export-glass-btn .plane-icon {
+        position: absolute;
+        z-index: 2;
+        transition: var(--transition-smooth);
+    }
+
+    .export-glass-btn:hover {
+        background: rgba(10, 85, 28, 0.2);
+        border-color: var(--brand-light-green);
+        box-shadow: 0 0 25px rgba(71, 159, 39, 0.25);
+        color: var(--text-light);
+    }
+
+    .export-glass-btn:hover .cloud-icon {
+        transform: translateX(4px);
+        stroke: rgba(249, 250, 251, 0.6);
+    }
+
+    .export-glass-btn:hover .plane-icon {
+        stroke: var(--brand-orange-hover);
+        animation: flyRightLoop 0.75s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards;
+    }
+
+    @keyframes flyRightLoop {
+        0% {
+            transform: translate(0, 0) scale(1);
+            opacity: 1;
+        }
+
+        45% {
+            transform: translate(35px, -12px) scale(0.8);
+            opacity: 0;
+        }
+
+        50% {
+            transform: translate(-35px, 12px) scale(0.8);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translate(0, 0) scale(1);
+            opacity: 1;
+        }
+    }
+
+    .export-glass-btn .btn-text {
+        transition: var(--transition-smooth);
+    }
+
+    .export-glass-btn:hover .btn-text {
+        transform: translateX(-2px);
+    }
+
+    /* 📊 IN-PAGE FROSTED THANK YOU MODAL ELEMENT */
+    .inline-thankyou-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(5, 13, 6, 0.9) 0%, rgba(3, 8, 4, 0.98) 100%);
+        border-radius: 24px;
+        z-index: 99;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        text-align: center;
+        opacity: 0;
+        pointer-events: none;
+        transform: scale(0.95);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .inline-thankyou-overlay.active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1);
+    }
+
+    .inline-thankyou-overlay h3 {
+        font-size: 2.5rem;
+        color: var(--brand-orange);
+        margin-bottom: 12px;
+    }
+
+    .inline-thankyou-overlay p {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.6;
+        margin-bottom: 30px;
+        max-width: 320px;
+    }
+
+    .dismiss-popup-btn {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #ffffff;
+        padding: 12px 28px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-weight: 600;
+        transition: var(--transition-smooth);
+    }
+
+    .dismiss-popup-btn:hover {
+        background: #ffffff;
+        color: #050d06;
+        border-color: #ffffff;
+    }
+
+    @media (max-width: 992px) {
+        .title-section{
+        padding: 130px 20px 40px 20px;
+    }
+    
+        .premium-contact-section {
+            padding-top: 140px;
+        }
+
+        .contact-split-grid {
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        .luxury-form-container {
+            padding: 35px;
+        }
+
+        .watermark-backdrop-text {
+            display: none;
+        }
+    }
+</style>
+
+<body>
+
+    <div id="global-cursor-placeholder"></div>
+    <div id="global-header-placeholder"></div>
+
+    <section class="title-section">
+        <h1>Contact Us</h1>
+    </section>
+
+
+    <section class="product-hero-section">
+        <div class="hero-bg-gradient"></div>
+    </section>
+
+
+    <main class="premium-contact-section">
+        <div class="watermark-backdrop-text">Contact</div>
+
+        <div class="contact-split-grid">
+
+            <div class="contact-narrative-panel">
+                <div class="mini-badge-pill">
+                    <div class="badge-dot"></div>
+                    <span class="badge-label">Contact</span>
+                </div>
+                <h2>Get in touch</h2>
+                <p>Have questions or ready to transform your institutional spice allocation variables with custom
+                    processing channels?</p>
+
+                <div class="info-channels-stack">
+                    <a href="mailto:info@everfreshinternational.com" class="info-row-card">
+                        <div class="card-left-meta">
+                            <div class="card-icon-frame">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                    </path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                            <div class="card-text-group">
+                                <span>Email us</span>
+                                <h4>info@everfreshinternational.com</h4>
+                            </div>
+                        </div>
+                        <div class="card-action-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <a href="https://wa.me/919870039168" target="_blank" class="info-row-card">
+                        <div class="card-left-meta">
+                            <div class="card-icon-frame">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path
+                                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div class="card-text-group">
+                                <span>Call us</span>
+                                <h4>+91 98700 39168</h4>
+                            </div>
+                        </div>
+                        <div class="card-action-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.5">
+                                <line x1="7" y1="17" x2="17" y2="7"></line>
+                                <polyline points="7 7 17 7 17 17"></polyline>
+                            </svg>
+                        </div>
+                    </a>
+
+                    <div class="info-row-card" style="cursor: default;">
+                        <div class="card-left-meta">
+                            <div class="card-icon-frame">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div class="card-text-group">
+                                <span>Our location</span>
+                                <h4>Morbi, Gujarat, India</h4>
+                            </div>
+                        </div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="position: relative;">
+
+                <form action="https://formsubmit.co/info@everfreshinternational.com" method="POST" class="luxury-form-container">
+
+                    <div class="form-group-field">
+                        <label>Name</label>
+                        <input type="text" id="usr-name" name="name" placeholder="Enter your name" autocomplete="off"
+                            required>
+                    </div>
+
+                    <div class="form-group-field">
+                        <label>Email</label>
+                        <input type="email" id="usr-email" name="email" placeholder="Enter your email"
+                            autocomplete="off" required>
+                    </div>
+
+                    <div class="form-group-field">
+                        <label>Message</label>
+                        <textarea id="usr-msg" name="message"
+                            placeholder="Describe your transaction target allocation rules..." required></textarea>
+                    </div>
+
+                    <!-- FormSubmit Settings -->
+
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <input type="hidden" name="_subject" value="New Export Inquiry">
+
+                    <!-- Optional Success Redirect -->
+                    <!-- Replace with your actual Vercel URL -->
+
+
+                    <input type="hidden" name="_next" value="http://127.0.0.1:5500/pages/thankyou.html">
+
+
+                    <!-- SAME CLASS NAME -->
+                    <button type="submit" class="export-glass-btn" id="submitBtn">
+
+                        <span class="btn-text" id="btnTextSlot">
+                            Submit
+                        </span>
+
+                        <div class="icon-container">
+
+                            <svg class="cloud-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="rgba(249, 250, 251, 0.3)" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+
+                                <path
+                                    d="M17.5 19A3.5 3.5 0 0 0 21 15.5c0-2.79-2.54-4.5-5-4.5-.72 0-1.42.21-2 .58A5.5 5.5 0 0 0 4 14c0 2.76 2.24 5 5 5h8.5z">
+                                </path>
+
+                            </svg>
+
+                            <svg class="plane-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                viewBox="0 0 24 24" fill="none" stroke="var(--brand-orange)" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+
+                            </svg>
+
+                        </div>
+
+                    </button>
+
+                </form>
+
+                <div class="inline-thankyou-overlay" id="thankYouOverlay">
+
+                    <h3>Thank You!</h3>
+
+                    <p>
+                        Your institutional trade request vector has been successfully
+                        dispatched to our MorbiHQ pipeline.
+                    </p>
+
+                    <button class="dismiss-popup-btn" onclick="closeThankYouPopup()">
+
+                        Close Window
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="/assets/script/script.js"></script>
+</body>
+
+</html>

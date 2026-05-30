@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EverFresh Responsive Slider (Arch Desktop | Straight Mobile)</title>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap">
+
+    <style>
+        /* તમારા બ્રાન્ડ વેરીએબલ્સ */
+        :root {
+            --brand-light-green: #479f27;
+            --brand-dark-green: #0a551c;
+            --brand-orange: #fe8a03;
+            --brand-orange-hover: #e07600;
+            --bg-dark: #030f05;
+            --text-light: #f9fafb;
+            --transition-smooth: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            overflow-y: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* MAIN SECTION CONTAINER */
+        .arch-slider-section {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* CONTINUOUS ROLLING TRACK */
+        .slider-arch-track {
+            display: flex;
+            position: absolute;
+            left: 0;
+            top: 40%; /* ડેસ્કટોપ માટે આર્ક સેન્ટર */
+            transform: translateY(-50%);
+            width: max-content;
+            will-change: transform;
+        }
+
+        /* INDIVIDUAL CARD STYLING */
+        .arch-card {
+            position: relative;
+            width: 320px;
+            aspect-ratio: 2/3;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #111;
+            margin-right: 40px; /* દરેક કાર્ડ વચ્ચેની સ્પેસ */
+            flex-shrink: 0;
+            will-change: transform;
+            transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1); 
+        }
+
+        /* Card Image Background */
+        .card-img-src {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: var(--transition-smooth);
+        }
+
+        /* HOVER EFFECT: GLASSMORPHISM & BLUR */
+        .card-glass-view {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(3, 15, 5, 0.1), rgba(3, 15, 5, 0.7));
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 35px 25px;
+            box-sizing: border-box;
+            transition: var(--transition-smooth);
+            z-index: 2;
+        }
+
+        .arch-card:hover .card-img-src {
+            transform: scale(1.08);
+            filter: blur(12px);
+        }
+
+        .arch-card:hover .card-glass-view {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        /* Card Typography */
+        .card-meta-data h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text-light);
+            margin: 0 0 5px 0;
+        }
+
+        .card-meta-data p {
+            font-size: 0.85rem;
+            color: var(--brand-light-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        /* HOVER EXPLORE BUTTON */
+        .card-action-btn {
+            background: var(--brand-orange);
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 14px 24px;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(254, 138, 3, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-smooth);
+        }
+
+        .card-action-btn:hover {
+            background: var(--brand-orange-hover);
+            box-shadow: 0 15px 30px rgba(254, 138, 3, 0.5);
+        }
+
+        .arch-card:hover .card-action-btn {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 📱 ખાસ મોબાઇલ માટેનું મીડિયા ક્વેરી સેટિંગ */
+        @media (max-width: 768px) {
+            .slider-arch-track {
+                top: 50%; /* મોબાઇલ માં બરોબર સેન્ટરમાં રાખવું */
+            }
+            .arch-card { 
+                width: 250px; /* મોબાઇલ સ્ક્રીન મુજબ નાનું કાર્ડ */
+                margin-right: 20px; 
+                /* મોબાઇલમાં કોઈપણ પ્રકારનું ટ્રાન્સફોર્મ (નમવું) દૂર કરવું */
+                transform: none !important; 
+            }
+            .card-meta-data h4 { 
+                font-size: 1.4rem; 
+            }
+            /* મોબાઇલમાં બટન હંમેશા ઓપન રાખવું હોય તો આ અનકોમેન્ટ કરી શકો, અથવા હોવર પર જ રાખવું */
+            /* .card-action-btn { opacity: 1; transform: translateY(0); } */
+        }
+    </style>
+</head>
+<body>
+
+<section class="arch-slider-section">
+    <div class="slider-arch-track" id="sliderTrack">
+        
+        <div class="arch-card">
+            <div class="card-img-src" style="background-image: url('https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&q=80&w=600');"></div>
+            <div class="card-glass-view">
+                <div class="card-meta-data">
+                    <h4>Cumin Seeds</h4>
+                    <p>Main Product</p>
+                </div>
+                <a href="cumin-seeds.html" class="card-action-btn">View Product</a>
+            </div>
+        </div>
+
+        <div class="arch-card">
+            <div class="card-img-src" style="background-image: url('https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=600');"></div>
+            <div class="card-glass-view">
+                <div class="card-meta-data">
+                    <h4>Pomegranate</h4>
+                    <p>Main Product</p>
+                </div>
+                <a href="pomegranate.html" class="card-action-btn">View Product</a>
+            </div>
+        </div>
+
+        <div class="arch-card">
+            <div class="card-img-src" style="background-image: url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=600');"></div>
+            <div class="card-glass-view">
+                <div class="card-meta-data">
+                    <h4>Redchilli Powder</h4>
+                    <p>Main Product</p>
+                </div>
+                <a href="redchilli-powder.html" class="card-action-btn">View Product</a>
+            </div>
+        </div>
+
+        <div class="arch-card">
+            <div class="card-img-src" style="background-image: url('https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&q=80&w=600');"></div>
+            <div class="card-glass-view">
+                <div class="card-meta-data">
+                    <h4>Turmeric Finger</h4>
+                    <p>Spices</p>
+                </div>
+                <a href="turmeric.html" class="card-action-btn">View Product</a>
+            </div>
+        </div>
+
+        <div class="arch-card">
+            <div class="card-img-src" style="background-image: url('https://images.unsplash.com/photo-1509358271058-acd22cc93898?auto=format&fit=crop&q=80&w=600');"></div>
+            <div class="card-glass-view">
+                <div class="card-meta-data">
+                    <h4>Black Pepper</h4>
+                    <p>Spices</p>
+                </div>
+                <a href="black-pepper.html" class="card-action-btn">View Product</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script>
+    window.onload = function () {
+        const track = document.getElementById("sliderTrack");
+        const originalCards = track.querySelectorAll(".arch-card");
+        let originalCount = originalCards.length;
+
+        // 1. INFINITE LOOP SETUP
+        originalCards.forEach(card => {
+            let clone = card.cloneNode(true);
+            track.appendChild(clone);
+        });
+
+        let speed = 1.0; 
+        let position = 0;
+        let isHovered = false;
+
+        let screenCenter = window.innerWidth / 2;
+
+        function getCardWidth() {
+            let firstCard = track.querySelector(".arch-card");
+            let style = window.getComputedStyle(firstCard);
+            return firstCard.offsetWidth + parseInt(style.marginRight);
+        }
+
+        // 2. MAIN ANIMATION LOOP
+        function animateSlider() {
+            if (!isHovered) {
+                position -= speed;
+                
+                let cardWidth = getCardWidth();
+                let originalWidth = cardWidth * originalCount;
+
+                if (Math.abs(position) >= originalWidth) {
+                    position = 0;
+                }
+
+                track.style.transform = `translateX(${position}px) translateY(-50%)`;
+
+                // 3. RESPONSIVE LAYER (મોબાઈલ અને ડેસ્કટોપ કન્ડિશન ચેક)
+                const allCards = track.querySelectorAll(".arch-card");
+                
+                allCards.forEach(card => {
+                    // જો સ્ક્રીન સાઈઝ 768px થી મોટી હોય (Desktop) તો જ કર્વ આપવો
+                    if (window.innerWidth > 768) {
+                        let rect = card.getBoundingClientRect();
+                        let cardCenter = rect.left + (rect.width / 2);
+                        
+                        let distanceFromCenter = cardCenter - screenCenter;
+                        let normalizedDistance = distanceFromCenter / screenCenter;
+
+                        if (rect.right > -100 && rect.left < window.innerWidth + 100) {
+                            let curveIntensity = Math.pow(Math.abs(normalizedDistance), 1.5);
+                            let translateY = curveIntensity * 280; 
+                            let rotateZ = normalizedDistance * 18; 
+
+                            card.style.transform = `translateY(${translateY}px) rotate(${rotateZ}deg)`;
+                        }
+                    } else {
+                        // 📱 જો મોબાઇલ સ્ક્રીન હોય તો ગણિત રીસેટ કરીને એકદમ સીધું (Straight Line) રાખવું
+                        card.style.transform = "none";
+                    }
+                });
+            }
+            requestAnimationFrame(animateSlider);
+        }
+
+        // HOVER CONTROLS
+        track.addEventListener("mouseenter", () => { isHovered = true; });
+        track.addEventListener("mouseleave", () => { isHovered = false; });
+
+        // સ્ક્રીન નાની-મોટી થાય ત્યારે સેન્ટર અપડેટ કરવું
+        window.addEventListener("resize", () => {
+            screenCenter = window.innerWidth / 2;
+        });
+
+        animateSlider();
+    };
+</script>
+
+</body>
+</html>

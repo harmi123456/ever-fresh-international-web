@@ -1,0 +1,152 @@
+<div class="agro-core-dot" id="agroCoreDot"></div>
+
+<div class="agro-cursor-tooltip" id="agroCursorTooltip">
+    Keep Scrolling...
+</div>
+
+<style>
+    html,
+    body,
+    a,
+    button,
+    .agro-card,
+    .agro-matrix-box,
+    .agro-social-icon-box {
+        cursor: none !important;
+    }
+
+    /* =========================
+   CURSOR DOT
+========================= */
+
+    .agro-core-dot {
+        width: 24px;
+        height: 24px;
+
+        position: fixed;
+        left: 0;
+        top: 0;
+
+        pointer-events: none;
+
+        border-radius: 50%;
+
+        background: #d4af37;
+
+        transform: translate(-50%, -50%);
+
+        z-index: 9999999999 !important;
+
+        box-shadow:
+            0 0 15px rgba(212, 175, 55, .8),
+            0 0 30px rgba(212, 175, 55, .4);
+
+        transition:
+            transform .25s ease,
+            background .25s ease;
+
+    }
+
+    /* =========================
+   HOVER
+========================= */
+
+    .agro-core-dot.hover-active {
+
+        transform:
+            translate(-50%, -50%) scale(2);
+
+        background: #ffffff;
+
+        box-shadow:
+            0 0 25px rgba(255, 255, 255, .8);
+
+    }
+
+    /* =========================
+   CLICK
+========================= */
+
+    .agro-core-dot.click-active {
+
+        transform:
+            translate(-50%, -50%) scale(.6);
+
+    }
+
+    /* =========================
+   TOOLTIP
+========================= */
+
+    .agro-cursor-tooltip {
+
+        position: fixed;
+
+        left: 0;
+        top: 0;
+
+        pointer-events: none;
+
+        transform:
+            translate(30px, -50%);
+
+        padding: 10px 18px;
+
+        border-radius: 50px;
+
+        background:
+            rgba(255, 255, 255, .08);
+
+        backdrop-filter: blur(15px);
+
+        border:
+            1px solid rgba(255, 255, 255, .15);
+
+        color: #fff;
+
+        font-size: .8rem;
+
+        font-weight: 600;
+
+        letter-spacing: 1px;
+
+        white-space: nowrap;
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transition:
+            opacity .4s ease,
+            visibility .4s ease;
+
+        z-index: 999999;
+    }
+
+    .agro-cursor-tooltip.visible-active {
+
+        opacity: 1;
+        visibility: visible;
+
+    }
+
+    @media(max-width:1024px) {
+
+        .agro-core-dot,
+        .agro-cursor-tooltip {
+
+            display: none !important;
+
+        }
+
+        html,
+        body,
+        a,
+        button {
+
+            cursor: auto !important;
+
+        }
+
+    }
+</style>

@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Market Matrix | EverFresh International</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/product.css">
+</head>
+
+<style>
+    :root {
+        --brand-light-green: #479f27;
+        --brand-dark-green: #0a551c;
+        --brand-orange: #fe8a03;
+        --brand-orange-hover: #e07600;
+        --text-light: #f9fafb;
+        --transition-smooth: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        color: var(--text-light);
+        overflow-x: hidden;
+
+
+        /* Base background color - safe side deep dark green */
+        background-color: #050d06;
+
+
+        background-image:
+            radial-gradient(circle at 10% 20%, rgba(71, 159, 39, 0.15) 0%, transparent 50%),
+            radial-gradient(circle at 80% 40%, rgba(10, 85, 28, 0.25) 0%, transparent 60%),
+            radial-gradient(circle at 50% 110%, #030804 0%, #060e07 100%);
+
+        /* Scrolling vakhate background stretch na thay e mate fixed stack */
+        background-attachment: fixed;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Apoc', serif !important;
+        font-weight: 400;
+        /* Minimal light architecture weight */
+    }
+
+    @font-face {
+        font-family: 'Apoc';
+        src: url('../font/apoc-font-family/Apoc-Normal-Trial-Dark.otf') format('woff2'),
+            url('../font/apoc-font-family/Apoc-Normal-Trial-Regular.otf') format('woff');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+    }
+
+
+    .title-section {
+        padding: 220px 0 120px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .title-section h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 800;
+        text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: 2px var(--brand-dark-green);
+    }
+
+    .title-section h1:hover {
+        color: var(--brand-orange);
+        -webkit-text-stroke: 2px var(--brand-orange);
+        transition: var(--transition-smooth);
+    }
+
+    /* 🌟 NEW HERO STORYTELLING LAYOUT */
+    .product-hero-section {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        /* Center mathi badli ne flex-start (left) karyu */
+        justify-content: flex-start;
+        position: relative;
+        padding-top: 100px;
+        /* Left side thi padding muki jethi minimal margin jadvai rhe */
+        padding-left: 8%;
+        overflow: hidden;
+    }
+
+    /* Banner image */
+    .hero-bg-gradient {
+        position: absolute;
+        inset: 0;
+
+        background:
+            url('/assets/images/global-banner.jpg') center center/cover no-repeat;
+
+        z-index: 1;
+        background-attachment: fixed;
+       /* height: 400px; */
+    }
+
+
+
+
+    /* 🎭 THE KINETIC INTERACTIVE STAGE */
+    .kinetic-curtain-stage {
+        width: 100%;
+        min-height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 160px 8% 80px 8%;
+        position: relative;
+    }
+
+    /* Top Row Architecture Manifesto */
+    .curtain-manifesto-header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: flex-start;
+        margin-bottom: 8vh;
+    }
+
+    .curtain-manifesto-header h1 {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+    }
+
+    .curtain-manifesto-header h1 span {
+        font-style: italic;
+        color: var(--brand-orange);
+    }
+
+    .curtain-manifesto-header p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.45);
+        font-weight: 300;
+        padding-top: 15px;
+    }
+
+    /* ⚡ THE TYPOGRAPHY INTERACTION MATRIX */
+    .kinetic-runway-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .kinetic-row-strip {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 0.1fr 1.3fr 0.6fr;
+        padding: 35px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        align-items: center;
+        text-decoration: none;
+        color: #ffffff;
+        cursor: pointer;
+        position: relative;
+        z-index: 6;
+    }
+
+    .kinetic-row-strip:last-child {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .kinetic-index {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.2);
+        font-weight: 500;
+    }
+
+    .kinetic-title {
+        font-size: clamp(1.8rem, 3.5vw, 3rem);
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), color 0.3s ease;
+        transform-origin: left center;
+    }
+
+    .kinetic-meta-destination {
+        font-size: 0.95rem;
+        color: rgba(255, 255, 255, 0.35);
+        text-align: right;
+        font-weight: 300;
+        letter-spacing: 0.5px;
+        transition: var(--transition-smooth);
+    }
+
+    /* Hover effects for typography text lines */
+    .kinetic-row-strip:hover .kinetic-title {
+        color: var(--brand-light-green);
+        transform: scale(1.03) translateX(15px);
+    }
+
+    .kinetic-row-strip:hover .kinetic-meta-destination {
+        color: var(--brand-orange);
+        transform: translateX(-15px);
+    }
+
+    /* 🛠️ ULTRA PURE VAULT STYLES (No more javascript opacity glitch) */
+    .kinetic-floating-visual-vault {
+        position: fixed;
+        width: 280px;
+        height: 380px;
+        border-radius: 4px;
+        overflow: hidden;
+        pointer-events: none;
+
+        /* Pela thi opacity 0 j hase */
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.85);
+        z-index: 99999 !important;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
+
+        /* Smooth transitions duration configuration */
+        transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .kinetic-floating-visual-vault img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+        /* Default badhi internal images container ma zero opacity thase */
+        opacity: 0;
+        transform: scale(1.1);
+        transition: opacity 0.4s ease, transform 0.6s ease;
+    }
+
+    /* 🎯 PURE CSS MAGIC HOVER TRIGGERS: Row hover thase etle precise image active dekhase */
+    .kinetic-row-strip:hover~.kinetic-floating-visual-vault {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        border-radius: 50px;
+    }
+
+    #strip1:hover~.kinetic-floating-visual-vault #img1,
+    #strip2:hover~.kinetic-floating-visual-vault #img2,
+    #strip3:hover~.kinetic-floating-visual-vault #img3,
+    #strip4:hover~.kinetic-floating-visual-vault #img4 {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+
+    /* section 3 css start */
+
+    .global-matrix-section {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        min-height: 900px;
+        /* background: #030904 !important; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    /* 🪐 સોફ્ટ હાઇ-એન્ડ એમ્બિયન્ટ ગ્લો */
+    .matrix-bg-glow {
+        position: absolute;
+        width: 650px;
+        height: 650px;
+        background: radial-gradient(circle, rgba(71, 159, 39, 0.06) 0%, transparent 70%);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    /* 🎯 ઓર્બિટલ પેરન્ટ કન્ટેનર */
+    .matrix-orbit-wrapper {
+        position: relative;
+        width: 1100px;
+        height: 750px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
+
+    /* ==========================================================================
+       🌀 CENTRAL MASTER NODE DESIGN
+       ========================================================================== */
+    .central-master-node {
+        position: relative;
+        width: 240px;
+        height: 240px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 40px 90px rgba(0, 0, 0, 0.9),
+            inset 0 4px 20px rgba(255, 255, 255, 0.05);
+        transition: var(--transition-smooth);
+    }
+
+    .node-internal-core {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        z-index: 3;
+    }
+
+    .core-label {
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.4) !important;
+        letter-spacing: 4px;
+        margin-bottom: 6px;
+    }
+
+    .core-clock {
+        font-size: 2.1rem;
+        font-weight: 300;
+        color: #ffffff !important;
+        letter-spacing: 0.5px;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .blink-dots {
+        color: rgba(255, 255, 255, 0.3);
+        animation: matrixPulse 1s infinite;
+    }
+
+    .core-status {
+        font-size: 0.65rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.5) !important;
+        letter-spacing: 2px;
+        margin-top: 10px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .live-pulse-dot {
+        width: 6px;
+        height: 6px;
+        background: var(--brand-light-green);
+        border-radius: 50%;
+        box-shadow: 0 0 10px var(--brand-light-green);
+        animation: matrixPulse 1.2s infinite;
+    }
+
+    /* ==========================================================================
+       🪐 6 SATELLITE CARDS ARRANGE (ABSOLUTE LAYOUT LIKE REFERENCE)
+       ========================================================================== */
+    .matrix-satellite-grid {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .satellite-card {
+        position: absolute;
+        width: 320px;
+        height: 160px;
+        background: rgba(255, 255, 255, 0.02) !important;
+        /* કાચ જેવો પ્રીમિયમ ગ્લાસ લુક */
+        border: 1px solid rgba(255, 255, 255, 0.12) !important;
+        /* બોર્ડર વિઝિબિલિટી વધારી */
+        border-radius: 20px;
+        padding: 26px;
+        display: flex;
+        pointer-events: auto;
+        overflow: hidden;
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1),
+            border-color 0.4s ease,
+            box-shadow 0.5s ease;
+    }
+
+    /* 📐 6 કાર્ડ્સનું રેફરન્સ ઈમેજ મુજબનું પરફેક્ટ પોઝિશનિંગ ગણિત */
+    .card-top-center {
+        left: 50%;
+        top: 0%;
+        transform: translateX(-50%);
+    }
+
+    .card-top-right {
+        right: 2%;
+        top: 16%;
+    }
+
+    .card-bottom-right {
+        right: 2%;
+        bottom: 16%;
+    }
+
+    .card-bottom-center {
+        left: 50%;
+        bottom: 0%;
+        transform: translateX(-50%);
+    }
+
+    .card-bottom-left {
+        left: 2%;
+        bottom: 16%;
+    }
+
+    .card-top-left {
+        left: 2%;
+        top: 16%;
+    }
+
+    .card-content-pack {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+    }
+
+    .card-header-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .card-index {
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.4) !important;
+        /* હાઇ વિઝિબિલિટી ઇન્ડેક્સ */
+        letter-spacing: 1px;
+    }
+
+    .card-zone-tag {
+        font-size: 0.65rem;
+        color: var(--brand-orange) !important;
+        background: rgba(254, 138, 3, 0.08);
+        padding: 4px 12px;
+        border-radius: 30px;
+        border: 1px solid rgba(254, 138, 3, 0.2);
+        font-weight: 600;
+    }
+
+    .card-zone-tag.tag-green {
+        color: #59ca32 !important;
+        /* બ્રાઇટ ગ્રીન ટૅગ */
+        background: rgba(71, 159, 39, 0.1);
+        border-color: rgba(71, 159, 39, 0.25);
+    }
+
+    .satellite-card h3 {
+        font-size: 1.25rem;
+        color: #ffffff !important;
+        /* અક્ષરો એકદમ સફેદ અને શાર્પ દેખાશે */
+        font-weight: 600;
+        letter-spacing: -0.3px;
+        margin-top: 8px;
+    }
+
+    .card-time-display {
+        font-size: 2.1rem;
+        font-weight: 300;
+        color: #ffffff !important;
+        /* લાઈવ ટાઈમ એકદમ બ્રાઈટ વ્હાઈટ કર્યો */
+        letter-spacing: 0.5px;
+        font-variant-numeric: tabular-nums;
+        margin-top: auto;
+        transition: var(--transition-smooth);
+    }
+
+    .time-blink {
+        color: rgba(255, 255, 255, 0.2);
+        animation: matrixPulse 1s infinite;
+    }
+
+    /* ==========================================================================
+       ✨ INTERACTIONS & HOVER EFFECTS ✦
+       ========================================================================== */
+
+    .satellite-card:hover {
+        transform: translateY(-6px);
+        border-color: var(--brand-light-green) !important;
+        background: rgba(71, 159, 39, 0.05) !important;
+        box-shadow: 0 35px 70px rgba(0, 0, 0, 0.7),
+            0 0 40px rgba(71, 159, 39, 0.15);
+    }
+
+    /* સેન્ટર પોઝિશન બેલેન્સ ઓન હોવર */
+    .card-top-center:hover {
+        transform: translateX(-50%) translateY(-6px);
+    }
+
+    .card-bottom-center:hover {
+        transform: translateX(-50%) translateY(6px);
+    }
+
+    /* કાર્ડ હોવર થાય ત્યારે સેન્ટર માસ્ટર હબ માં પણ પ્રીમિયમ ઓરેન્જ ગ્લો આવશે */
+    .matrix-orbit-wrapper:has(.satellite-card:hover) .central-master-node {
+        border-color: var(--brand-orange);
+        box-shadow: 0 40px 90px rgba(0, 0, 0, 0.8),
+            0 0 45px rgba(254, 138, 3, 0.25);
+        transform: scale(1.03);
+    }
+
+    @keyframes matrixPulse {
+        50% {
+            opacity: 0.3;
+        }
+    }
+
+    /* ==========================================================================
+       📱 RESPONSIVE MEDIA QUERIES
+       ========================================================================== */
+
+    @media (max-width: 1200px) {
+        .matrix-orbit-wrapper {
+            width: 950px;
+        }
+
+        .satellite-card {
+            width: 280px;
+            padding: 20px;
+        }
+
+        .card-time-display {
+            font-size: 1.8rem;
+        }
+    }
+
+    @media (max-width: 992px) {
+
+        .title-section{
+        padding: 130px 20px 40px 20px;
+    }
+    
+        .global-matrix-section {
+            height: auto;
+            padding: 80px 0;
+        }
+
+        .matrix-orbit-wrapper {
+            flex-direction: column;
+            gap: 50px;
+            width: 100%;
+            height: auto;
+            padding: 0 24px;
+        }
+
+        .matrix-satellite-grid {
+            position: relative;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            height: auto;
+        }
+
+        .satellite-card {
+            position: relative;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            bottom: auto !important;
+            transform: none !important;
+            width: 100%;
+            height: 150px;
+        }
+
+        .satellite-card:hover {
+            transform: translateY(-5px) !important;
+        }
+    }
+
+    @media (max-width: 580px) {
+        .matrix-satellite-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .central-master-node {
+            width: 200px;
+            height: 200px;
+        }
+
+        .core-clock {
+            font-size: 1.7rem;
+        }
+    }
+
+    /* section 3 css over */
+
+
+    /* section 4 css strat */
+
+    /* ========================================================
+   MONOLITHIC TERMINAL ARCHITECTURE STYLES
+   ======================================================== */
+    .monolithic-terminal-stage {
+        width: 100%;
+        padding: 160px 0;
+        position: relative;
+        background: transparent !important;
+        /* Zero background color cards - lets smoke bleed through */
+        z-index: 10;
+    }
+
+    .terminal-blueprint-wrapper {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        /* Asymmetrical split line grid setup */
+        width: 100%;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 8%;
+    }
+
+    /* Left Sidebar Layout Constraints */
+    .blueprint-meta-sidebar {
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        /* Thin vertical partition line */
+        padding-right: 60px;
+    }
+
+    .sidebar-sticky-node {
+        position: sticky;
+        top: 140px;
+    }
+
+    .blueprint-meta-sidebar h2 {
+        font-size: clamp(2.2rem, 4vw, 3.5rem);
+        line-height: 1.1;
+        color: #ffffff;
+        margin: 20px 0;
+    }
+
+    .blueprint-meta-sidebar h2 span {
+        font-style: italic;
+        color: var(--brand-orange);
+    }
+
+    .blueprint-meta-sidebar p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: rgba(255, 255, 255, 0.4);
+        font-weight: 300;
+    }
+
+    /* Right Content Runway (Completely boxless design mechanics) */
+    .blueprint-data-runway {
+        padding-left: 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        /* Air gap tracking to decouple static lines look */
+    }
+
+    .terminal-data-node {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        position: relative;
+        transition: var(--transition-smooth);
+    }
+
+    .node-meta-lane {
+        display: flex;
+        align-items: baseline;
+        gap: 24px;
+    }
+
+    .node-serial {
+        font-family: monospace;
+        /* Cybernetic print code feel */
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.25);
+        letter-spacing: 1px;
+    }
+
+    .node-meta-lane h3 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        color: #ffffff;
+        letter-spacing: -0.3px;
+    }
+
+    .connector-arrow {
+        color: rgba(255, 255, 255, 0.15);
+        font-family: 'Inter', sans-serif;
+        margin: 0 6px;
+    }
+
+    /* Inside Matrix elements alignment tracking */
+    .node-metrics-lane {
+        padding-left: 85px;
+        /* Aligns data right beneath text baseline */
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .data-pulse-strip {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .pulse-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+    }
+
+    .pulse-dot.active-glow {
+        background-color: var(--brand-light-green);
+        box-shadow: 0 0 10px var(--brand-light-green);
+    }
+
+    .pulse-dot.alert-glow {
+        background-color: var(--brand-orange);
+        box-shadow: 0 0 10px var(--brand-orange);
+    }
+
+    .data-value-text {
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 300;
+    }
+
+    .highlight-green {
+        color: var(--brand-light-green);
+        font-weight: 500;
+    }
+
+    .highlight-white {
+        color: #ffffff;
+        font-weight: 500;
+    }
+
+    .highlight-orange {
+        color: var(--brand-orange);
+        font-weight: 500;
+    }
+
+    .data-sub-intel {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.35);
+        font-weight: 300;
+        letter-spacing: 0.2px;
+    }
+
+    /* 🎯 ASYMMETRICAL EDITORIAL HOVER SHIFTS RULES */
+    .terminal-data-node:hover {
+        transform: translateX(10px);
+    }
+
+    .terminal-data-node:hover .connector-arrow {
+        color: var(--brand-orange);
+        transform: translateX(4px);
+    }
+
+    /* 🚀 RAZOR MINIMAL ACTION BUTTON DESIGNS */
+    .terminal-minimal-stepper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px 40px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        /* Single outer interactive perimeter edge */
+        background: rgba(255, 255, 255, 0.005);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        text-decoration: none;
+        color: #ffffff;
+        margin-top: 20px;
+        max-width: 640px;
+        margin-left: 85px;
+        transition: var(--transition-smooth);
+    }
+
+    .stepper-text-frame h4 {
+        font-size: 1.15rem;
+        font-weight: 500;
+        margin-bottom: 4px;
+    }
+
+    .stepper-text-frame p {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.35);
+    }
+
+    .stepper-action-circle {
+        width: 44px;
+        height: 44px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition-smooth);
+    }
+
+    .terminal-minimal-stepper:hover {
+        border-color: rgba(71, 159, 39, 0.25);
+        background: rgba(255, 255, 255, 0.015);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .terminal-minimal-stepper:hover .stepper-action-circle {
+        background: #ffffff;
+        color: #030804;
+        border-color: #ffffff;
+        transform: scale(1.05);
+    }
+
+    /* Responsive constraints layers safely */
+    @media (max-width: 1024px) {
+        .terminal-blueprint-wrapper {
+            grid-template-columns: 1fr;
+        }
+
+        .blueprint-meta-sidebar {
+            border-right: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-right: 0;
+            padding-bottom: 40px;
+            margin-bottom: 50px;
+        }
+
+        .blueprint-data-runway {
+            padding-left: 0;
+        }
+
+        .node-metrics-lane {
+            padding-left: 0;
+        }
+
+        .terminal-minimal-stepper {
+            margin-left: 0;
+        }
+    }
+
+    /* section 4 css over */
+</style>
+
+<body>
+
+    <div id="global-cursor-placeholder"></div>
+    <div id="global-header-placeholder"></div>
+
+    <section class="title-section">
+        <h1>Global Market Access</h1>
+    </section>
+
+    <section class="product-hero-section">
+        <div class="hero-bg-gradient"></div>
+    </section>
+
+
+    <main class="kinetic-curtain-stage">
+
+        <header class="curtain-manifesto-header">
+            <h1>Connecting Harvest <br>Gates to <span>Global Ports</span></h1>
+            <p>
+                EverFresh International LLP enforces high-fidelity trade routing. We sync structural documentation and
+                custom clear targets dynamically, tracking shipping bills flawlessly from central field operations to
+                major destination hubs.
+            </p>
+        </header>
+
+        <div class="kinetic-runway-container" id="runwayTrack">
+
+            <div class="kinetic-row-strip" id="strip1" onclick="window.open('https://wa.me/919870039168', '_blank')">
+                <span class="kinetic-index">01</span>
+                <h2 class="kinetic-title">Eurozone Access Corridor</h2>
+                <span class="kinetic-meta-destination">Rotterdam / Hamburg Hubs ↗</span>
+            </div>
+
+            <div class="kinetic-row-strip" id="strip2" onclick="window.open('https://wa.me/919870039168', '_blank')">
+                <span class="kinetic-index">02</span>
+                <h2 class="kinetic-title">North American Grid Matrix</h2>
+                <span class="kinetic-meta-destination">New York / Long Beach Terminals ↗</span>
+            </div>
+
+            <div class="kinetic-row-strip" id="strip3" onclick="window.open('https://wa.me/919870039168', '_blank')">
+                <span class="kinetic-index">03</span>
+                <h2 class="kinetic-title">Pan-Asian Supply Runway</h2>
+                <span class="kinetic-meta-destination">Singapore Gateway Core / Shanghai ↗</span>
+            </div>
+
+            <div class="kinetic-row-strip" id="strip4" onclick="window.open('https://wa.me/919870039168', '_blank')">
+                <span class="kinetic-index">04</span>
+                <h2 class="kinetic-title">Middle East Disbursement Axis</h2>
+                <span class="kinetic-meta-destination">Jebel Ali / Gulf Cooperation Ports ↗</span>
+            </div>
+
+            <div class="kinetic-floating-visual-vault" id="visualVault">
+                <img src="/assets/images/eurozone-corridor.jpg" id="img1" alt="Rotterdam Hub">
+                <img src="/assets/images/North-american-trade.jpg" id="img2" alt="New York Grid">
+                <img src="/assets/images/singapore-gateway.jpg" id="img3" alt="Singapore Center">
+                <img src="/assets/images/dubai-core-hub.jpg" id="img4" alt="Dubai Core Hub">
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <section class="global-matrix-section">
+        <div class="matrix-bg-glow"></div>
+
+        <div class="matrix-orbit-wrapper">
+
+            <!-- 🌀 CENTRAL MASTER NODE (GLOBAL TIME) -->
+            <div class="central-master-node">
+                <div class="node-internal-core">
+                    <span class="core-label">EVERFRESH</span>
+                    <div class="core-clock">
+                        <span id="hub-h">00</span><span class="blink-dots">:</span>
+                        <span id="hub-m">00</span><span class="blink-dots">:</span>
+                        <span id="hub-s">00</span>
+                    </div>
+                    <span class="core-status"><span class="live-pulse-dot"></span> GLOBAL HUB</span>
+                </div>
+            </div>
+
+            <!-- 🪐 6 LIVE SATELLITE TIME ZONE CARDS -->
+            <div class="matrix-satellite-grid">
+
+                <!-- CARD 01: INDIA -->
+                <div class="satellite-card card-top-center">
+                    <div class="card-content-pack">
+                        <div class="card-header-row">
+                            <span class="card-index">01 // HQ MATRIX</span>
+                            <span class="card-zone-tag tag-green">IST / UTC+5.5</span>
+                        </div>
+                        <h3>Morbi, India</h3>
+                        <div class="card-time-display">
+                            <span id="time-ind-h">00</span><span class="time-blink">:</span><span
+                                id="time-ind-m">00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 02: UNITED KINGDOM -->
+                <div class="satellite-card card-top-right">
+                    <div class="card-content-pack">
+                        <div class="card-header-row">
+                            <span class="card-index">02 // EURO HUB</span>
+                            <span class="card-zone-tag">BST / UTC+1</span>
+                        </div>
+                        <h3>London, UK</h3>
+                        <div class="card-time-display">
+                            <span id="time-uk-h">00</span><span class="time-blink">:</span><span
+                                id="time-uk-m">00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 03: GERMANY -->
+                <div class="satellite-card card-bottom-right">
+                    <div class="card-content-pack">
+                        <div class="card-header-row">
+                            <span class="card-index">03 // EURO GATEWAY</span>
+                            <span class="card-zone-tag">CEST / UTC+2</span>
+                        </div>
+                        <h3>Hamburg, Germany</h3>
+                        <div class="card-time-display">
+                            <span id="time-ger-h">00</span><span class="time-blink">:</span><span
+                                id="time-ger-m">00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 04: UNITED ARAB EMIRATES -->
+                <div class="satellite-card card-bottom-center">
+                    <div class="card-content-pack">
+                        <div class="card-header-row">
+                            <span class="card-index">04 // GCC VECTOR</span>
+                            <span class="card-zone-tag tag-green">GST / UTC+4</span>
+                        </div>
+                        <h3>Dubai, UAE</h3>
+                        <div class="card-time-display">
+                            <span id="time-uae-h">00</span><span class="time-blink">:</span><span
+                                id="time-uae-m">00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 05: SINGAPORE -->
+                <div class="satellite-card card-bottom-left">
+                    <div class="card-content-pack">
+                        <div class="card-header-row">
+                            <span class="card-index">05 // APAC RUNWAY</span>
+                            <span class="card-zone-tag">SGT / UTC+8</span>
+                        </div>
+                        <h3>Singapore, SG</h3>
+                        <div class="card-time-display">
+                            <span id="time-sg-h">00</span><span class="time-blink">:</span><span
+                                id="time-sg-m">00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 06: NORTH AMERICA -->
+                <div class="satellite-card card-top-left">
+                    <div class="card-content-pack">
+                        <div class="card-header-row">
+                            <span class="card-index">06 // NA CORRIDOR</span>
+                            <span class="card-zone-tag">EDT / UTC-4</span>
+                        </div>
+                        <h3>New York, USA</h3>
+                        <div class="card-time-display">
+                            <span id="time-usa-h">00</span><span class="time-blink">:</span><span
+                                id="time-usa-m">00</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="monolithic-terminal-stage">
+        <div class="terminal-blueprint-wrapper">
+
+            <header class="blueprint-meta-sidebar">
+                <div class="sidebar-sticky-node">
+                    <span class="editorial-mono-tag">⚡ TERMINAL MATRIX //</span>
+                    <h2>Active Core <br>Trade Routes</h2>
+                    <p>Real-time vessel capacity constraints, customs manifest checks, and corridor parameters mapping
+                        directly from central MorbiHQ desk sync operations.</p>
+                </div>
+            </header>
+
+            <div class="blueprint-data-runway">
+
+                <div class="terminal-data-node">
+                    <div class="node-meta-lane">
+                        <span class="node-serial">[01 / VECT]</span>
+                        <h3>Mundra Port <span class="connector-arrow">→</span> Rotterdam</h3>
+                    </div>
+                    <div class="node-metrics-lane">
+                        <div class="data-pulse-strip">
+                            <span class="pulse-dot active-glow"></span>
+                            <p class="data-value-text">Transit Accuracy: <span class="highlight-green">99.4%
+                                    Velocity</span></p>
+                        </div>
+                        <p class="data-sub-intel">Phytosanitary Clearance Manifest Enforced & Active</p>
+                    </div>
+                </div>
+
+                <div class="terminal-data-node">
+                    <div class="node-meta-lane">
+                        <span class="node-serial">[02 / VECT]</span>
+                        <h3>Mundra Port <span class="connector-arrow">→</span> New York</h3>
+                    </div>
+                    <div class="node-metrics-lane">
+                        <div class="data-pulse-strip">
+                            <span class="pulse-dot active-glow"></span>
+                            <p class="data-value-text">Vessel Allocation: <span class="highlight-white">280 TEU /
+                                    Monthly Max</span></p>
+                        </div>
+                        <p class="data-sub-intel">SGS Pre-Shipment Quality Verification Array Compliant</p>
+                    </div>
+                </div>
+
+                <div class="terminal-data-node">
+                    <div class="node-meta-lane">
+                        <span class="node-serial">[03 / VECT]</span>
+                        <h3>Mundra Port <span class="connector-arrow">→</span> Jebel Ali</h3>
+                    </div>
+                    <div class="node-metrics-lane">
+                        <div class="data-pulse-strip">
+                            <span class="pulse-dot alert-glow"></span>
+                            <p class="data-value-text">Transit Interval: <span class="highlight-orange">3.5 Days
+                                    Fast-Track</span></p>
+                        </div>
+                        <p class="data-sub-intel">Fumigation & Pest Quarantine Protocols Manifest Ready</p>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/919870039168" target="_blank" class="terminal-minimal-stepper">
+                    <div class="stepper-text-frame">
+                        <h4>Request Spot Freight Matrix</h4>
+                        <p>Instantiate transaction vectors direct via MorbiHQ logistics node</p>
+                    </div>
+                    <div class="stepper-action-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+
+</body>
+
+</html>
+
+
+<!-- section 3 js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+    // 🚀 1. GSAP PINNED VERTICAL-TO-HORIZONTAL SCROLL TRIGGER CONFIGURATION
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (window.innerWidth > 1024) {
+        let track = document.querySelector(".horizontal-slider-track");
+
+        gsap.to(track, {
+            // Horizontal shift amount relative track size width profiles
+            x: () => -(track.scrollWidth - window.innerWidth + (window.innerWidth * 0.08)),
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".horizontal-scroll-pin-zone",
+                pin: true,
+                scrub: 1, // Direct scroll synchronization latency parameter
+                start: "top top",
+                end: () => "+=" + track.scrollWidth,
+                invalidateOnRefresh: true
+            }
+        });
+    }
+
+    // ⏱️ 2. ACTIVE LIVE MULTI TIME-ZONE CALCULATION ALGORITHM
+    function updateGlobalClocks() {
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        };
+
+        document.getElementById('time-ny').innerText = new Date().toLocaleTimeString('en-US', { ...options, timeZone: 'America/New_York' });
+        document.getElementById('time-rotterdam').innerText = new Date().toLocaleTimeString('en-US', { ...options, timeZone: 'Europe/Amsterdam' });
+        document.getElementById('time-dubai').innerText = new Date().toLocaleTimeString('en-US', { ...options, timeZone: 'Asia/Dubai' });
+        document.getElementById('time-singapore').innerText = new Date().toLocaleTimeString('en-US', { ...options, timeZone: 'Asia/Singapore' });
+    }
+
+    setInterval(updateGlobalClocks, 1000);
+    updateGlobalClocks(); // First iteration trigger execution safely
+</script>
+<!-- section 3 js over -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+
+    // section 2 js start
+
+    const vault = document.getElementById('visualVault');
+
+    document.addEventListener('mousemove', (e) => {
+        const xPercent = (e.clientX / window.innerWidth) * 100;
+        const yPercent = (e.clientY / window.innerHeight) * 100;
+
+        document.body.style.setProperty('--mouse-x', `${xPercent}%`);
+        document.body.style.setProperty('--mouse-y', `${yPercent}%`);
+
+        vault.style.left = `${e.clientX}px`;
+        vault.style.top = `${e.clientY}px`;
+    });
+
+    // section 2 js over
+
+    function updateGlobalMatrixClocks() {
+        const now = new Date();
+
+        // 1. OPTIONS FOR EACH COUNTRY'S LOCAL TIME AREA
+        const optionsHub = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+        const optionsInd = { timeZone: 'Asia/Kolkata', hour: '2-digit', minute: '2-digit', hour12: false };
+        const optionsUK = { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', hour12: false };
+        const optionsGer = { timeZone: 'Europe/Berlin', hour: '2-digit', minute: '2-digit', hour12: false };
+        const optionsUAE = { timeZone: 'Asia/Dubai', hour: '2-digit', minute: '2-digit', hour12: false };
+        const optionsSG = { timeZone: 'Asia/Singapore', hour: '2-digit', minute: '2-digit', hour12: false };
+        const optionsUSA = { timeZone: 'America/New_York', hour: '2-digit', minute: '2-digit', hour12: false };
+
+        // 2. FETCH CURRENT CONVERTED DIGITAL TIME STRINGS
+        const timeHub = now.toLocaleTimeString('en-US', optionsHub).split(':');
+        const timeInd = now.toLocaleTimeString('en-US', optionsInd).split(':');
+        const timeUK = now.toLocaleTimeString('en-US', optionsUK).split(':');
+        const timeGer = now.toLocaleTimeString('en-US', optionsGer).split(':');
+        const timeUAE = now.toLocaleTimeString('en-US', optionsUAE).split(':');
+        const timeSG = now.toLocaleTimeString('en-US', optionsSG).split(':');
+        const timeUSA = now.toLocaleTimeString('en-US', optionsUSA).split(':');
+
+        // 3. INJECT LIVE DIGITS INTO THE HTML NODES
+        // Central Hub (Shows Running Seconds too)
+        document.getElementById('hub-h').textContent = timeHub[0];
+        document.getElementById('hub-m').textContent = timeHub[1];
+        document.getElementById('hub-s').textContent = timeHub[2];
+
+        // Individual Countries Cards
+        document.getElementById('time-ind-h').textContent = timeInd[0];
+        document.getElementById('time-ind-m').textContent = timeInd[1];
+
+        document.getElementById('time-uk-h').textContent = timeUK[0];
+        document.getElementById('time-uk-m').textContent = timeUK[1];
+
+        document.getElementById('time-ger-h').textContent = timeGer[0];
+        document.getElementById('time-ger-m').textContent = timeGer[1];
+
+        document.getElementById('time-uae-h').textContent = timeUAE[0];
+        document.getElementById('time-uae-m').textContent = timeUAE[1];
+
+        document.getElementById('time-sg-h').textContent = timeSG[0];
+        document.getElementById('time-sg-m').textContent = timeSG[1];
+
+        document.getElementById('time-usa-h').textContent = timeUSA[0];
+        document.getElementById('time-usa-m').textContent = timeUSA[1];
+    }
+
+    // Run the engine instantly, then heartbeat every 1000ms (1 Second)
+    updateGlobalMatrixClocks();
+    setInterval(updateGlobalMatrixClocks, 1000);
+</script>
+
+<script src="/assets/script/script.js"></script>

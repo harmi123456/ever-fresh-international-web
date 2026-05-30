@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Export Grade Peanut Seeds | EverFresh International LLP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="/assets/css/product.css">
+</head>
+
+<body>
+
+    <div id="global-cursor-placeholder"></div>
+    <div id="global-header-placeholder"></div>
+
+    <section class="title-section">
+        <h1>Peanut Seeds</h1>
+    </section>
+
+    <section class="product-hero-section">
+        <div class="hero-bg-gradient"></div>
+    </section>
+
+    <!-- Split Scroll Interactive Workspace -->
+    <div class="interactive-scroll-container">
+        <div class="scroll-split-wrapper">
+
+            <!-- Left Image Desk (GSAP Pinned Object) -->
+            <div class="left-sticky-visual-desk">
+                <div class="canvas-image-rack" id="imgRackContainer">
+                    <span class="ux-live-badge" id="liveGradeBadge">Origin: Saurashtra Hub</span>
+
+                    <img src="https://images.unsplash.com/photo-1567894254166-5bbf6e02165c?q=80&w=800" class="active"
+                        data-index="1" alt="Premium Raw Peanut Seeds">
+                    <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?q=80&w=800" data-index="2"
+                        alt="Mechanical Grading & De-shelling">
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9d39d6618?q=80&w=800" data-index="3"
+                        alt="Ventilated Jute Packing Logistics">
+                </div>
+            </div>
+
+            <!-- Right Content Stream -->
+            <div class="right-scrolling-content-desk">
+
+                <!-- Block 1 -->
+                <div class="narrative-row-block active-row" data-frame="1">
+                    <h2 class="row-heading">Sourced From The Heart of <span>Saurashtra Peanut Hub</span></h2>
+                    <p class="row-desc">
+                        EverFresh International LLP channels premium-grade Raw Peanut Seeds (Groundnuts) directly from Saurashtra, Gujarat—the capital belt of high-quality peanut farming. Hand-picked and mechanically de-shelled, our peanuts (available in Bold and Java varieties) are celebrated globally for their rich natural oil profile, crunchy texture, uniform kernel size, and sweet nutty flavor matrix optimized for oil crushers, peanut butter manufacturers, and direct snacks industries.
+                    </p>
+                </div>
+
+                <!-- Block 2 -->
+                <div class="narrative-row-block" data-frame="2">
+                    <h2 class="row-heading">The Analytical <span>Count & Aflatoxin Matrix</span></h2>
+                    <p class="row-desc">
+                        Every single lot undergoes multi-stage mechanical sifting, size-calibration, and advanced optical sorting to eliminate damaged kernels, splits, and off-color pods. Our processing terminal maintains absolute temperature and moisture controls, strictly managing the complex international thresholds for Aflatoxin to comply perfectly with European, Asian, and Western food safety laws.
+                    </p>
+
+                    <div class="ux-bento-spec-matrix">
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Available Counts</span>
+                            <span class="cell-value">Bold: 40/50, 50/60 | Java: 50/60, 60/70</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Natural Oil Content</span>
+                            <span class="cell-value">48% - 52% Optimal Range</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Moisture Shield</span>
+                            <span class="cell-value">7.0% - 8.0% Maximum</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Aflatoxin Parameter</span>
+                            <span class="cell-value">B1 + B2 + G1 + G2 Under 4 PPB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Block 3 -->
+                <div class="narrative-row-block" data-frame="3">
+                    <h2 class="row-heading">Moisture Shielded <span>Bulk Export Packing</span></h2>
+                    <p class="row-desc">
+                        Peanut kernels are highly sensitive to rancidity and mold cultivation if trapped under sea humidity and moisture shifts during shipping transits. Select your target heavy-duty commercial packing format below to see how we shield the kernels' crunchy properties.
+                    </p>
+
+                    <div class="ux-packaging-panel">
+                        <div class="ux-pack-selectors">
+                            <button class="pack-btn active" onclick="switchPack('jute', this)">Premium Jute Bags</button>
+                            <button class="pack-btn" onclick="switchPack('pp_bags', this)">Multi-Wall PP Bags</button>
+                            <button class="pack-btn" onclick="switchPack('vacuum', this)">Vacuum Bulk Packs</button>
+                        </div>
+                        <p class="ux-pack-display-text" id="packText">
+                            New, highly breathable premium Jute Gunny Bags (typically 25kg to 50kg gross net) configured to maintain optimum internal ventilation and avoid mold growth during cross-ocean transits.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Block 4 -->
+                <div class="narrative-row-block" data-frame="4">
+                    <h2 class="row-heading">Ready for Global <span>Disbursement?</span></h2>
+                    <p class="row-desc">
+                        Establish direct communication parameters with our central operations hub at MorbiHQ to finalize custom technical variables, request spatial booking configurations, shipping bills, and real-time live container freight quotes.
+                    </p>
+                    <a href="https://wa.me/919870039168" target="_blank" class="ux-instant-pricing-btn">
+                        <span>Get Live Freight Quote (MorbiHQ)</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script>
+        // 1. GSAP ScrollTrigger Integration Logic
+        gsap.registerPlugin(ScrollTrigger);
+
+        const rows = gsap.utils.toArray('.narrative-row-block');
+        const images = gsap.utils.toArray('.canvas-image-rack img');
+        const badge = document.getElementById('liveGradeBadge');
+
+        const badgeTexts = {
+            1: "Origin: Saurashtra Hub",
+            2: "Count & Size Verified",
+            3: "Ventilated Bulk Sacks",
+            4: "EverFresh Logistics"
+        };
+
+        // 🌟 Responsive GSAP Trigger MatchMedia Config
+        ScrollTrigger.matchMedia({
+            // Desktop Engine Setup
+            "(min-width: 992px)": function () {
+                rows.forEach((row, i) => {
+                    const frameIndex = parseInt(row.getAttribute('data-frame'));
+
+                    ScrollTrigger.create({
+                        trigger: row,
+                        start: "top 60%",
+                        end: "bottom 40%",
+                        onEnter: () => updateActiveState(row, frameIndex),
+                        onEnterBack: () => updateActiveState(row, frameIndex)
+                    });
+                });
+            },
+            // Mobile Engine Fallback Layout Setup
+            "(max-width: 991px)": function () {
+                rows.forEach((row, i) => {
+                    const frameIndex = parseInt(row.getAttribute('data-frame'));
+
+                    ScrollTrigger.create({
+                        trigger: row,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        onEnter: () => updateActiveState(row, frameIndex),
+                        onEnterBack: () => updateActiveState(row, frameIndex)
+                    });
+                });
+            }
+        });
+
+        function updateActiveState(currentRow, index) {
+            // Desktop active highlighting switcher
+            if (window.innerWidth > 991) {
+                rows.forEach(r => r.classList.remove('active-row'));
+                currentRow.classList.add('active-row');
+            }
+
+            // Canvas Image Engine Switcher
+            if (images[index - 1]) {
+                images.forEach(img => img.classList.remove('active'));
+                images[index - 1].classList.add('active');
+                badge.innerText = badgeTexts[index] || "EverFresh Quality";
+            }
+        }
+
+        // 2. Packaging Switcher Control Module (Updated for Peanuts)
+        const packingData = {
+            jute: "New, highly breathable premium Jute Gunny Bags (typically 25kg to 50kg gross net) configured to maintain optimum internal ventilation and avoid mold growth during cross-ocean transits.",
+            pp_bags: "Strong multi-wall laminated woven PP sacks engineered for wholesale consumers, offering robust tensile threshold and protection against external dust accumulation.",
+            vacuum: "Advanced oxygen-barrier multi-layer bulk vacuum bags designed to completely block moisture absorption, preserving the natural crunch and preventing any shelf-life oil rancidity."
+        };
+
+        function switchPack(pack, element) {
+            document.querySelectorAll('.ux-pack-selectors .pack-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            const textBlock = document.getElementById('packText');
+            textBlock.style.opacity = 0;
+            setTimeout(() => {
+                textBlock.innerText = packingData[pack];
+                textBlock.style.opacity = 1;
+            }, 200);
+        }
+    </script>
+    <script src="/assets/script/script.js"></script>
+</body>
+
+</html>

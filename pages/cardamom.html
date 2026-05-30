@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Green Cardamom | EverFresh International LLP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="/assets/css/product.css">
+</head>
+
+<body>
+
+    <div id="global-cursor-placeholder"></div>
+    <div id="global-header-placeholder"></div>
+
+    <section class="title-section">
+        <h1>Cardamom</h1>
+    </section>
+
+    <section class="product-hero-section">
+        <div class="hero-bg-gradient"></div>
+    </section>
+
+    <!-- Split Scroll Interactive Workspace -->
+    <div class="interactive-scroll-container">
+        <div class="scroll-split-wrapper">
+
+            <!-- Left Image Desk (GSAP Pinned Object) -->
+            <div class="left-sticky-visual-desk">
+                <div class="canvas-image-rack" id="imgRackContainer">
+                    <span class="ux-live-badge" id="liveGradeBadge">Origin: Western Ghats</span>
+
+                    <img src="https://images.unsplash.com/photo-1634838334415-ef669da79854?q=80&w=800" class="active"
+                        data-index="1" alt="Premium Green Cardamom Pods">
+                    <img src="https://images.unsplash.com/photo-1599599810769-bcde5a160d32?q=80&w=800" data-index="2"
+                        alt="Size Sorting & Optical Grading">
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9d39d6618?q=80&w=800" data-index="3"
+                        alt="Aroma Lock Packaging">
+                </div>
+            </div>
+
+            <!-- Right Content Stream -->
+            <div class="right-scrolling-content-desk">
+
+                <!-- Block 1 -->
+                <div class="narrative-row-block active-row" data-frame="1">
+                    <h2 class="row-heading">Sourced From High-Altitude <span>Kerala & Western Ghats</span></h2>
+                    <p class="row-desc">
+                        EverFresh International LLP sources premium-grade Green Cardamom (Elettaria cardamomum) directly from the lush, high-altitude plantations of Idukki and the Western Ghats. Known as the "Queen of Spices," our cardamom pods are harvested at perfect maturity and cured under temperature-controlled setups to retain their vibrant natural green color, heavy weight, and intense exotic aroma notes demanded by luxury global markets.
+                    </p>
+                </div>
+
+                <!-- Block 2 -->
+                <div class="narrative-row-block" data-frame="2">
+                    <h2 class="row-heading">The Analytical <span>Size & Volatile Oil Matrix</span></h2>
+                    <p class="row-desc">
+                        Every batch passes through precise mechanical sieve-graders and color-sorting lines to categorize pods by millimeter thickness. Our quality assurance processes ensure that light pods, open pods, and thrips-damaged skin are completely eliminated, leaving only plump, seed-filled pods rich in essential oils like cineole and limonene.
+                    </p>
+
+                    <div class="ux-bento-spec-matrix">
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Fruit Pod Size</span>
+                            <span class="cell-value">7mm - 8mm+ Extra Bold</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Volatile Organic Oil</span>
+                            <span class="cell-value">3.5% - 5.0% Active Min</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Moisture Shield</span>
+                            <span class="cell-value">10.0% - 12.0% Max</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Color Grade Profile</span>
+                            <span class="cell-value">Deep Natural Green (No Dye)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Block 3 -->
+                <div class="narrative-row-block" data-frame="3">
+                    <h2 class="row-heading">Aroma Locked <span>Gas-Barrier Packaging</span></h2>
+                    <p class="row-desc">
+                        Green Cardamom is highly volatile; exposure to sunlight, oxygen, or ocean moisture can cause the pods to turn yellow and lose their premium fragrance matrix. Select your target packaging module below to see how we seal the exotic flavor from our loading bay to your port.
+                    </p>
+
+                    <div class="ux-packaging-panel">
+                        <div class="ux-pack-selectors">
+                            <button class="pack-btn active" onclick="switchPack('bags', this)">Polylined Cartons</button>
+                            <button class="pack-btn" onclick="switchPack('vacuum', this)">Vacuum Bulk Packs</button>
+                            <button class="pack-btn" onclick="switchPack('custom', this)">Private Retail Pouches</button>
+                        </div>
+                        <p class="ux-pack-display-text" id="packText">
+                            Export-grade corrugated fiberboard boxes (typically 10kg to 20kg net) lined with specialized multi-layer black polymer bags to eliminate light penetration and moisture ingress.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Block 4 -->
+                <div class="narrative-row-block" data-frame="4">
+                    <h2 class="row-heading">Ready for Global <span>Disbursement?</span></h2>
+                    <p class="row-desc">
+                        Establish direct communication parameters with our central operations hub at MorbiHQ to finalize custom technical variables, request spatial booking configurations, shipping bills, and real-time live container freight quotes.
+                    </p>
+                    <a href="https://wa.me/919870039168" target="_blank" class="ux-instant-pricing-btn">
+                        <span>Get Live Freight Quote (MorbiHQ)</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script>
+        // 1. GSAP ScrollTrigger Integration Logic
+        gsap.registerPlugin(ScrollTrigger);
+
+        const rows = gsap.utils.toArray('.narrative-row-block');
+        const images = gsap.utils.toArray('.canvas-image-rack img');
+        const badge = document.getElementById('liveGradeBadge');
+
+        const badgeTexts = {
+            1: "Origin: Western Ghats",
+            2: "7mm / 8mm Size Verified",
+            3: "Aroma-Lock Guard Pack",
+            4: "EverFresh Logistics"
+        };
+
+        // 🌟 Responsive GSAP Trigger MatchMedia Config
+        ScrollTrigger.matchMedia({
+            // Desktop Engine Setup
+            "(min-width: 992px)": function () {
+                rows.forEach((row, i) => {
+                    const frameIndex = parseInt(row.getAttribute('data-frame'));
+
+                    ScrollTrigger.create({
+                        trigger: row,
+                        start: "top 60%",
+                        end: "bottom 40%",
+                        onEnter: () => updateActiveState(row, frameIndex),
+                        onEnterBack: () => updateActiveState(row, frameIndex)
+                    });
+                });
+            },
+            // Mobile Engine Fallback Layout Setup
+            "(max-width: 991px)": function () {
+                rows.forEach((row, i) => {
+                    const frameIndex = parseInt(row.getAttribute('data-frame'));
+
+                    ScrollTrigger.create({
+                        trigger: row,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        onEnter: () => updateActiveState(row, frameIndex),
+                        onEnterBack: () => updateActiveState(row, frameIndex)
+                    });
+                });
+            }
+        });
+
+        function updateActiveState(currentRow, index) {
+            // Desktop active highlighting switcher
+            if (window.innerWidth > 991) {
+                rows.forEach(r => r.classList.remove('active-row'));
+                currentRow.classList.add('active-row');
+            }
+
+            // Canvas Image Engine Switcher
+            if (images[index - 1]) {
+                images.forEach(img => img.classList.remove('active'));
+                images[index - 1].classList.add('active');
+                badge.innerText = badgeTexts[index] || "EverFresh Quality";
+            }
+        }
+
+        // 2. Packaging Switcher Control Module (Updated for Cardamom)
+        const packingData = {
+            bags: "Export-grade corrugated fiberboard boxes (typically 10kg to 20kg net) lined with specialized multi-layer black polymer bags to eliminate light penetration and moisture ingress.",
+            vacuum: "Advanced oxygen-depleted bulk vacuum packaging to lock in the intense green color matrix and essential oils across long sea transits.",
+            custom: "Tailor-made premium retail pouch configurations, zip-locks, or private label display cases processed with your brand plates directly from Morbi."
+        };
+
+        function switchPack(pack, element) {
+            document.querySelectorAll('.ux-pack-selectors .pack-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            const textBlock = document.getElementById('packText');
+            textBlock.style.opacity = 0;
+            setTimeout(() => {
+                textBlock.innerText = packingData[pack];
+                textBlock.style.opacity = 1;
+            }, 200);
+        }
+    </script>
+    <script src="/assets/script/script.js"></script>
+</body>
+
+</html>

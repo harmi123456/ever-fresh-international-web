@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Pure Coriander Powder | EverFresh International LLP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="/assets/css/product.css">
+</head>
+
+<body>
+
+    <div id="global-cursor-placeholder"></div>
+    <div id="global-header-placeholder"></div>
+
+    <section class="title-section">
+        <h1>Coriander Powder</h1>
+    </section>
+
+    <section class="product-hero-section">
+        <div class="hero-bg-gradient"></div>
+    </section>
+
+    <!-- Split Scroll Interactive Workspace -->
+    <div class="interactive-scroll-container">
+        <div class="scroll-split-wrapper">
+
+            <!-- Left Image Desk (GSAP Pinned Object) -->
+            <div class="left-sticky-visual-desk">
+                <div class="canvas-image-rack" id="imgRackContainer">
+                    <span class="ux-live-badge" id="liveGradeBadge">Origin: Selected Farms</span>
+
+                    <img src="https://images.unsplash.com/photo-1608797178974-15b35a61d121?q=80&w=800" class="active"
+                        data-index="1" alt="Premium Ground Coriander Powder">
+                    <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?q=80&w=800" data-index="2"
+                        alt="Hygienic Spice Milling Process">
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9d39d6618?q=80&w=800" data-index="3"
+                        alt="Moisture-Lock Sealed Packing">
+                </div>
+            </div>
+
+            <!-- Right Content Stream -->
+            <div class="right-scrolling-content-desk">
+
+                <!-- Block 1 -->
+                <div class="narrative-row-block active-row" data-frame="1">
+                    <h2 class="row-heading">Processed From Whole <span>Premium Coriander Seeds</span></h2>
+                    <p class="row-desc">
+                        EverFresh International LLP delivers high-purity, premium Coriander Powder (Dhania Powder) freshly ground from clean, well-dried coriander seeds. Sourced directly from prominent agricultural zones, our milling pipeline operates at regulated cool temperatures to capture the volatile oils, yielding a natural greenish-yellow powder with a distinct sweet-citrusy and mild woody aroma, completely free from artificial colorants or starches.
+                    </p>
+                </div>
+
+                <!-- Block 2 -->
+                <div class="narrative-row-block" data-frame="2">
+                    <h2 class="row-heading">The Analytical <span>Linalool Oil & Purity Matrix</span></h2>
+                    <p class="row-desc">
+                        Our strict spice processing workflow integrates heavy destoning, aspirating, and fine sifting protocols. To eliminate micro-impurities, the powder runs through high-intensity magnetic separators, ensuring that every export batch is verified clean, microbiologically safe, and compliant with international sanitary import barriers.
+                    </p>
+
+                    <div class="ux-bento-spec-matrix">
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Linalool / Essential Oil</span>
+                            <span class="cell-value">0.3% - 0.6%+ Volatile Min</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Moisture Shield</span>
+                            <span class="cell-value">9.0% - 10.0% Max</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Total Ash Parameter</span>
+                            <span class="cell-value">7.0% Maximum Allowed</span>
+                        </div>
+                        <div class="ux-glass-data-cell">
+                            <span class="cell-label">Purity Profile</span>
+                            <span class="cell-value">100% Pure Ground Dhania</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Block 3 -->
+                <div class="narrative-row-block" data-frame="3">
+                    <h2 class="row-heading">Aroma Shielded <span>Moisture Barrier Packaging</span></h2>
+                    <p class="row-desc">
+                        Finely ground coriander powder is highly hygroscopic, meaning it rapidly absorbs moisture from the air, risking lumps and loss of freshness during sea transits. Select your target barrier packaging module below to see how we maintain volatile flavors and physical stability from our facility to your warehouse.
+                    </p>
+
+                    <div class="ux-packaging-panel">
+                        <div class="ux-pack-selectors">
+                            <button class="pack-btn active" onclick="switchPack('pp_bags', this)">Multi-Layer PP Bags</button>
+                            <button class="pack-btn" onclick="switchPack('carton', this)">Corrugated Boxes</button>
+                            <button class="pack-btn" onclick="switchPack('custom', this)">Private Brand Pouches</button>
+                        </div>
+                        <p class="ux-pack-display-text" id="packText">
+                            High-strength multi-wall laminated PP/HDPE bags (typically 20kg to 25kg net) equipped with airtight heat-sealed inner food-grade poly-liners to prevent moisture absorption.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Block 4 -->
+                <div class="narrative-row-block" data-frame="4">
+                    <h2 class="row-heading">Ready for Global <span>Disbursement?</span></h2>
+                    <p class="row-desc">
+                        Establish direct communication parameters with our central operations hub at MorbiHQ to finalize custom technical variables, request spatial booking configurations, shipping bills, and real-time live container freight quotes.
+                    </p>
+                    <a href="https://wa.me/919870039168" target="_blank" class="ux-instant-pricing-btn">
+                        <span>Get Live Freight Quote (MorbiHQ)</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script>
+        // 1. GSAP ScrollTrigger Integration Logic
+        gsap.registerPlugin(ScrollTrigger);
+
+        const rows = gsap.utils.toArray('.narrative-row-block');
+        const images = gsap.utils.toArray('.canvas-image-rack img');
+        const badge = document.getElementById('liveGradeBadge');
+
+        const badgeTexts = {
+            1: "Origin: Selected Farms",
+            2: "Linalool Oil Certified",
+            3: "Moisture-Lock Sealed",
+            4: "EverFresh Logistics"
+        };
+
+        // 🌟 Responsive GSAP Trigger MatchMedia Config
+        ScrollTrigger.matchMedia({
+            // Desktop Engine Setup
+            "(min-width: 992px)": function () {
+                rows.forEach((row, i) => {
+                    const frameIndex = parseInt(row.getAttribute('data-frame'));
+
+                    ScrollTrigger.create({
+                        trigger: row,
+                        start: "top 60%",
+                        end: "bottom 40%",
+                        onEnter: () => updateActiveState(row, frameIndex),
+                        onEnterBack: () => updateActiveState(row, frameIndex)
+                    });
+                });
+            },
+            // Mobile Engine Fallback Layout Setup
+            "(max-width: 991px)": function () {
+                rows.forEach((row, i) => {
+                    const frameIndex = parseInt(row.getAttribute('data-frame'));
+
+                    ScrollTrigger.create({
+                        trigger: row,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        onEnter: () => updateActiveState(row, frameIndex),
+                        onEnterBack: () => updateActiveState(row, frameIndex)
+                    });
+                });
+            }
+        });
+
+        function updateActiveState(currentRow, index) {
+            // Desktop active highlighting switcher
+            if (window.innerWidth > 991) {
+                rows.forEach(r => r.classList.remove('active-row'));
+                currentRow.classList.add('active-row');
+            }
+
+            // Canvas Image Engine Switcher
+            if (images[index - 1]) {
+                images.forEach(img => img.classList.remove('active'));
+                images[index - 1].classList.add('active');
+                badge.innerText = badgeTexts[index] || "EverFresh Quality";
+            }
+        }
+
+        // 2. Packaging Switcher Control Module (Updated for Coriander Powder)
+        const packingData = {
+            pp_bags: "High-strength multi-wall laminated PP/HDPE bags (typically 20kg to 25kg net) equipped with airtight heat-sealed inner food-grade poly-liners to prevent moisture absorption.",
+            carton: "Double-walled corrugated fiberboard master cartons containing heavy-duty aluminum foil inner barrier bags to prevent light degradation and lock in aromatic freshness.",
+            custom: "Tailor-made private labeling options. High-barrier stand-up pouches, ziplock packs, or retail display boxes processed directly with your brand plates from Morbi."
+        };
+
+        function switchPack(pack, element) {
+            document.querySelectorAll('.ux-pack-selectors .pack-btn').forEach(btn => btn.classList.remove('active'));
+            element.classList.add('active');
+
+            const textBlock = document.getElementById('packText');
+            textBlock.style.opacity = 0;
+            setTimeout(() => {
+                textBlock.innerText = packingData[pack];
+                textBlock.style.opacity = 1;
+            }, 200);
+        }
+    </script>
+    <script src="/assets/script/script.js"></script>
+</body>
+
+</html>

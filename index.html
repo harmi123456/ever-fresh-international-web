@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EverFresh International - Premium Slider</title>
+
+    <!-- font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Syne (700, 800) અને Inter (400, 500, 600) ફોન્ટની લિંક -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<style>
+    body.locked {
+        overflow: hidden;
+        height: 100vh;
+    }
+
+    #intro-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 99999999999999999;
+        background: #000;
+    }
+
+    #intro-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    #intro-overlay.slide-up {
+        animation: slideUp 0.9s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+    }
+
+    @keyframes slideUp {
+        0% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+    }
+
+    #skip-btn {
+        position: absolute;
+        bottom: 36px;
+        right: 36px;
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-size: 13px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        cursor: pointer;
+        backdrop-filter: blur(10px);
+        font-family: sans-serif;
+        transition: background 0.25s, transform 0.2s;
+    }
+
+    #skip-btn:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: scale(1.05);
+    }
+</style>
+
+<body class="locked">
+
+    <!-- ══════════ VIDEO OVERLAY ══════════ -->
+    <div id="intro-overlay">
+
+        <video id="intro-video" autoplay muted playsinline>
+            <source src="/assets/videos/boat2.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Skip -->
+        <button id="skip-btn">Skip ›</button>
+
+    </div>
+
+
+
+    <div id="global-cursor-placeholder"></div>
+
+    <div id="global-header-placeholder"></div>
+
+
+    <section class="agro-hero hero">
+        <div class="agro-hero-bg-wrapper" id="bgWrapper"></div>
+        <div class="agro-hero-overlay"></div>
+        <div class="agro-hero-overlay-bottom"></div>
+
+        <div class="agro-hero-container">
+            <div class="agro-hero-details-wrapper" id="detailsWrapper"></div>
+
+            <div class="agro-hero-bottom">
+                <div class="agro-controls">
+                    <button class="agro-arrow" id="heroPrev"><svg width="24" height="24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg></button>
+                    <button class="agro-arrow" id="heroNext"><svg width="24" height="24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg></button>
+                </div>
+                <div class="agro-cards-slider" id="cardsSlider"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="capabilities-section">
+        <div class="section-bg-image"></div>
+
+        <div class="container">
+            <h2 class="section-title">Production evolved</h2>
+
+            <div class="capabilities-grid">
+
+                <div class="glass-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" width="22" height="22">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" />
+                            </svg>
+                        </div>
+                        <div class="tag-container">
+                            <span class="badge">Spices</span>
+                            <span class="badge">Pure</span>
+                            <span class="badge">India-sourced</span>
+                            <span class="badge">Premium Quality</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Cumin Seeds & Spices</h3>
+                        <p>From single origin farms to precision blending, indistinguishable quality, spices premium
+                            exports maintain the absolute cumin quality.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" width="22" height="22">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
+                            </svg>
+                        </div>
+                        <div class="tag-container">
+                            <span class="badge">Fruits & Veg</span>
+                            <span class="badge">Variety</span>
+                            <span class="badge">Seasonal</span>
+                            <span class="badge">Dependable</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Pomegranate & Fresh Produce</h3>
+                        <p>Diverse product lines in this environment, four product lines, unified identity and unified
+                            consistency of catalogues.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" width="22" height="22">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
+                            </svg>
+                        </div>
+                        <div class="tag-container">
+                            <span class="badge">Redchilli Powder</span>
+                            <span class="badge">Quality Control</span>
+                            <span class="badge">Efficient Supply Chain</span>
+                            <span class="badge">Seamless Export</span>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Spices Powder & Logistics</h3>
+                        <p>Processing and global connect for sourcing, processing, marketing, and dependable sourcing in
+                            the agro-tourism industry.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="about-section dark-version">
+        <div class="about-container">
+
+            <div class="about-content-block">
+                <span class="sub-tagline">WHO WE ARE</span>
+
+                <h2 class="company-name">EverFresh <br><span class="highlight">International LLP</span></h2>
+
+                <div class="slogan-badge">
+                    <span class="slogan-icon">🌱</span>
+                    <p class="slogan-text">Fresh Choices, Better Life.</p>
+                </div>
+
+                <p class="about-text">
+                    EverFresh International is an India-based export-import company committed to delivering quality,
+                    reliability, and professional global trade solutions. We focus on building long-term international
+                    partnerships through trusted business practices, efficient supply chain management, competitive
+                    pricing, and customer satisfaction.
+                </p>
+
+                <p class="about-text-sub">
+                    Our goal is to connect businesses worldwide with dependable sourcing and seamless export services,
+                    bridging the gap between global demand and India's finest produce.
+                </p>
+
+                <div class="trust-indicators">
+                    <div class="indicator-item">
+                        <span class="count">100%</span>
+                        <span class="label">Pure Quality</span>
+                    </div>
+                    <div class="indicator-item">
+                        <span class="count">Global</span>
+                        <span class="label">Supply Chain</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-media-block">
+                <div class="media-wrapper">
+                    <div class="floating-badge top-left-badge">
+                        <span class="badge-dot"></span> Verified Exporter
+                    </div>
+
+                    <div class="floating-badge bottom-right-badge">
+                        🌍 India to Worldwide
+                    </div>
+
+                    <div class="main-media-holder">
+                        <video autoplay muted loop playsinline class="about-video">
+                            <source src="/assets/videos/about.mp4" type="video/mp4">
+                        </video>
+                        <div class="media-overlay"></div>
+                    </div>
+
+                    <div class="glow-deco deco-1"></div>
+                    <div class="glow-deco deco-2"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="creative-marquee-section">
+        <div class="marquee-wrapper">
+            <div class="marquee-track track-1">
+                <div class="marquee-content">
+                    <span>CUMIN SEEDS</span> <span class="dot">✦</span>
+                    <span>POMEGRANATE</span> <span class="dot">✦</span>
+                    <span>REDCHILLI POWDER</span> <span class="dot">✦</span>
+                    <span>EVERFRESH INTERNATIONAL</span> <span class="dot">✦</span>
+                    <span>CUMIN SEEDS</span> <span class="dot">✦</span>
+                    <span>POMEGRANATE</span> <span class="dot">✦</span>
+                    <span>REDCHILLI POWDER</span> <span class="dot">✦</span>
+                    <span>EVERFRESH INTERNATIONAL</span> <span class="dot">✦</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- <section class="merry-go-round-section">
+        <div class="carousel-center-brand">
+            <h3>EverFresh</h3>
+            <p>Fresh Choices, Better Life.</p>
+        </div>
+
+        <div class="carousel-viewport">
+            <div class="carousel-3d" id="carousel3d">
+
+                <div class="carousel-card">
+                    <div class="card-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&q=80&w=600');">
+                    </div>
+                    <div class="card-glass">
+                        <div class="card-info">
+                            <h4>Cumin Seeds</h4>
+                            <p>Main Product</p>
+                        </div>
+                        <a href="cumin-seeds.html" class="explore-btn">View Product</a>
+                    </div>
+                </div>
+
+                <div class="carousel-card">
+                    <div class="card-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=600');">
+                    </div>
+                    <div class="card-glass">
+                        <div class="card-info">
+                            <h4>Pomegranate</h4>
+                            <p>Main Product</p>
+                        </div>
+                        <a href="pomegranate.html" class="explore-btn">View Product</a>
+                    </div>
+                </div>
+
+                <div class="carousel-card">
+                    <div class="card-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&q=80&w=600');">
+                    </div>
+                    <div class="card-glass">
+                        <div class="card-info">
+                            <h4>Redchilli Powder</h4>
+                            <p>Main Product</p>
+                        </div>
+                        <a href="redchilli-powder.html" class="explore-btn">View Product</a>
+                    </div>
+                </div>
+
+                <div class="carousel-card">
+                    <div class="card-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1615485500704-8e990f9900f7?auto=format&fit=crop&q=80&w=600');">
+                    </div>
+                    <div class="card-glass">
+                        <div class="card-info">
+                            <h4>Turmeric Finger</h4>
+                            <p>Spices</p>
+                        </div>
+                        <a href="turmeric.html" class="explore-btn">View Product</a>
+                    </div>
+                </div>
+
+                <div class="carousel-card">
+                    <div class="card-img"
+                        style="background-image: url('https://images.unsplash.com/photo-1547058881-aa0edd92aab3?auto=format&fit=crop&q=80&w=600');">
+                    </div>
+                    <div class="card-glass">
+                        <div class="card-info">
+                            <h4>Green Gram</h4>
+                            <p>Pulses</p>
+                        </div>
+                        <a href="pulses.html" class="explore-btn">View Product</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section> -->
+
+
+
+    <section class="arch-slider-section tooltipshowcase">
+        <div class="slider-arch-track" id="sliderTrack">
+
+            <div class="arch-card">
+                <div class="card-img-src" style="background-image: url('/assets/images/cumin-product.png');">
+                </div>
+                <div class="card-glass-view">
+                    <div class="card-meta-data">
+                        <h4>Cumin Seeds</h4>
+                        <p>Main Product</p>
+                    </div>
+
+                    <button class="export-glass-btn">
+                        <span class="btn-text">View Product</span>
+                        <div class="icon-container">
+                            <svg class="cloud-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="rgba(249, 250, 251, 0.3)" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M17.5 19A3.5 3.5 0 0 0 21 15.5c0-2.79-2.54-4.5-5-4.5-.72 0-1.42.21-2 .58A5.5 5.5 0 0 0 4 14c0 2.76 2.24 5 5 5h8.5z">
+                                </path>
+                            </svg>
+                            <svg class="plane-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                viewBox="0 0 24 24" fill="none" stroke="var(--brand-orange)" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <!-- પ્લેન હવે પ્રોપરલી રાઇટ સાઇડ ફેસિંગ છે -->
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+                            </svg>
+                        </div>
+                    </button>
+
+                    <!-- <a href="cumin-seeds.html" class="card-action-btn">View Product</a> -->
+                </div>
+            </div>
+
+            <div class="arch-card">
+                <div class="card-img-src" style="background-image: url('/assets/images/pomegranate-product.png');">
+                </div>
+                <div class="card-glass-view">
+                    <div class="card-meta-data">
+                        <h4>Pomegranate</h4>
+                        <p>Main Product</p>
+                    </div>
+
+                    <button class="export-glass-btn">
+                        <span class="btn-text">View Product</span>
+                        <div class="icon-container">
+                            <svg class="cloud-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="rgba(249, 250, 251, 0.3)" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M17.5 19A3.5 3.5 0 0 0 21 15.5c0-2.79-2.54-4.5-5-4.5-.72 0-1.42.21-2 .58A5.5 5.5 0 0 0 4 14c0 2.76 2.24 5 5 5h8.5z">
+                                </path>
+                            </svg>
+                            <svg class="plane-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                viewBox="0 0 24 24" fill="none" stroke="var(--brand-orange)" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <!-- પ્લેન હવે પ્રોપરલી રાઇટ સાઇડ ફેસિંગ છે -->
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+                            </svg>
+                        </div>
+                    </button>
+
+                    <!-- <a href="pomegranate.html" class="card-action-btn">View Product</a> -->
+                </div>
+            </div>
+
+            <a href="/pages/redchilli.html" class="arch-card">
+                <div class="card-img-src" style="background-image: url('/assets/images/redchilli-product.png');">
+                </div>
+                <div class="card-glass-view">
+                    <div class="card-meta-data">
+                        <h4>Redchilli Powder</h4>
+                        <p>Main Product</p>
+                    </div>
+                    <button class="export-glass-btn">
+                        <span class="btn-text">View Product</span>
+                        <div class="icon-container">
+                            <svg class="cloud-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="rgba(249, 250, 251, 0.3)" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M17.5 19A3.5 3.5 0 0 0 21 15.5c0-2.79-2.54-4.5-5-4.5-.72 0-1.42.21-2 .58A5.5 5.5 0 0 0 4 14c0 2.76 2.24 5 5 5h8.5z">
+                                </path>
+                            </svg>
+                            <svg class="plane-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                viewBox="0 0 24 24" fill="none" stroke="var(--brand-orange)" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <!-- પ્લેન હવે પ્રોપરલી રાઇટ સાઇડ ફેસિંગ છે -->
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </a>
+
+            <a href="/pages/turmuric-finger.html" class="arch-card">
+                <div class="card-img-src" style="background-image: url('/assets/images/turmuric-finger.png');">
+                </div>
+                <div class="card-glass-view">
+                    <div class="card-meta-data">
+                        <h4>Turmeric Finger</h4>
+                        <p>Spices</p>
+                    </div>
+                    <button class="export-glass-btn">
+                        <span class="btn-text">View Product</span>
+                        <div class="icon-container">
+                            <svg class="cloud-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="rgba(249, 250, 251, 0.3)" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M17.5 19A3.5 3.5 0 0 0 21 15.5c0-2.79-2.54-4.5-5-4.5-.72 0-1.42.21-2 .58A5.5 5.5 0 0 0 4 14c0 2.76 2.24 5 5 5h8.5z">
+                                </path>
+                            </svg>
+                            <svg class="plane-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                viewBox="0 0 24 24" fill="none" stroke="var(--brand-orange)" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <!-- પ્લેન હવે પ્રોપરલી રાઇટ સાઇડ ફેસિંગ છે -->
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </a>
+
+            <div class="arch-card">
+                <div class="card-img-src" style="background-image: url('/assets/images/black-pepper.png');">
+                </div>
+                <div class="card-glass-view">
+                    <div class="card-meta-data">
+                        <h4>Black Pepper</h4>
+                        <p>Spices</p>
+                    </div>
+
+                    <button class="export-glass-btn">
+                        <span class="btn-text">View Product</span>
+                        <div class="icon-container">
+                            <svg class="cloud-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="rgba(249, 250, 251, 0.3)" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M17.5 19A3.5 3.5 0 0 0 21 15.5c0-2.79-2.54-4.5-5-4.5-.72 0-1.42.21-2 .58A5.5 5.5 0 0 0 4 14c0 2.76 2.24 5 5 5h8.5z">
+                                </path>
+                            </svg>
+                            <svg class="plane-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                viewBox="0 0 24 24" fill="none" stroke="var(--brand-orange)" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <!-- પ્લેન હવે પ્રોપરલી રાઇટ સાઇડ ફેસિંગ છે -->
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+                            </svg>
+                        </div>
+                    </button>
+                    <!-- <a href="black-pepper.html" class="card-action-btn">View Product</a> -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <div class="page-snap-container keep-scroll-start">
+
+        <section class="snap-section">
+
+            <div class="left-copy">
+                <div class="premium-badge">
+                    <span class="badge-dot"></span>
+                    <span>Global Export Standards</span>
+                </div>
+                <span class="agro-tagline">Our Supply Chain Journey</span>
+                <h2>Cultivating <br><span>Global Trust</span></h2>
+                <p>
+                    We seamlessly bridge the gap between India's fertile lands and international market demands. Through
+                    structured precision, zero-tolerance testing, and state-of-the-art cleaning technology, explore how
+                    we deliver pure agricultural excellence across worldwide ports.
+                </p>
+            </div>
+
+            <div class="right-stack">
+
+                <div class="image-panel panel-1">
+                    <div class="stacked-card">
+                        <img src="/assets/images/farm-source.png" alt="Direct Farm Sourcing">
+                        <div class="image-card-caption">
+                            <span class="step-no">Step 01</span>
+                            <h4>Ethical Farm Sourcing</h4>
+                            <p>Procuring premium whole spices and oilseeds directly from verified Indian farmers to
+                                secure absolute raw purity.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-panel panel-2">
+                    <div class="stacked-card">
+                        <img src="/assets/images/lab-test.png" alt="Rigorous Quality Testing">
+                        <div class="image-card-caption">
+                            <span class="step-no">Step 02</span>
+                            <h4>Zero-Tolerance Testing</h4>
+                            <p>Rigorous laboratory evaluation ensuring compliance with stringent international pesticide
+                                and aflatoxin limits.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-panel panel-3">
+                    <div class="stacked-card">
+                        <img src="/assets/images/sortex-cleaning.png" alt="Sortex Cleaning Plant">
+                        <div class="image-card-caption">
+                            <span class="step-no">Step 03</span>
+                            <h4>Sortex Ultra Cleaning</h4>
+                            <p>Utilizing high-end optical color sorters to achieve 99.5% premium machine-clean product
+                                uniformity.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="image-panel panel-4">
+                    <div class="stacked-card">
+                        <img src="/assets/images/secure-transit.png" alt="Global Ports Secured Shipping">
+                        <div class="image-card-caption">
+                            <span class="step-no">Step 04</span>
+                            <h4>Secured Global Transit</h4>
+                            <p>Custom multi-layer moisture-proof packaging with seamless logistic tracking directly to
+                                your destination port.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+    </div>
+
+    <section class="export-services-section">
+        <div class="services-container">
+
+            <div class="service-row-link">
+                <div class="service-content-left">
+                    <span class="service-num">01</span>
+                    <div class="service-text-block">
+                        <p class="service-sub-desc">Global Maritime Logistics Via Main Sea Routes</p>
+                        <h3 class="service-main-title">Ocean Freight</h3>
+                    </div>
+                </div>
+
+                <div class="service-image-reveal">
+                    <img src="/assets/images/ship.png" alt="Ocean Freight Ship">
+                </div>
+
+                <div class="service-action-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="service-row-link">
+                <div class="service-content-left">
+                    <span class="service-num">02</span>
+                    <div class="service-text-block">
+                        <p class="service-sub-desc">Time-Critical Premium Air Charter Services</p>
+                        <h3 class="service-main-title">Air Cargo</h3>
+                    </div>
+                </div>
+
+                <div class="service-image-reveal">
+                    <img src="/assets/images/air-cargo.png" alt="Air Cargo Airplane">
+                </div>
+
+                <div class="service-action-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="service-row-link">
+                <div class="service-content-left">
+                    <span class="service-num">03</span>
+                    <div class="service-text-block">
+                        <p class="service-sub-desc">Hassle-Free Global Customs Documentation</p>
+                        <h3 class="service-main-title">Customs Brokerage</h3>
+                    </div>
+                </div>
+
+                <div class="service-image-reveal">
+                    <img src="/assets/images/customduty.png" alt="Customs and Containers">
+                </div>
+
+                <div class="service-action-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <section class="ef-interactive-showcase">
+
+        <div class="ef-section-badge">Why Global Partners Choose Us</div>
+
+        <div class="ef-gallery-container">
+
+            <div class="ef-img-box" data-text="CUMIN KING" data-color="#ffffff">
+                <img src="/assets/images/cumin-slider.png" alt="Premium Cumin Seeds">
+            </div>
+
+            <div class="ef-img-box" data-text="LAB TESTED" data-color="#fe8a03">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=300&auto=format&fit=cover"
+                    alt="Laboratory Quality Control">
+            </div>
+
+            <div class="ef-img-box" data-text="100% PURE" data-color="#479f27">
+                <img src="/assets/images/cuminplant.png" alt="Natural Agriculture Fields">
+            </div>
+
+            <div class="ef-img-box" data-text="SORTEX CLEAN" data-color="#ffffff">
+                <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=300&auto=format&fit=cover"
+                    alt="Modern Processing Infrastructure">
+            </div>
+
+            <div class="ef-img-box" data-text="GLOBAL SHIP" data-color="#fe8a03">
+                <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?q=80&w=300&auto=format&fit=cover"
+                    alt="International Vessel Port">
+            </div>
+
+            <div class="ef-img-box" data-text="PURE TRUST" data-color="#479f27">
+                <img src="/assets/images/trust.png" alt="Reliable Trade Handshake">
+            </div>
+
+        </div>
+
+        <div class="ef-display-text-wrapper">
+            <h1 class="ef-dynamic-title" id="changing-title">EVERFRESH</h1>
+        </div>
+
+    </section>
+
+
+    <!-- <div style="width: 1920px; height: 900px" data-us-project="XEVQFV3qzhFfDHFntPU0"></div>
+<script type="text/javascript">!function(){var u=window.UnicornStudio;if(u&&u.init){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){u.init()})}else{u.init()}}else{window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.1.12/dist/unicornStudio.umd.js",i.onload=function(){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){UnicornStudio.init()})}else{UnicornStudio.init()}},(document.head||document.body).appendChild(i)}}();</script> -->
+
+
+
+
+    <div class="map-scroll-track" id="revealTrack">
+
+        <div class="map-sticky-container">
+
+            <!-- VIDEO CONTAINER -->
+            <div class="media-box" id="mediaBox">
+                <!-- સપ્લાય ચેઈન અને મેપ રિલેટેડ પ્રીમિયમ સ્ટોક વિડિયો -->
+                <video src="/assets/videos/map.mp4" autoplay loop muted playsinline></video>
+            </div>
+
+            <!-- EXPORT CONTENT: ONE BY ONE FADE SHOW -->
+            <div class="map-text-wrapper">
+
+                <!-- BLOCK 01 -->
+                <div class="info-block" id="block1">
+                    <span>01 / Global Sourcing</span>
+                    <h3>Fertile Roots</h3>
+                    <p>Connecting thousands of certified Indian farms directly to major continents with 100% digital
+                        batch traceability.</p>
+                </div>
+
+                <!-- BLOCK 02 -->
+                <div class="info-block" id="block2">
+                    <span>02 / Premium Quality</span>
+                    <h3>Sovereign Hubs</h3>
+                    <p>Processing premium whole crops through custom optical Sortex plants meeting strict EU and US FDA
+                        compliance.</p>
+                </div>
+
+                <!-- BLOCK 03 -->
+                <div class="info-block" id="block3">
+                    <span>03 / Final Destination</span>
+                    <h3>Boundless Ports</h3>
+                    <p>Securing strategic maritime routes to ensure prompt customs clearance and fresh container
+                        deliveries worldwide.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <div id="footer-container"></div>
+
+
+
+
+    <script>
+        const overlay = document.getElementById('intro-overlay');
+        const video = document.getElementById('intro-video');
+        const skipBtn = document.getElementById('skip-btn');
+        let revealed = false;
+
+        function revealSite() {
+            if (revealed) return;
+            revealed = true;
+
+            // Body scroll unlock
+            document.body.classList.remove('locked');
+
+            // Page top પર force
+            window.scrollTo(0, 0);
+
+            // Overlay slide up
+            overlay.classList.add('slide-up');
+
+            // DOM માંથી remove
+            setTimeout(() => overlay.remove(), 950);
+        }
+
+        // Video end
+        video.addEventListener('ended', revealSite);
+
+
+        // Skip button
+        skipBtn.addEventListener('click', revealSite);
+
+        // Video error fallback
+        video.addEventListener('error', revealSite);
+
+        // 8 sec timeout fallback
+        setTimeout(() => {
+            if (!revealed) revealSite();
+        }, 5000);
+    </script>
+
+
+    <script>
+
+        const agroData = [
+            { title: "Premium <span>Cumin Seeds</span>", category: "Main Product", tags: ["99.5% Purity", "Machine Clean"], img: "assets/images/cumin-banner2.jpg", cardTitle: "Cumin Seeds" },
+            { title: "Whole <span>Spices Range</span>", category: "Spices", tags: ["Black Pepper", "Turmeric finger", "Cumin", "Ajwain", "RedChilli", "Cinamon", "Cardamon", "Cloves"], img: "assets/images/spices-banner.jpg", cardTitle: "Whole Spices" },
+            { title: "Sieved <span>Spices Powder</span>", category: "Powder", tags: ["Chill powder", "Cumin powder", "Turmeric powder", "Coriander powder", "Garlic powder", "Ginger powder", "Moringa powder"], img: "assets/images/spicespowder-banner.jpg", cardTitle: "Spices Powder" },
+            { title: "Pure <span>Agro Seeds</span>", category: "Seeds", tags: ["Peanut", "Fennel", "Chia", "Coriander", "Mustard"], img: "assets/images/seeds-banner.jpg", cardTitle: "Premium Seeds" },
+            { title: "Polished <span>Bulk Pulses</span>", category: "Pulses", tags: ["Chick Peas", "Green Gram"], img: "assets/images/pulses-banner.jpg", cardTitle: "Bulk Pulses" },
+            { title: "Nutritious <span>Grains</span>", category: "Grains", tags: ["Rice", "Wheat", "Maize", "Millet"], img: "assets/images/grains-banner.jpg", cardTitle: "Grains & Corn" },
+            { title: "Export Grade <span>Fruits</span>", category: "Fruits", tags: ["Mango", "Pomegranate", "Grapes", "Guava", "Apple", "Orange", "Pineapple"], img: "assets/images/fruits-banner.jpg", cardTitle: "Fresh Fruits" },
+            { title: "Fresh <span>Vegetables</span>", category: "Vegetables", tags: ["Onion", "Ginger", "Lemon", "Green Chilli", "Drumsticks"], img: "assets/images/vegetables-banner.jpg", cardTitle: "Vegetables" }
+        ];
+
+        const bgWrapper = document.getElementById('bgWrapper');
+        const detailsWrapper = document.getElementById('detailsWrapper');
+        const cardsSlider = document.getElementById('cardsSlider');
+        const btnPrev = document.getElementById('heroPrev');
+        const btnNext = document.getElementById('heroNext');
+
+        let currentIdx = 0;
+
+        function initSlider() {
+            agroData.forEach((item, idx) => {
+                const bgDiv = document.createElement('div');
+                bgDiv.className = `agro-hero-bg ${idx === 0 ? 'active' : ''}`;
+                bgDiv.style.backgroundImage = `url('${item.img}')`;
+                bgWrapper.appendChild(bgDiv);
+
+                const detailDiv = document.createElement('div');
+                detailDiv.className = `agro-hero-details ${idx === 0 ? 'active' : ''}`;
+                detailDiv.innerHTML = `
+<span class="agro-tagline">${item.category}</span>
+
+<h1 class="agro-title">${item.title}</h1>
+
+<div class="agro-products-preview">
+    ${item.tags.map(t => `<span class="agro-badge">${t}</span>`).join('')}
+</div>
+
+<button class="export-glass-btn">
+    <span class="btn-text">Start Global Trade</span>
+
+    <div class="icon-container">
+
+        <svg class="cloud-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="rgba(249, 250, 251, 0.3)"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+
+            <path d="M17.5 19A3.5 3.5 0 0 0 21 15.5c0-2.79-2.54-4.5-5-4.5-.72 0-1.42.21-2 .58A5.5 5.5 0 0 0 4 14c0 2.76 2.24 5 5 5h8.5z"></path>
+
+        </svg>
+
+        <svg class="plane-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="var(--brand-orange)"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+
+        </svg>
+
+    </div>
+</button>
+`;
+                detailsWrapper.appendChild(detailDiv);
+
+                const cardDiv = document.createElement('div');
+                cardDiv.className = `agro-card ${idx === 0 ? 'active' : ''}`;
+                cardDiv.innerHTML = `<div class="agro-card-bg" style="background-image: url('${item.img}')"></div><div class="agro-card-overlay"></div><div class="agro-card-content"><h3 class="agro-card-title">${item.cardTitle}</h3></div>`;
+                cardDiv.addEventListener('click', () => changeSlide(idx));
+                cardsSlider.appendChild(cardDiv);
+            });
+            // Initial center
+            setTimeout(() => {
+                const firstCard = document.querySelectorAll('.agro-card')[0];
+                cardsSlider.scrollLeft = firstCard.offsetLeft - (cardsSlider.offsetWidth / 2) + (firstCard.offsetWidth / 2);
+            }, 300);
+        }
+
+        // FIXED SLIDE CHANGER: Manual calculation for zero ghost space
+        function changeSlide(targetIdx) {
+            if (targetIdx < 0) targetIdx = agroData.length - 1;
+            if (targetIdx >= agroData.length) targetIdx = 0;
+
+            document.querySelectorAll('.agro-hero-bg')[currentIdx].classList.remove('active');
+            document.querySelectorAll('.agro-hero-details')[currentIdx].classList.remove('active');
+            document.querySelectorAll('.agro-card')[currentIdx].classList.remove('active');
+
+            currentIdx = targetIdx;
+
+            document.querySelectorAll('.agro-hero-bg')[currentIdx].classList.add('active');
+            document.querySelectorAll('.agro-hero-details')[currentIdx].classList.add('active');
+
+            const activeCard = document.querySelectorAll('.agro-card')[currentIdx];
+            activeCard.classList.add('active');
+
+            // પર્ફેક્ટ સેન્ટરિંગ કેલ્ક્યુલેશન
+            const offset = activeCard.offsetLeft - (cardsSlider.offsetWidth / 2) + (activeCard.offsetWidth / 2);
+            cardsSlider.scrollTo({ left: offset, behavior: 'smooth' });
+        }
+
+        btnNext.addEventListener('click', () => { changeSlide(currentIdx + 1); resetTimer(); });
+        btnPrev.addEventListener('click', () => { changeSlide(currentIdx - 1); resetTimer(); });
+
+        let timer = setInterval(() => changeSlide(currentIdx + 1), 4000);
+        function resetTimer() { clearInterval(timer); timer = setInterval(() => changeSlide(currentIdx + 1), 4000); }
+
+        initSlider();
+    </script>
+
+
+</body>
+
+</html>
+
+
+<script src="assets/script/script.js"></script>
