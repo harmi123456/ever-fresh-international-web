@@ -743,3 +743,111 @@ html {
 }
 
 /* product page css end / */
+
+
+/* 💻 Tablets and Smaller Desktops */
+@media (max-width: 1199px) {
+    .scroll-split-wrapper {
+        padding: 0 2.5rem;
+        gap: 40px;
+    }
+    .canvas-image-rack {
+        height: 420px;
+    }
+}
+
+/* 📱 Mobile and Vertical Viewports */
+@media (max-width: 991px) {
+    /* ગ્લોબલ બોડી પર મોબાઈલમાં આડું સ્ક્રોલિંગ અટકાવવા માટે */
+    body {
+        overflow-x: hidden;
+    }
+
+    .product-hero-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .interactive-scroll-container {
+        width: 100%;
+        overflow: hidden; /* માત્ર મોબાઈલ સ્ક્રીન પર જ ઓવરફ્લો લોક થશે, જ્યાં સ્ટીકી ઓલરેડી બંધ છે */
+    }
+
+    /* જે સ્યુડો એલિમેન્ટ બહાર જતું હતું તેને મોબાઈલમાં કંટ્રોલ કર્યું */
+    .interactive-scroll-container::after {
+        left: 0;
+        width: 100%;
+        height: 150px;
+    }
+
+    .scroll-split-wrapper {
+        flex-direction: column;
+        padding: 0 1rem;
+        gap: 20px;
+        width: 100%;
+    }
+
+    /* મોબાઈલમાં સ્ટીકી બંધ થઈને નોર્મલ સ્ક્રોલ થશે */
+    .left-sticky-visual-desk {
+        height: auto;
+        position: relative;
+        top: 0;
+        padding-top: 40px;
+        width: 100%;
+    }
+
+    .canvas-image-rack {
+        height: 380px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .right-scrolling-content-desk {
+        padding-top: 20px;
+        padding-bottom: 60px;
+        width: 100%;
+    }
+
+    .narrative-row-block {
+        min-height: auto;
+        margin-bottom: 60px;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .ux-bento-spec-matrix {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+/* 📲 Very Small Devices */
+@media (max-width: 575px) {
+    .scroll-split-wrapper {
+        padding: 0 1.25rem;
+    }
+
+    .canvas-image-rack {
+        height: 250px;
+    }
+
+    .ux-bento-spec-matrix {
+        grid-template-columns: 1fr;
+    }
+
+    .ux-packaging-panel {
+        padding: 20px;
+    }
+
+    .pack-btn {
+        width: 100%;
+        text-align: center;
+        padding: 10px 15px;
+    }
+
+    .ux-instant-pricing-btn {
+        padding: 18px 20px;
+        font-size: 1rem;
+    }
+}

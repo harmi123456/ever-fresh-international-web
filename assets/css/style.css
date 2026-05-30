@@ -449,13 +449,73 @@ textarea {
     opacity: 0.8;
 }
 
+/* ========================================================
+   RESPONSIVE DESIGN (MOBILE & TABLET FIXES)
+   ======================================================== */
+
 @media (max-width: 1024px) {
     .agro-hero-bottom {
         width: 100%;
+        gap: 1.5rem;
     }
 
     .agro-title {
         font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .agro-hero {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 4rem; /* ઉપર થોડી જગ્યા આપવા માટે */
+    }
+
+    .agro-hero-container {
+        height: auto;
+        min-height: 100vh;
+        padding: 1rem;
+        justify-content: flex-start;
+        gap: 2rem;
+    }
+
+    .agro-hero-details-wrapper {
+        padding-bottom: 1rem;
+        align-items: flex-start;
+    }
+
+    .agro-title {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    /* બોટમ રો ને મોબાઈલ માટે વર્ટિકલ સેટ કરી કંટ્રોલ્સ ઉપર લાવવા */
+    .agro-hero-bottom {
+        flex-direction: column-reverse; /* કંટ્રોલ્સ કાર્ડની ઉપર દેખાશે */
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .agro-controls {
+        width: 100%;
+        justify-content: center; /* એરો સેન્ટરમાં લાવવા */
+    }
+
+    /* મોબાઈલ સ્લાઈડર લોજિક: સેન્ટરિંગ અને સેન્ટર ગ્રેવિટી */
+    .agro-cards-slider {
+        width: 100%;
+        padding: 1rem 0;
+        /* કાર્ડને બરાબર સેન્ટરમાં રાખવા માટે પેડિંગ (કાર્ડ વિડ્થના અડધા માઈનસ) */
+        padding-left: calc(50% - 130px); 
+        padding-right: calc(50% - 130px);
+        scroll-snap-type: x mandatory; /* મોબાઈલમાં કાર્ડ બરાબર સ્નેપ (લોક) થશે */
+    }
+
+    /* એક સમયે એક જ કાર્ડ ફૂલ દેખાય તે માટે વિડ્થ સેટ કરી */
+    .agro-card {
+        flex: 0 0 260px; /* કાર્ડની વિડ્થ સહેજ વધારી જેથી સ્ક્રીન પર એક કાર્ડ મોટું અને વ્યવસ્થિત દેખાય */
+        height: 150px;
+        scroll-snap-align: center; /* સ્ક્રોલ કરતી વખતે કાર્ડ સેન્ટરમાં આવીને અટકી જશે */
     }
 }
 
@@ -636,8 +696,9 @@ textarea {
 /* Responsive Handling */
 @media (max-width: 991px) {
     .section-bg-image {
-        background-size: 85% auto;
-        background-position: center bottom;
+        background-size: 100% auto;
+        background-position: center top;
+        top: 100px;
         mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 70%, transparent 100%);
         -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 20%, black 70%, transparent 100%);
     }
