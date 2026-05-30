@@ -177,7 +177,7 @@ html {
     position: absolute;
     inset: 0;
     background: linear-gradient(to bottom, transparent, #050d06),
-        url('/assets/images/spice-banner.png') center center/cover no-repeat;
+        url('/assets/images/spice-banner.webp') center center/cover no-repeat;
     z-index: 1;
     background-attachment: fixed;
 }

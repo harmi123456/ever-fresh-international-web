@@ -126,7 +126,7 @@ textarea {
         inset: 0;
 
         background:
-            url('/assets/images/global-banner.jpg') center center/cover no-repeat;
+            url('/assets/images/global-banner.webp') center center/cover no-repeat;
 
         z-index: 1;
         background-attachment: fixed;
