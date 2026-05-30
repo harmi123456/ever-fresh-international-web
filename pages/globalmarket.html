@@ -114,7 +114,7 @@
         inset: 0;
 
         background:
-            url('/assets/images/global-banner.webp') center center/cover no-repeat;
+            url('/assets/images/spice-banner.webp') center center/cover no-repeat;
 
         z-index: 1;
         background-attachment: fixed;
@@ -137,11 +137,11 @@
 
     /* Top Row Architecture Manifesto */
     .curtain-manifesto-header {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
         align-items: flex-start;
-        margin-bottom: 8vh;
+        margin-bottom: 5vh;
     }
 
     .curtain-manifesto-header h1 {
@@ -269,6 +269,21 @@
         transform: scale(1);
     }
 
+
+    @media (max-width: 992px) {
+        .curtain-manifesto-header {
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .kinetic-row-strip {
+            grid-template-columns: 0.15fr 1.5fr;
+        }
+
+        .kinetic-meta-destination {
+            display: none;
+        }
+    }
 
     /* section 3 css start */
 

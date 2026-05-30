@@ -9,7 +9,7 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="/assets/css/product.css">
-    
+
 </head>
 
 <style>
@@ -504,28 +504,184 @@
         border-color: #ffffff;
     }
 
+    /* ========================================================
+   RESPONSIVE & HORIZONTAL SCROLL FIX FOR MOBILE
+   ======================================================== */
     @media (max-width: 992px) {
-        .title-section{
-        padding: 130px 20px 40px 20px;
-    }
-    
+
+        /* આખા પેજ પરથી આડું સ્ક્રોલિંગ સખત રીતે બંધ કરવા */
+        body,
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .title-section {
+            padding: 130px 15px 40px 15px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .product-hero-section {
+            padding-left: 15px;
+            padding-right: 15px;
+            height: 50vh;
+            /* મોબાઈલમાં હીરો સેક્શનની હાઇટ સેટ કરી જેથી લુક સારો આવે */
+        }
+
         .premium-contact-section {
-            padding-top: 140px;
+            padding: 100px 15px 60px 15px;
+            /* પર્સન્ટેજ પેડિંગ હટાવી ફિક્સ પિક્સલ આપ્યું */
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .contact-split-grid {
             grid-template-columns: 1fr;
-            gap: 60px;
+            gap: 40px;
+            /* ગેપ ઓછો કર્યો */
+            width: 100%;
+            box-sizing: border-box;
         }
 
+        .contact-narrative-panel {
+            width: 100%;
+        }
+
+        .contact-narrative-panel p {
+            max-width: 100%;
+            /* કન્ટેન્ટ આખી વિડ્થમાં એડજસ્ટ થશે */
+            margin-bottom: 30px;
+        }
+
+        /* ઇન્ફોર્મેશન કાર્ડ્સ મોબાઈલમાં પ્રોપર ફિટ કરવા માટે */
+        .info-row-card {
+            padding: 18px 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .card-left-meta {
+            gap: 12px;
+        }
+
+        .card-text-group h4 {
+            font-size: 0.95rem;
+            /* ઈમેલ અને ફોન નંબર મોબાઈલ સ્ક્રીન પ્રમાણે નાના કર્યા */
+            word-break: break-word;
+            /* લાંબો ઈમેલ બહાર ન નીકળી જાય તે માટે */
+        }
+
+        /* ફોર્મ કન્ટેનર ફિક્સ */
         .luxury-form-container {
-            padding: 35px;
+            padding: 25px 20px;
+            /* પેડિંગ સહેજ ઘટાડ્યું */
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .export-glass-btn {
+            width: 100%;
+            /* બટન મોબાઈલમાં ફૂલ વિડ્થ થઈ જશે જેથી ક્લિક કરવામાં સરળતા રહે */
+            justify-content: center;
         }
 
         .watermark-backdrop-text {
             display: none;
         }
     }
+
+
+
+    /* ========================================================
+   PREMIUM MAP SECTION STYLES
+   ======================================================== */
+.premium-map-section {
+    width: 100%;
+    max-width: 1280px;
+    margin: 60px auto;
+    padding: 0 6%;
+    position: relative;
+    z-index: 5;
+}
+
+/* Luxury Glass Box Wrapper */
+.map-glass-wrapper {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0%, rgba(255, 255, 255, 0) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 24px;
+    padding: 30px;
+    backdrop-filter: blur(30px) saturate(120%);
+    -webkit-backdrop-filter: blur(30px) saturate(120%);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 40px 80px rgba(0, 0, 0, 0.5);
+    transition: var(--transition-smooth);
+}
+
+.map-glass-wrapper:hover {
+    border-color: rgba(71, 159, 39, 0.2);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05), 
+                0 40px 80px rgba(0, 0, 0, 0.7),
+                0 0 40px rgba(71, 159, 39, 0.05);
+}
+
+/* Map Header Inside Glass */
+.map-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.map-header h3 {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+/* Map Iframe Container & Premium Dark Filter */
+.map-iframe-container {
+    width: 100%;
+    height: 450px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    /* મેપને ડાર્ક થીમ સાથે બ્લેન્ડ કરવાનો મેજિક ગ્લોબલ ફિલ્ટર */
+    filter: grayscale(1) invert(0.92) contrast(1.1) saturate(0.6);
+    transition: filter 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* યુઝર જ્યારે મેપ પર હોવર કરે ત્યારે કલર્સ સહેજ ખુલશે */
+.map-glass-wrapper:hover .map-iframe-container {
+    filter: grayscale(0.3) invert(0.92) contrast(1.05) saturate(0.8);
+}
+
+.map-iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ========================================================
+   MAP MOBILE RESPONSIVE
+   ======================================================== */
+@media (max-width: 992px) {
+    .premium-map-section {
+        padding: 0 15px;
+        margin: 40px auto;
+    }
+
+    .map-glass-wrapper {
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .map-iframe-container {
+        height: 320px; /* મોબાઈલમાં મેપની હાઇટ કમ્ફર્ટેબલ કરી દીધી */
+    }
+}
+
 </style>
 
 <body>
@@ -628,7 +784,8 @@
 
             <div style="position: relative;">
 
-                <form action="https://formsubmit.co/info@everfreshinternational.com" method="POST" class="luxury-form-container">
+                <form action="https://formsubmit.co/info@everfreshinternational.com" method="POST"
+                    class="luxury-form-container">
 
                     <div class="form-group-field">
                         <label>Name</label>
@@ -716,6 +873,24 @@
 
         </div>
     </main>
+
+  <section class="premium-map-section">
+    <div class="map-glass-wrapper">
+        <div class="map-header">
+            <div class="badge-dot"></div>
+            <h3>Morbi HQ Pipeline</h3>
+        </div>
+        <div class="map-iframe-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58907.96481177651!2d70.8351652!3d22.8105436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959c15e612f0e35%3A0x6bda19f56e520fa1!2sMorbi%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1710000000000" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</section>
 
     <div id="footer-container"></div>
 
