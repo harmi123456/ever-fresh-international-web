@@ -843,67 +843,67 @@
 
 
 
-        
-// 3d rolling text js start
-// window.onload ની જગ્યાએ addEventListener વાપરવું વધુ સેફ છે, જેથી બીજું કોઈ લોડ ફંક્શન ન બગડે
-window.addEventListener("load", function () {
-    const cylinder = document.getElementById("cylinder");
-    const lines = document.querySelectorAll(".ef-roll-line");
 
-    if (!cylinder || lines.length === 0) return;
+        // 3d rolling text js start
+        // window.onload ની જગ્યાએ addEventListener વાપરવું વધુ સેફ છે, જેથી બીજું કોઈ લોડ ફંક્શન ન બગડે
+        window.addEventListener("load", function () {
+            const cylinder = document.getElementById("cylinder");
+            const lines = document.querySelectorAll(".ef-roll-line");
 
-    const totalLines = lines.length;
-    const anglePerLine = 360 / totalLines;
+            if (!cylinder || lines.length === 0) return;
 
-    // આ ફંક્શન સ્ક્રીનની સાઇઝ બદલાય તો પણ રેડિયસ સાચો રાખશે
-    function set3DRadius() {
-        // ✦ ફિક્સ: lines ની જગ્યાએ lines કર્યું જેથી પહેલી લાઇનની સાચી હાઇટ મપાય ✦
-        const lineHeight = lines.offsetHeight || 40;
-        
-        // રેસ્પોન્સિવ રેડિયસ કેલ્ક્યુલેશન
-        const radius = Math.max(50, (lineHeight / 2) / Math.tan((anglePerLine / 2) * Math.PI / 180));
+            const totalLines = lines.length;
+            const anglePerLine = 360 / totalLines;
 
-        lines.forEach((line, index) => {
-            const lineAngle = index * anglePerLine;
-            line.style.transform = `rotateX(${lineAngle}deg) translateZ(${radius}px)`;
-        });
-    }
+            // આ ફંક્શન સ્ક્રીનની સાઇઝ બદલાય તો પણ રેડિયસ સાચો રાખશે
+            function set3DRadius() {
+                // ✦ ફિક્સ: lines ની જગ્યાએ lines કર્યું જેથી પહેલી લાઇનની સાચી હાઇટ મપાય ✦
+                const lineHeight = lines.offsetHeight || 40;
 
-    // પહેલી વાર રન કરો
-    set3DRadius();
+                // રેસ્પોન્સિવ રેડિયસ કેલ્ક્યુલેશન
+                const radius = Math.max(50, (lineHeight / 2) / Math.tan((anglePerLine / 2) * Math.PI / 180));
 
-    // જો કોઈ મોબાઇલમાં સ્ક્રીન રોટેટ કરે કે રીસાઈઝ કરે તો પણ ઇફેક્ટ સરખી રહે
-    window.addEventListener('resize', set3DRadius);
-
-    // સ્ક્રોલ લોજિક
-    window.addEventListener("scroll", function () {
-        const scrollTop = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const maxScroll = document.documentElement.scrollHeight - windowHeight;
-
-        if (maxScroll <= 0) return;
-
-        const scrollPercent = scrollTop / maxScroll;
-        const totalRotation = scrollPercent * (360 * 2);
-
-        cylinder.style.transform = `rotateX(${totalRotation}deg)`;
-
-        lines.forEach((line, index) => {
-            const lineAngle = index * anglePerLine;
-            const currentAngle = (lineAngle + totalRotation) % 360;
-            const cosVal = Math.cos(currentAngle * Math.PI / 180);
-
-            if (cosVal > 0.1) {
-                line.style.opacity = Math.pow(cosVal, 2);
-                line.style.visibility = "visible";
-            } else {
-                line.style.opacity = 0;
-                line.style.visibility = "hidden";
+                lines.forEach((line, index) => {
+                    const lineAngle = index * anglePerLine;
+                    line.style.transform = `rotateX(${lineAngle}deg) translateZ(${radius}px)`;
+                });
             }
+
+            // પહેલી વાર રન કરો
+            set3DRadius();
+
+            // જો કોઈ મોબાઇલમાં સ્ક્રીન રોટેટ કરે કે રીસાઈઝ કરે તો પણ ઇફેક્ટ સરખી રહે
+            window.addEventListener('resize', set3DRadius);
+
+            // સ્ક્રોલ લોજિક
+            window.addEventListener("scroll", function () {
+                const scrollTop = window.scrollY;
+                const windowHeight = window.innerHeight;
+                const maxScroll = document.documentElement.scrollHeight - windowHeight;
+
+                if (maxScroll <= 0) return;
+
+                const scrollPercent = scrollTop / maxScroll;
+                const totalRotation = scrollPercent * (360 * 2);
+
+                cylinder.style.transform = `rotateX(${totalRotation}deg)`;
+
+                lines.forEach((line, index) => {
+                    const lineAngle = index * anglePerLine;
+                    const currentAngle = (lineAngle + totalRotation) % 360;
+                    const cosVal = Math.cos(currentAngle * Math.PI / 180);
+
+                    if (cosVal > 0.1) {
+                        line.style.opacity = Math.pow(cosVal, 2);
+                        line.style.visibility = "visible";
+                    } else {
+                        line.style.opacity = 0;
+                        line.style.visibility = "hidden";
+                    }
+                });
+            });
         });
-    });
-});
-// 3d rolling text js over
+        // 3d rolling text js over
 
     </script>
 
