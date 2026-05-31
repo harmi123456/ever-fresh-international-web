@@ -182,13 +182,6 @@ text-decoration: none;
     justify-content: center;
 }
 
-/* ક્લાઉડ સેટિંગ્સ */
-.export-glass-btn .cloud-icon {
-    position: absolute;
-    right: -2px;
-    top: 2px;
-    transition: var(--transition-smooth);
-}
 
 /* પ્લેન સેટિંગ્સ */
 .export-glass-btn .plane-icon {
@@ -208,11 +201,7 @@ text-decoration: none;
     color: var(--text-light);
 }
 
-/* 2. વાદળ સહેજ જમણી તરફ ખસશે */
-.export-glass-btn:hover .cloud-icon {
-    transform: translateX(4px);
-    stroke: rgba(249, 250, 251, 0.6);
-}
+
 
 /* 3. પ્લેન રાઇટ સાઇડથી ઉડીને ગાયબ થશે અને લેફ્ટથી પાછું આવશે */
 .export-glass-btn:hover .plane-icon {
@@ -738,12 +727,7 @@ text-decoration: none;
     justify-content: center;
 }
 
-.export-glass-btn .cloud-icon {
-    position: absolute;
-    right: -2px;
-    top: 2px;
-    transition: var(--transition-smooth);
-}
+
 
 .export-glass-btn .plane-icon {
     position: absolute;
@@ -759,10 +743,7 @@ text-decoration: none;
     color: var(--text-light);
 }
 
-.export-glass-btn:hover .cloud-icon {
-    transform: translateX(4px);
-    stroke: rgba(249, 250, 251, 0.6);
-}
+
 
 .export-glass-btn:hover .plane-icon {
     stroke: var(--brand-orange-hover);

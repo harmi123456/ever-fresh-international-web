@@ -128,13 +128,7 @@ textarea {
     justify-content: center;
 }
 
-/* ક્લાઉડ સેટિંગ્સ */
-.export-glass-btn .cloud-icon {
-    position: absolute;
-    right: -2px;
-    top: 2px;
-    transition: var(--transition-smooth);
-}
+
 
 /* પ્લેન સેટિંગ્સ */
 .export-glass-btn .plane-icon {
@@ -154,11 +148,7 @@ textarea {
     color: var(--text-light);
 }
 
-/* 2. વાદળ સહેજ જમણી તરફ ખસશે */
-.export-glass-btn:hover .cloud-icon {
-    transform: translateX(4px);
-    stroke: rgba(249, 250, 251, 0.6);
-}
+
 
 /* 3. પ્લેન રાઇટ સાઇડથી ઉડીને ગાયબ થશે અને લેફ્ટથી પાછું આવશે */
 .export-glass-btn:hover .plane-icon {
