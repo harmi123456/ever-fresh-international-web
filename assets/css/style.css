@@ -2311,7 +2311,7 @@ html {
     /* ✦ રેસ્પોન્સિવ ફોન્ટ: ડેસ્કટોપમાં બહુ મોટા ન થાય અને મોબાઇલમાં પ્રોપર રહે ✦ */
     font-size: clamp(24px, 3.2vw, 48px); 
     font-weight: 700;
-    line-height: 2em; /* લાઇન હાઇટ થોડી સરખી કરી જેથી ટેક્સ્ટ કલીયર વંચાય */
+    line-height: 2em !important; /* લાઇન હાઇટ થોડી સરખી કરી જેથી ટેક્સ્ટ કલીયર વંચાય */
     letter-spacing: -1px;
     text-transform: uppercase;
     transform-style: preserve-3d;
@@ -2333,7 +2333,7 @@ html {
 @media (max-width: 575px) {
     .ef-roll-line {
         text-align: center;
-        line-height: 0.5em;
+        line-height: 1.2em !important;
         transform-origin: center center;
     }
 }
