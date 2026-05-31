@@ -685,3 +685,62 @@ window.addEventListener('scroll', () => {
 
 
 // section 10 js over
+
+
+
+// 3d rolling text js start
+document.addEventListener("DOMContentLoaded", function () {
+    const cylinder = document.getElementById("cylinder");
+    const lines = document.querySelectorAll(".ef-roll-line");
+    
+    if (!cylinder || lines.length === 0) return;
+
+    const totalLines = lines.length;
+    const anglePerLine = 360 / totalLines; 
+    
+    // ✦ ડાયનેમિક રેડિયસ ગણતરી ✦
+    // લાઇનની જે હાઇટ હશે એ પ્રમાણે રેડિયસ જાતે સેટ થઈ જશે (રેસ્પોન્સિવ ફ્રેન્ડલી)
+    const lineHeight = lines[0].offsetHeight || 40;
+    const radius = Math.max(60, (lineHeight / 2) / Math.tan((anglePerLine / 2) * Math.PI / 180));
+
+    // ૧. દરેક લાઇનને 3D વ્હીલમાં ગોઠવવી
+    lines.forEach((line, index) => {
+        const lineAngle = index * anglePerLine;
+        // લેફ્ટ એલાઈનમેન્ટ બરાબર રાખવા માટે ઓરિજિન સાથે પ્રોપર ટ્રાન્સફોર્મ
+        line.style.transform = `rotateX(${lineAngle}deg) translateZ(${radius}px)`;
+    });
+
+    // ૨. સ્ક્રોલ લોજિક
+    window.addEventListener("scroll", function () {
+        const scrollTop = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const maxScroll = document.documentElement.scrollHeight - windowHeight;
+        
+        if (maxScroll <= 0) return;
+        
+        const scrollPercent = scrollTop / maxScroll;
+        const totalRotation = scrollPercent * (360 * 2); // ૨ વાર આખું ચક્કર ફરશે
+        
+        cylinder.style.transform = `rotateX(${totalRotation}deg)`;
+        
+        // ૩. સ્મૂથ ફેડ ઇફેક્ટ (ઓપેસિટી)
+        lines.forEach((line, index) => {
+            const lineAngle = index * anglePerLine;
+            const currentAngle = (lineAngle + totalRotation) % 360;
+            
+            // રેડિયન્સમાં કન્વર્ટ કરો
+            const cosVal = Math.cos(currentAngle * Math.PI / 180);
+            
+            if (cosVal > 0.1) {
+                // કેન્દ્રમાં હોય ત્યારે ચોખ્ખું દેખાશે, ઉપર-નીચે જતા ફેડ થશે
+                line.style.opacity = Math.pow(cosVal, 2);
+                line.style.visibility = "visible";
+            } else {
+                line.style.opacity = 0;
+                line.style.visibility = "hidden";
+            }
+        });
+    });
+});
+
+// 3d rolling text js over

@@ -2263,3 +2263,78 @@ html {
 }
 
 /* //section 10 css over */
+
+
+
+/* 3d rolling text css start */
+/* સેક્શન જ્યાં તમારું હેડિંગ લોકેટેડ છે */
+.heading-section {
+    width: 100%;
+    height: 200px; /* તમે કહી એ જ હાઇટ */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* 3D સીન કન્ટેનર */
+.ef-3d-scene {
+    position: relative;
+    width: 100%;
+    height: 150px; /* તમે કહી એ જ હાઇટ */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    perspective: 1200px; 
+    overflow: hidden;
+    /* ✦ ડાબી બાજુથી અક્ષરો કટ ન થાય એટલે સેફ્ટી પેડિંગ ✦ */
+    padding-left: 4%; 
+}
+
+/* રોલિંગ સિલિન્ડર */
+.ef-roll-cylinder {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* સેન્ટરમાં રાખવાથી રોટેશન પરફેક્ટ થશે */
+    align-items: flex-start; /* લેફ્ટ અલાઈન રાખવા માટે */
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* <h2> સ્ટાઇલિંગ જે હવે 3D માં રોલ થશે */
+.ef-roll-line {
+    position: absolute;
+    width: 100%;
+    text-align: left;
+    /* ✦ રેસ્પોન્સિવ ફોન્ટ: ડેસ્કટોપમાં બહુ મોટા ન થાય અને મોબાઇલમાં પ્રોપર રહે ✦ */
+    font-size: clamp(24px, 3.2vw, 48px); 
+    font-weight: 700;
+    line-height: 2em; /* લાઇન હાઇટ થોડી સરખી કરી જેથી ટેક્સ્ટ કલીયર વંચાય */
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: transform, opacity;
+    /* ✦ 3D રોટેશન ડાબી બાજુથી પ્રોપર થાય તે માટે ઓરિજિન ✦ */
+    transform-origin: left center; 
+}
+
+/* તમારા <span> (Global Trust) માટે લુક */
+.ef-roll-line span {
+    font-style: italic;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--brand-orange); 
+}
+
+
+@media (max-width: 575px) {
+    .ef-roll-line {
+        text-align: center;
+        line-height: 0.5em;
+        transform-origin: center center;
+    }
+}
+/* 3d rolling text css over */
