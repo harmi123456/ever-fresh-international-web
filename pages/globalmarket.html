@@ -108,20 +108,23 @@
         overflow: hidden;
     }
 
-    /* Banner image */
+     /* Banner image */
     .hero-bg-gradient {
         position: absolute;
         inset: 0;
-
-        background:
-            url('/assets/images/spice-banner.webp') center center/cover no-repeat;
-
         z-index: 1;
+        background-image: url('/assets/images/product-banner.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
         background-attachment: fixed;
-       /* height: 400px; */
     }
 
-
+    @media screen and (max-width: 768px) {
+        .hero-bg-gradient {
+            background-image: url('/assets/images/product-banner-mobile.jpg');
+        }
+    }
 
 
     /* 🎭 THE KINETIC INTERACTIVE STAGE */

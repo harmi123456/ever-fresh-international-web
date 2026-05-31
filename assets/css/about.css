@@ -122,16 +122,21 @@ textarea {
 
     /* Banner image */
     .hero-bg-gradient {
-        position: absolute;
-        inset: 0;
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-image: url('/assets/images/map-banner.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 
-        background:
-            url('/assets/images/global-banner.webp') center center/cover no-repeat;
-
-        z-index: 1;
-        background-attachment: fixed;
-        /* height: 400px; */
+@media screen and (max-width: 768px) {
+    .hero-bg-gradient {
+        background-image: url('/assets/images/map-banner-mobile.webp');
     }
+}
 
 
 /* button css */
