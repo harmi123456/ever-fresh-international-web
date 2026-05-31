@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="gu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Maritime Logistics | Ocean Freight</title>
+
+    <link rel="stylesheet" href="/assets/css/about.css">
+
+    <style>
+        :root {
+            --brand-light-green: #479f27;
+            --brand-dark-green: #0a551c;
+            --brand-orange: #fe8a03;
+            --brand-orange-hover: #e07600;
+            --text-light: #f9fafb;
+            --text-muted: #8e9aa8;
+            --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-light);
+            background-color: #050d06;
+            background-image:
+                radial-gradient(circle at 5vw 20vh, rgba(71, 159, 39, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85vw 70vh, rgba(10, 85, 28, 0.15) 0%, transparent 50%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Apoc', serif !important;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        /* --- LUXURIOUS CONTAINER & SPACINGS --- */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 100px 40px 200px 40px;
+        }
+
+        /* --- SECTION 1: MODERN STICKY SIDE-BY-SIDE --- */
+        .sticky-split-section {
+            display: flex;
+            gap: 80px;
+            margin-bottom: 220px;
+            position: relative;
+        }
+
+        /* Scroll thava chhata aa title portal dabi ne besi raheshe screen par */
+        .sticky-left-panel {
+            position: sticky;
+            top: 120px;
+            height: fit-content;
+            flex: 1;
+            max-width: 450px;
+        }
+
+        .sticky-left-panel h2 {
+            font-size: clamp(2.4rem, 5vw, 3.2rem);
+            line-height: 1.1;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .sticky-left-panel p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+                /* font-size: clamp(2.4rem, 3.5vw, 3.2rem); */
+        }
+
+        .route-lines-stack {
+            flex: 1.3;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            /* Clean lines build up code */
+        }
+
+        /* Minimal Route Block UI with Border Triggers */
+        .route-line-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 45px 0;
+            display: flex;
+            gap: 40px;
+            transition: var(--transition-smooth);
+        }
+
+        .route-line-item:first-child {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .line-index {
+            font-family: 'Apoc', serif !important;
+            font-size: 1.5rem;
+            color: var(--brand-light-green);
+            font-weight: 500;
+            margin-top: 4px;
+            transition: var(--transition-smooth);
+        }
+
+        .line-content h3 {
+            font-family: 'Inter', sans-serif !important;
+            font-weight: 500;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-light);
+            transition: var(--transition-smooth);
+        }
+
+        .line-content p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Modern Hover Effects - Line Expand */
+        .route-line-item:hover {
+            padding-left: 20px;
+            border-bottom-color: var(--brand-orange);
+        }
+
+        .route-line-item:hover .line-index {
+            color: var(--brand-orange);
+            transform: scale(1.1);
+        }
+
+        .route-line-item:hover .line-content h3 {
+            color: #fff;
+        }
+
+
+        /* --- SECTION 2: METRICS STRIP --- */
+        .minimal-metrics-strip {
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 60px 20px;
+            margin-bottom: 220px;
+        }
+
+        .metric-strip-item {
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+            flex-direction: column;
+        }
+
+        .m-strip-num {
+            font-family: 'Apoc', serif !important;
+            font-size: 3.5rem;
+            color: var(--brand-light-green);
+            line-height: 1;
+        }
+
+        .m-strip-text {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+        }
+
+
+        /* --- SECTION 3: STICKY STACKED OVERLAPPING CARDS --- */
+        .sticky-cards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            /* Space between dynamic overlaps */
+        }
+
+        .stack-title-block {
+            margin-bottom: 60px;
+            max-width: 650px;
+        }
+
+        .stack-title-block h2 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+
+        .stack-title-block p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* The Overlapping Hero Cards Magic */
+        .stack-card {
+            position: sticky;
+            background: #09140a;
+            /* Premium Dark Greenish Slate tint */
+            border: 1px solid rgba(71, 159, 39, 0.2);
+            border-radius: 16px;
+            padding: 60px 50px;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.5);
+            transition: var(--transition-smooth);
+        }
+
+        /* CSS rule to stack them cleanly inside screen viewport */
+        .stack-card:nth-child(1) {
+            top: 120px;
+        }
+
+        .stack-card:nth-child(2) {
+            top: 160px;
+        }
+
+        .stack-card:nth-child(3) {
+            top: 200px;
+        }
+
+        .stack-card:nth-child(4) {
+            top: 240px;
+        }
+
+        .stack-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 25px;
+            margin-bottom: 25px;
+        }
+
+        .stack-card-header h4 {
+            font-family: 'Inter', sans-serif !important;
+            font-weight: 500;
+            font-size: 1.6rem;
+            color: var(--text-light);
+        }
+
+        .stack-card-num {
+            font-family: 'Apoc', serif !important;
+            font-size: 1.3rem;
+            color: var(--brand-orange);
+        }
+
+        .stack-card p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            max-width: 850px;
+        }
+
+        .stack-card:hover {
+            border-color: var(--brand-orange);
+        }
+
+        /* Responsive Overrides */
+        @media (max-width: 992px) {
+            .sticky-split-section {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .sticky-left-panel {
+                position: relative;
+                top: 0;
+                max-width: 100%;
+            }
+
+            .container {
+                padding: 60px 20px;
+            }
+
+            .stack-card {
+                padding: 40px 25px;
+            }
+        }
+    </style>
+    
+</head>
+
+<body>
+
+    <div id="global-cursor-placeholder"></div>
+
+    <div id="global-header-placeholder"></div>
+
+    <section class="title-section">
+        <h1>Ocean Freight</h1>
+    </section>
+
+
+    <section class="product-hero-section">
+        <div class="hero-bg-gradient"></div>
+    </section>
+
+
+    <main class="container">
+
+        <!-- SECTION 1: MODERN STICKY SPLIT ROUTE VIEW -->
+        <section class="sticky-split-section">
+
+            <!-- Left Side: Stays in position while you scroll right side -->
+            <div class="sticky-left-panel">
+                <h2>Main Sea Routes & Services</h2>
+                <p>Navigating global oceanic trade pathways with unparalleled consistency, end-to-end container
+                    tracking, and optimized industrial vessel transits.</p>
+            </div>
+
+            <!-- Right Side: Scrollable lines -->
+            <div class="route-lines-stack">
+
+                <div class="route-line-item">
+                    <span class="line-index"> 01</span>
+                    <div class="line-content">
+                        <h3>Trans-Pacific Gateways</h3>
+                        <p>Linking major Asian manufacturing mega-hubs directly with North American commercial ports,
+                            ensuring high-volume consistency and rapid intermodal terminal transfers.</p>
+                    </div>
+                </div>
+
+                <div class="route-line-item">
+                    <span class="line-index">02</span>
+                    <div class="line-content">
+                        <h3>Asia-Europe Corridors</h3>
+                        <p>Navigating critical global passageways including the Suez Canal to bridge East Asian markets
+                            flawlessly with dense Western European logistics infrastructure.</p>
+                    </div>
+                </div>
+
+                <div class="route-line-item">
+                    <span class="line-index"> 03</span>
+                    <div class="line-content">
+                        <h3>Trans-Atlantic Transits</h3>
+                        <p>Dependable maritime supply links connecting high-capacity European industrial epicenters with
+                            East Coast American hubs for uninterrupted distribution flow.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 2: MINIMAL LOGISTICS METRICS STRIP -->
+        <section class="minimal-metrics-strip">
+            <div class="metric-strip-item">
+                <span class="m-strip-num">500+</span>
+                <span class="m-strip-text">Ports Linked</span>
+            </div>
+            <div class="metric-strip-item">
+                <span class="m-strip-num">1.2M</span>
+                <span class="m-strip-text">TEUs Handled</span>
+            </div>
+            <div class="metric-strip-item">
+                <span class="m-strip-num">99.4%</span>
+                <span class="m-strip-text">On-Time Vessel</span>
+            </div>
+            <div class="metric-strip-item">
+                <span class="m-strip-num">24/7</span>
+                <span class="m-strip-text">Live Tracking</span>
+            </div>
+        </section>
+
+        <!-- SECTION 3: STICKY STACKED OVERLAPPING CARDS -->
+        <section class="sticky-cards-container">
+
+            <div class="stack-title-block">
+                <h2>Comprehensive Capabilities</h2>
+                <p>Every single tactical milestone controlled from industrial landside induction to ultimate blue-water
+                    destination cargo discharge.</p>
+            </div>
+
+            <!-- Card 1 (Stacks first) -->
+            <div class="stack-card">
+                <div class="stack-card-header">
+                    <h4>Origin &amp; Port Induction</h4>
+                    <span class="stack-card-num">Phase 01</span>
+                </div>
+                <p>Our strategically deployed CFS network aggregates Less-than-Container Load (LCL) shipments into
+                    optimized FCL structures. We manage direct terminal drayage and handle intensive pre-carriage
+                    document validations with absolute precision.</p>
+            </div>
+
+            <!-- Card 2 (Overlaps Card 1) -->
+            <div class="stack-card">
+                <div class="stack-card-header">
+                    <h4>Customs Architecture &amp; manifest Compliance</h4>
+                    <span class="stack-card-num">Phase 02</span>
+                </div>
+                <p>Automated real-time link ups with international maritime customs frameworks. We navigate highly
+                    complex international tariff classification systems, trade audits, and secure clearances well ahead
+                    of vessel berthing schedules.</p>
+            </div>
+
+            <!-- Card 3 (Overlaps Card 2) -->
+            <div class="stack-card">
+                <div class="stack-card-header">
+                    <h4>Reefer &amp; Temperature Controlled Chains</h4>
+                    <span class="stack-card-num">Phase 03</span>
+                </div>
+                <p>Continuous thermal atmospheric data-mapping for cold-stored items, raw chemical compounds, and
+                    clinical biopharma assets requiring locked climate parameters during long deep-sea transits.</p>
+            </div>
+
+            <!-- Card 4 (Overlaps Card 3) -->
+            <div class="stack-card">
+                <div class="stack-card-header">
+                    <h4>Project Cargo &amp; Out-Of-Gauge Shipments</h4>
+                    <span class="stack-card-num">Phase 04</span>
+                </div>
+                <p>Expert custom engineering for massive components, industrial project infrastructure, and complex
+                    Out-Of-Gauge (OOG) machinery that bypasses standard dimensional container configurations.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <div id="footer-container"></div>
+
+</body>
+
+</html>
+
+<script>
+    function toggleAccordion(element) {
+        const currentItem = element.parentElement;
+        const allItems = document.querySelectorAll('.accordion-item');
+
+        allItems.forEach(item => {
+            if (item !== currentItem) {
+                item.classList.remove('active');
+            }
+        });
+
+        currentItem.classList.toggle('active');
+    }
+</script>
+
+<script src="/assets/script/script.js"></script>
