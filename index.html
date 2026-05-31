@@ -386,7 +386,7 @@
                         <p>Main Product</p>
                     </div>
 
-                    <button class="export-glass-btn">
+                    <a href="/pages/cuminseed.html" class="export-glass-btn">
                         <span class="btn-text">View Product</span>
                         <div class="icon-container">
                             <svg class="cloud-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -403,7 +403,7 @@
                                 <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
                             </svg>
                         </div>
-                    </button>
+                    </a>
 
                     <!-- <a href="cumin-seeds.html" class="card-action-btn">View Product</a> -->
                 </div>
@@ -418,7 +418,7 @@
                         <p>Main Product</p>
                     </div>
 
-                    <button class="export-glass-btn">
+                    <a href="/pages/pomegranate.html" class="export-glass-btn">
                         <span class="btn-text">View Product</span>
                         <div class="icon-container">
                             <svg class="cloud-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -435,13 +435,13 @@
                                 <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
                             </svg>
                         </div>
-                    </button>
+                    </a>
 
                     <!-- <a href="pomegranate.html" class="card-action-btn">View Product</a> -->
                 </div>
             </div>
 
-            <a href="/pages/redchilli.html" class="arch-card">
+            <div class="arch-card">
                 <div class="card-img-src" style="background-image: url('/assets/images/redchilli-product.webp');">
                 </div>
                 <div class="card-glass-view">
@@ -449,7 +449,7 @@
                         <h4>Redchilli Powder</h4>
                         <p>Main Product</p>
                     </div>
-                    <button class="export-glass-btn">
+                    <a href="/pages/redchillipowder.html" class="export-glass-btn">
                         <span class="btn-text">View Product</span>
                         <div class="icon-container">
                             <svg class="cloud-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -466,11 +466,11 @@
                                 <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
                             </svg>
                         </div>
-                    </button>
+                    </a>
                 </div>
-            </a>
+            </div>
 
-            <a href="/pages/turmuric-finger.html" class="arch-card">
+            <div  class="arch-card">
                 <div class="card-img-src" style="background-image: url('/assets/images/turmuric-finger.webp');">
                 </div>
                 <div class="card-glass-view">
@@ -478,7 +478,7 @@
                         <h4>Turmeric Finger</h4>
                         <p>Spices</p>
                     </div>
-                    <button class="export-glass-btn">
+                    <a href="/pages/turmeric.html" class="export-glass-btn">
                         <span class="btn-text">View Product</span>
                         <div class="icon-container">
                             <svg class="cloud-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -495,9 +495,9 @@
                                 <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
                             </svg>
                         </div>
-                    </button>
+                    </a>
                 </div>
-            </a>
+            </div>
 
             <div class="arch-card">
                 <div class="card-img-src" style="background-image: url('/assets/images/black-pepper.webp');">
@@ -508,7 +508,7 @@
                         <p>Spices</p>
                     </div>
 
-                    <button class="export-glass-btn">
+                    <a href="/pages/blackpepper.html" class="export-glass-btn">
                         <span class="btn-text">View Product</span>
                         <div class="icon-container">
                             <svg class="cloud-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
@@ -525,7 +525,7 @@
                                 <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
                             </svg>
                         </div>
-                    </button>
+                    </a>
                     <!-- <a href="black-pepper.html" class="card-action-btn">View Product</a> -->
                 </div>
             </div>
@@ -796,51 +796,62 @@
     </div>
 
 
-
-
     <div id="footer-container"></div>
 
 
-
-
     <script>
-        const overlay = document.getElementById('intro-overlay');
-        const video = document.getElementById('intro-video');
-        const skipBtn = document.getElementById('skip-btn');
-        let revealed = false;
+      const overlay = document.getElementById('intro-overlay');
+const video = document.getElementById('intro-video');
+const skipBtn = document.getElementById('skip-btn');
+let revealed = false;
 
-        function revealSite() {
-            if (revealed) return;
-            revealed = true;
+// ✦ ચેક કરો કે યુઝર પહેલા આવી ચૂક્યો છે કે નહીં ✦
+if (localStorage.getItem('introWatched') === 'true') {
+    // જો હા, તો વિડીયો બતાવ્યા વગર ડાયરેક્ટ જ ઓવરલે રીમુવ કરો અને સાઇટ અનલોક કરો
+    if (overlay) overlay.remove();
+    document.body.classList.remove('locked');
+} else {
+    // જો પહેલી વાર આવ્યો હોય, તો બોડી લોક કરો (આ સેફ્ટી માટે છે)
+    document.body.classList.add('locked');
+}
 
-            // Body scroll unlock
-            document.body.classList.remove('locked');
+function revealSite() {
+    if (revealed) return;
+    revealed = true;
 
-            // Page top પર force
-            window.scrollTo(0, 0);
+    // ✦ યુઝર વિડીયો જોઈ ચૂક્યો છે તેની એન્ટ્રી સ્ટોર કરો ✦
+    localStorage.setItem('introWatched', 'true');
 
-            // Overlay slide up
-            overlay.classList.add('slide-up');
+    // Body scroll unlock
+    document.body.classList.remove('locked');
 
-            // DOM માંથી remove
-            setTimeout(() => overlay.remove(), 950);
-        }
+    // Page top પર force
+    window.scrollTo(0, 0);
 
-        // Video end
-        video.addEventListener('ended', revealSite);
+    // Overlay slide up
+    if (overlay) {
+        overlay.classList.add('slide-up');
+        // DOM માંથી remove
+        setTimeout(() => overlay.remove(), 950);
+    }
+}
 
+// જો ઓવરલે પહેલેથી રીમુવ થઈ ગયું હોય તો નીચેના ઇવેન્ટ્સ રન નહીં થાય
+if (overlay && localStorage.getItem('introWatched') !== 'true') {
+    // Video end
+    video.addEventListener('ended', revealSite);
 
-        // Skip button
-        skipBtn.addEventListener('click', revealSite);
+    // Skip button
+    skipBtn.addEventListener('click', revealSite);
 
-        // Video error fallback
-        video.addEventListener('error', revealSite);
+    // Video error fallback
+    video.addEventListener('error', revealSite);
 
-        // 8 sec timeout fallback
-        setTimeout(() => {
-            if (!revealed) revealSite();
-        }, 5000);
-
+    // 5 sec timeout fallback
+    setTimeout(() => {
+        if (!revealed) revealSite();
+    }, 5000);
+}
 
 
 
