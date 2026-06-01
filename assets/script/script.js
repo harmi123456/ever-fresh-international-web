@@ -1,3 +1,15 @@
+// for load favicon icon in every page
+(function () {
+    const favicon = document.createElement("link");
+    favicon.rel = "icon";
+    favicon.type = "image/png";
+    favicon.sizes = "32x32";
+    favicon.href = "/assets/images/EverFresh-Logo-Design-Final.png";
+
+    document.head.appendChild(favicon);
+})();
+
+
 // for fetch header in every page
 
 fetch('/components/header.html')
