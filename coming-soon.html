@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Global Trade Launch</title>
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+
+        <link rel="icon" type="image/png" href="assets/videos/EverFresh-Logo-Design-Final.png" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            background: black;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .main {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* VIDEO */
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            animation: zoomVideo 12s ease-in-out infinite alternate;
+
+            filter:
+                brightness(1.05) contrast(1.05) saturate(1.1);
+        }
+
+        @keyframes zoomVideo {
+
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.08);
+            }
+
+        }
+
+        /* OVERLAY */
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(to top,
+                    rgba(0, 0, 0, 0.45),
+                    rgba(0, 0, 0, 0.05));
+
+            z-index: 1;
+        }
+
+        /* FLOATING GLOW */
+
+        .glow1,
+        .glow2 {
+
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.25;
+            z-index: 1;
+
+        }
+
+        .glow1 {
+            width: 300px;
+            height: 300px;
+            background: #d8b36a;
+
+            top: -50px;
+            left: -50px;
+
+            animation: float1 8s ease-in-out infinite;
+        }
+
+        .glow2 {
+            width: 250px;
+            height: 250px;
+            background: #ffffff;
+
+            bottom: -50px;
+            right: -50px;
+
+            animation: float2 10s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(50px, 40px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+
+        }
+
+        @keyframes float2 {
+
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-40px, -30px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+
+        }
+
+        /* CONTENT */
+
+        .content {
+
+            position: absolute;
+            bottom: 6%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            width: 90%;
+            max-width: 1000px;
+
+            z-index: 3;
+
+            padding: 40px;
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            background: rgba(0, 0, 0, 0.18);
+
+            backdrop-filter: blur(4px);
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 10px 40px rgba(0, 0, 0, 0.45);
+
+        }
+
+        /* SMALL TEXT */
+
+        .top-text {
+
+            color: #d8d8d8;
+
+            font-size: 14px;
+
+            letter-spacing: 8px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+
+            opacity: 0;
+
+            transform: translateY(40px);
+
+            animation: fadeUp 1.4s ease forwards;
+
+        }
+
+        /* BIG TEXT */
+
+        h1 {
+
+            font-size: clamp(3rem, 8vw, 7rem);
+
+            line-height: 1;
+
+            font-weight: 900;
+
+            text-transform: uppercase;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 20px;
+
+            opacity: 0;
+
+            transform: translateY(60px);
+
+            animation: fadeUp 1.6s ease forwards;
+
+            animation-delay: 0.3s;
+
+            background:
+                linear-gradient(90deg,
+                    #ffffff,
+                    #e7d7c5,
+                    #d8b36a,
+                    #ffffff);
+
+            background-size: 300%;
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+            animation:
+                fadeUp 1.6s ease forwards,
+                shine 6s linear infinite;
+
+            animation-delay:
+                0.3s,
+                0s;
+
+        }
+
+        @keyframes shine {
+
+            0% {
+                background-position: 0%;
+            }
+
+            100% {
+                background-position: 300%;
+            }
+
+        }
+
+        /* SUBTEXT */
+
+        p {
+
+            color: #f1f1f1;
+
+            font-size: clamp(1rem, 2vw, 1.3rem);
+
+            line-height: 1.8;
+
+            max-width: 700px;
+
+            margin: auto;
+
+            opacity: 0;
+
+            transform: translateY(40px);
+
+            animation: fadeUp 1.5s ease forwards;
+
+            animation-delay: 0.8s;
+
+        }
+
+        /* LINE */
+
+        .line {
+
+            width: 0;
+
+            height: 2px;
+
+            margin: 30px auto 0;
+
+            background: #d8b36a;
+
+            border-radius: 10px;
+
+            animation: lineGrow 1.6s ease forwards;
+
+            animation-delay: 1.4s;
+
+        }
+
+        @keyframes lineGrow {
+
+            to {
+                width: 240px;
+            }
+
+        }
+
+        /* FADE UP */
+
+        @keyframes fadeUp {
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:768px) {
+
+            .content {
+                padding: 30px 20px;
+                bottom: 4%;
+            }
+
+            .top-text {
+                letter-spacing: 4px;
+                font-size: 12px;
+            }
+
+            h1 {
+                letter-spacing: 2px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+
+        <!-- VIDEO -->
+        <video autoplay muted loop playsinline>
+            <source src="assets/videos/cumin.mp4" type="video/mp4">
+        </video>
+
+        <!-- DARK OVERLAY -->
+        <div class="overlay"></div>
+
+        <!-- GLOW EFFECTS -->
+        <div class="glow1"></div>
+        <div class="glow2"></div>
+
+        <!-- CONTENT -->
+        <div class="content">
+
+            <div class="top-text">
+                Worldwide Import & Export
+            </div>
+
+            <h1>
+                Global Trade
+            </h1>
+
+            <p>
+                We’re preparing something powerful for international markets.
+                Our premium import & export services will be launching soon worldwide.
+            </p>
+
+            <div class="line"></div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
